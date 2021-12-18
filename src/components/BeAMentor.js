@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { beMentor } from '../redux/actions/asCampusActions';
@@ -6,15 +6,33 @@ import { useDispatch } from 'react-redux';
 
 import Footer from './footer/Footer';
 import MyNavbar from './header-section/MyNavbar';
-// import SelectSearch from 'react-select-search';
+import SelectSearch from 'react-select-search';
 import { industryOptions } from './data/industryOptions';
+import { firstPrefOptions } from './data/firstPrefOptions';
+import "react-select-search/style.css";
+import { ToastBody } from 'react-bootstrap';
+// import { useRef } from "react";
+
+/*function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}*/
 
 const BeAMentor = () => {
+  // const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   // console.log(industryOptions);
   const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo();
   });
+  // const searchIndustryDropdownValue = useRef();
+  const otherFirstPreference = useRef();
+  const otherSecondPreference = useRef();
+  const otherThirdPreference = useRef();
+  const otherIndustryName = useRef();
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
   const [phone, SetPhone] = useState(0);
@@ -25,7 +43,7 @@ const BeAMentor = () => {
   const [interests, SetInterest] = useState([]);
   const [whomToMentor, SetWhomToMentor] = useState([]);
   const [industry, SetIndustry] = useState('');
-  const [otherIndustry, SetOtherIndustry] = useState('');
+  // const [otherIndustry, SetOtherIndustry] = useState('');
   const [firstPref, SetFirstPref] = useState('');
   const [secondPref, SetSecondPref] = useState('');
   const [thirdPref, SetThirdPref] = useState('');
@@ -39,6 +57,8 @@ const BeAMentor = () => {
   const [post_grad_degree, SetPostGradDegree] = useState('');
   const [post_grad_year, SetPostGradYear] = useState('');
 
+  //TODO:
+  //submit KRNEY pr saarey IMPUT INITIAL STATE MEIN LAANEY HAI!!
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
@@ -53,10 +73,10 @@ const BeAMentor = () => {
         interests: JSON.stringify(interests),
         whomToMentor: JSON.stringify(whomToMentor),
         industry: industry,
-        otherIndustry: otherIndustry,
-        firstPref: firstPref,
-        secondPref: secondPref,
-        thirdPref: thirdPref,
+        otherIndustry: otherIndustryName.current.value,
+        firstPref: firstPref==='Others'?otherFirstPreference.current.value:firstPref,
+        secondPref: secondPref==='Others'?otherSecondPreference.current.value:secondPref,
+        thirdPref: thirdPref==='Others'?otherThirdPreference.current.value:thirdPref,
         designation: designation,
         about: about,
         getToKnow: getToKnow,
@@ -68,6 +88,7 @@ const BeAMentor = () => {
         post_grad_year: post_grad_year,
       })
     );
+
   };
 
   const toggleInterests = (x) => {
@@ -93,6 +114,67 @@ const BeAMentor = () => {
     SetWhomToMentor(whomToMentor);
     // console.log(whomToMentor);
   };
+
+  const searchDropdownHandler = (totalOptions) => {
+
+    return (searchVal) => {
+        if(searchVal === '')
+          return totalOptions;
+
+        const filteredOptions = totalOptions.filter(
+          (val) => {
+            return ( 
+              val.name.toLowerCase().startsWith(searchVal.toLowerCase())
+              );
+        });
+        return filteredOptions;
+    }
+  }
+    // if(searchIndustryDropdownValue.current.value === '')
+      //return industryOptions;
+// console.log('what is e---->',e);}
+    /*const filtereedIndustryOptions = industryOptions.filter(
+      (val) => {
+        return ( 
+          val.name.toLowerCase().startsWith(searchIndustryDropdownValue.current.value.toLowerCase())
+          );
+      });
+    return filtereedIndustryOptions
+  }*/
+
+  const industryHandleChange = (...args) => {
+    // searchInput.current.querySelector("input").value = "";
+    console.log("ARGS:", args);
+    SetIndustry(args[1].name);
+    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    console.log("CHANGE:");
+  };
+
+  const otherFirstPrefChangeHandler = (...args) => {
+    // searchInput.current.querySelector("input").value = "";
+    console.log("ARGS:", args);
+    SetFirstPref(args[1].name);
+    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    console.log("CHANGE_FIRST_PREF:");
+  };
+
+  const otherSecondPrefChangeHandler = (...args) => {
+    // searchInput.current.querySelector("input").value = "";
+    console.log("ARGS:", args);
+    SetSecondPref(args[1].name);
+    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    console.log("CHANGED_Second_Pref:");
+  };
+
+  const otherThirdPrefChangeHandler = (...args) => {
+    // searchInput.current.querySelector("input").value = "";
+    console.log("ARGS:", args);
+    SetThirdPref(args[1].name);
+    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    console.log("CHANGE_THIRD_PREF:");
+  };
+
+
  return (
   <div>
     <MyNavbar />
@@ -394,7 +476,7 @@ const BeAMentor = () => {
             </div>
             <div className='form-group mb-4'>
               <label htmlFor=''>Select Your Industry</label>
-              <select
+              {/*<select
                 name='industry'
                 required
                 className='form-select'
@@ -522,14 +604,19 @@ const BeAMentor = () => {
                 <option value='Travel and tourism'>Travel and tourism</option>
                 <option value='Waste management'>Waste management</option>
                 <option value='Others'>Others</option>
-              </select>
-              {/* <SelectSearch
+              </select>*/}
+              <SelectSearch
+                  // ref={searchIndustryDropdownValue}
                   options={industryOptions}
+                  filterOptions={searchDropdownHandler}
                   search
-                  // filterOptions={fuzzySearch}
+                  required
+                  value={industry}
+                  name="Industry"
                   emptyMessage='Not found'
-                  placeholder='Select your country'
-                /> */}
+                  placeholder='---'
+                  onChange={industryHandleChange}
+                />
             </div>
             {industry === 'Others' && (
               <div className='form-group mb-4'>
@@ -540,10 +627,11 @@ const BeAMentor = () => {
                   type='text'
                   name='Others'
                   id='others'
+                  required
                   className='form-control'
                   placeholder='Other Industry'
-                  value={otherIndustry}
-                  onChange={(e) => SetOtherIndustry(e.target.value)}
+                  ref={otherIndustryName}
+                  // onChange={(e) => SetOtherIndustry(e.target.value)}
                 />
               </div>
             )}
@@ -551,7 +639,7 @@ const BeAMentor = () => {
               <label htmlFor='first-pref'>
                 Choose Domain Expertise <span>(1st preference)</span>
               </label>
-              <select
+              {/*<select
                 name='first-pref'
                 id='first-pref'
                 required
@@ -934,9 +1022,21 @@ const BeAMentor = () => {
                 <option value='Weddings'>Weddings</option>
                 <option value='Wireless'>Wireless</option>
                 <option value='Others'>Others</option>
-              </select>
+              </select>*/}
+              <SelectSearch
+                  // ref={searchIndustryDropdownValue}
+                  options={firstPrefOptions}
+                  filterOptions={searchDropdownHandler}
+                  search
+                  required
+                  value={firstPref}
+                  name="firstPref"
+                  emptyMessage='Not found'
+                  placeholder='---'
+                  onChange={otherFirstPrefChangeHandler}
+              />
             </div>
-            {industry === 'Others' && (
+            {firstPref === 'Others' && (
               <div className='form-group mb-4'>
                 <label htmlFor='others'>
                   Others <span>(please specify)</span>
@@ -947,8 +1047,8 @@ const BeAMentor = () => {
                   id='others'
                   className='form-control'
                   placeholder='Other Industry'
-                  value={otherIndustry}
-                  onChange={(e) => SetOtherIndustry(e.target.value)}
+                  ref={otherFirstPreference}
+                  // onChange={(e) => SetOtherIndustry(e.target.value)}
                 />
               </div>
             )}
@@ -957,8 +1057,8 @@ const BeAMentor = () => {
                 Choose Domain Expertise <span>(2nd preference)</span>
               </label>
               <select
-                name='first-pref'
-                id='first-pref'
+                name='second-pref'
+                id='second-pref'
                 required
                 value={secondPref}
                 onChange={(e) => SetSecondPref(e.target.value)}
@@ -1340,8 +1440,20 @@ const BeAMentor = () => {
                 <option value='Wireless'>Wireless</option>
                 <option value='Others'>Others</option>
               </select>
+              {/*<SelectSearch
+                  // ref={searchIndustryDropdownValue}
+                  options={secondPrefOptions}
+                  filterOptions={searchDropdownHandler}
+                  search
+                  required
+                  value={secondPref}
+                  name="secondPref"
+                  emptyMessage='Not found'
+                  placeholder='---'
+                  onChange={otherSecondPrefChangeHandler}
+              />*/}
             </div>
-            {industry === 'Others' && (
+            {secondPref === 'Others' && (
               <div className='form-group mb-4'>
                 <label htmlFor='others'>
                   Others <span>(please specify)</span>
@@ -1351,9 +1463,10 @@ const BeAMentor = () => {
                   name='Others'
                   id='others'
                   className='form-control'
-                  placeholder='Other Industry'
-                  value={otherIndustry}
-                  onChange={(e) => SetOtherIndustry(e.target.value)}
+                  placeholder='2nd-Preference'
+                  // value={otherIndustry}
+                  ref={otherSecondPreference}
+                  // onChange={(e) => SetOtherIndustry(e.target.value)}
                 />
               </div>
             )}
@@ -1362,8 +1475,8 @@ const BeAMentor = () => {
                 Choose Domain Expertise <span>(3rd preference)</span>
               </label>
               <select
-                name='first-pref'
-                id='first-pref'
+                name='third-pref'
+                id='third-pref'
                 required
                 value={thirdPref}
                 onChange={(e) => SetThirdPref(e.target.value)}
@@ -1745,8 +1858,20 @@ const BeAMentor = () => {
                 <option value='Wireless'>Wireless</option>
                 <option value='Others'>Others</option>
               </select>
+              {/*<SelectSearch
+                  // ref={searchIndustryDropdownValue}
+                  options={secondPrefOptions}
+                  filterOptions={searchDropdownHandler}
+                  search
+                  required
+                  value={thirdPref}
+                  name="thirdPref"
+                  emptyMessage='Not found'
+                  placeholder='---'
+                  onChange={otherThirdPrefChangeHandler}
+              />*/}
             </div>
-            {industry === 'Others' && (
+            {thirdPref === 'Others' && (
               <div className='form-group mb-4'>
                 <label htmlFor='others'>
                   Others <span>(please specify)</span>
@@ -1757,8 +1882,9 @@ const BeAMentor = () => {
                   id='others'
                   className='form-control'
                   placeholder='Other Industry'
-                  value={otherIndustry}
-                  onChange={(e) => SetOtherIndustry(e.target.value)}
+                  ref={otherThirdPreference}
+                  // value={otherIndustry}
+                  // onChange={(e) => SetOtherIndustry(e.target.value)}
                 />
               </div>
             )}

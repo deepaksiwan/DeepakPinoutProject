@@ -15,8 +15,8 @@ export const industryOptions = [
   { value: 'Animation', name: 'Animation' },
   { value: 'Apparel and Textiles', name: 'Apparel and Textiles' },
   {
-    value: 'AR VR (Augmented + Virtual Reality',
-    name: 'AR VR (Augmented + Virtual Reality',
+    value: 'AR VR (Augmented + Virtual Reality)',
+    name: 'AR VR (Augmented + Virtual Reality)',
   },
   {
     value: 'Architecture Interior Design',
