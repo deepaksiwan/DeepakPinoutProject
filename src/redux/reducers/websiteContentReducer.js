@@ -4,7 +4,7 @@ import {
   WEBSITE_CONTENT_GET_FAIL,
 } from '../constants/websiteContentConstants';
 
-export const websiteContent = (state = { websiteContent: [] }, action) => {
+export const websiteContent = (state = { loading: false,websiteContent: [] }, action) => {
   switch (action.type) {
     case WEBSITE_CONTENT_GET_REQUEST:
       return { loading: true, websiteContent: [] };

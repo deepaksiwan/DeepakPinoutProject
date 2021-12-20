@@ -11,10 +11,10 @@ export const listWebsiteContent = () => async (dispatch) => {
     const { data } = await axios.get(
       `${process.env.REACT_APP_WEBSITE_URL_PINS}/websitecontents`
     )
-    console.log(data)
+    console.log('website showcase data:-->line14',data);
     dispatch({
       type: WEBSITE_CONTENT_GET_SUCCESS,
-      payload: [data],
+      payload: [data]
     })
   } catch (error) {
     dispatch({

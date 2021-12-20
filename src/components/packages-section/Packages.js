@@ -38,7 +38,7 @@ const Packages = () => {
 
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
-  const [filterset, setFilter] = useState(packages)
+  const [filterset, setFilter] = useState(packages);
 
   const handleCLick = (value) => () => {
     setSort(value);
@@ -46,6 +46,9 @@ const Packages = () => {
   };
 
   useEffect(() => {
+
+    const identifier = setTimeout(() => {
+
     window.scrollTo(0, 0);
     if (search === '') {
       dispatch(listPackages());
@@ -66,7 +69,14 @@ const Packages = () => {
       dispatch(listEntrepreneurPackages())
       setFilter(packages)
     }
-  }, [dispatch, sort, search])
+
+    }, 500);
+
+    return () => {
+      clearTimeout(identifier);
+    }
+    
+  }, [dispatch, sort, search]);
 
   return (
     <div className='courses'>

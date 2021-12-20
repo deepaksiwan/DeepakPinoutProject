@@ -48,7 +48,7 @@ function App() {
           <DetailsSection />
           <PackagesSection />
           <Facilities />
-         <JoinMentorkart />
+          <JoinMentorkart />
           <ProgramsSection />
           <SubscriptionSection />
           <BannerSection />

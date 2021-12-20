@@ -31,22 +31,32 @@ const Mentors = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    if (search === '') {
-      dispatch(listMentor());
-    } else {
-      dispatch(searchMentor(search));
-    }
 
-    if (sort === 'student') {
-      dispatch(listStudentMentor());
-    }
-    if (sort === 'professional') {
-      dispatch(listProfessionalMentor());
-    }
-    if (sort === 'entrepreneur') {
-      dispatch(listEntrepreneurMentor());
-    }
+    const identifier = setTimeout(() => {
+      window.scrollTo(0, 0);
+      if (search === '') {
+        dispatch(listMentor());
+      } else {
+        dispatch(searchMentor(search));
+      }
+  
+      if (sort === 'student') {
+        dispatch(listStudentMentor());
+      }
+      if (sort === 'professional') {
+        dispatch(listProfessionalMentor());
+      }
+      if (sort === 'entrepreneur') {
+        dispatch(listEntrepreneurMentor());
+      }
+    }, 500);
+
+    return () => {
+      console.log('CLEANUP');
+      clearTimeout(identifier);
+    };
+    
+    
   }, [dispatch, sort, search]);
 
   return (

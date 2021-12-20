@@ -146,17 +146,34 @@ export const searchPackages = (query) => async (dispatch) => {
       'https://mentorkart.org/api/sso-get-packages'
     );
     const fil = data.data;
+    let isFound;
+    console.log('SEARCH PACKAGES ACTIONS:',fil);
     const std = fil.filter((x) => {
       if (x.package_name) {
-        return x.package_name.toLowerCase().includes(query.toLowerCase());
+        isFound = x.package_name.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }
       }
-      if (x.description) {
-        return x.description.toLowerCase().includes(query.toLowerCase());
+      if(x.user_category) {
+        isFound = x.user_category.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }       
       }
       if (x.package_type) {
-        return x.package_type.toLowerCase().includes(query.toLowerCase());
+        isFound = x.package_type.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }
       }
-      return x.user_category;
+      if (x.description) {
+        isFound = x.description.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }
+      }
+      return undefined;
     });
 
     // console.log(std);

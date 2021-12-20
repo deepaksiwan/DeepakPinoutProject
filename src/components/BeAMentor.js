@@ -10,7 +10,7 @@ import SelectSearch from 'react-select-search';
 import { industryOptions } from './data/industryOptions';
 import { firstPrefOptions } from './data/firstPrefOptions';
 import "react-select-search/style.css";
-import { ToastBody } from 'react-bootstrap';
+// import { ToastBody } from 'react-bootstrap';
 // import { useRef } from "react";
 
 /*function getWindowDimensions() {
