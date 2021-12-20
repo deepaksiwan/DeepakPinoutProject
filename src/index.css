@@ -1077,9 +1077,9 @@ a {
 .packages-description-homepage {
   height: 55px !important;
 }
-.our-blogs img,
-.mentors img,
-.courses img{
+.our-blogs>img,
+.mentors>img,
+.courses>img{
   width: 100%;
 }
 
