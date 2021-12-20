@@ -16,6 +16,7 @@ export const listMentor = () => async (dispatch) => {
       'https://mentorkart.org/api/sso-mentor-list'
     );
     const fil = data.data;
+    // console.log('All:Mentors : ', fil[0].industry, fil);
 
     dispatch({
       type: MENTOR_LIST_SUCCESS,

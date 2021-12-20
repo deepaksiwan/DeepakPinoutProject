@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { filterMentor } from '../../redux/actions/mentorActions'
-import { Button } from 'react-bootstrap'
+import React, { useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { filterMentor } from '../../redux/actions/mentorActions';
+import { Button } from 'react-bootstrap';
+import SelectSearch from 'react-select-search';
+import "react-select-search/style.css";
+import { industryOptions } from './../data/industryOptions';
+import { firstPrefOptions } from './../data/firstPrefOptions';
 
 const MentorFilter = (props) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const otherFirstPreference = useRef();
   const [check, setCheck] = useState([])
+  const [industry, setIndustry] = useState();
 
   const handleCheck = (e) => {
+    console.log('e.target.value-->',e.target.value);//e.target.value--> Aeronnautics Aerospace & Defense
     let arr = [...check]
+    console.log('check-->',check);//[]
     let clicked = e.target.value
     let checkfinish = arr.indexOf(clicked)
 
-    if (checkfinish === -1) {
+    if (checkfinish === -1 && clicked!=='Others') {
       arr.push(clicked)
     } else {
       arr.splice(checkfinish, 1)
-    }
+    } 
     setCheck(arr)
   }
 
@@ -26,9 +34,50 @@ const MentorFilter = (props) => {
     props.mentorFilterBtn(false)
   }
 
+  
+/*  const searchDropdownHandler = (totalOptions) => {
+
+    return (searchVal) => {
+        if(searchVal === '')
+          return totalOptions;
+
+        const filteredOptions = totalOptions.filter(
+          (val) => {
+            return ( 
+              val.name.toLowerCase().startsWith(searchVal.toLowerCase())
+              );
+        });
+        return filteredOptions;
+    }
+  }
+
+  
+  const industryHandleChange = (...args) => {
+    let arr = [...check]
+    // let clicked = e.target.value
+    let clicked = args[1].name;
+    let checkfinish = arr.indexOf(clicked)
+  
+    if (checkfinish === -1) {
+      arr.push(clicked)
+    } else {
+      arr.splice(checkfinish, 1)
+    }
+    setCheck(arr)
+    // searchInput.current.querySelector("input").value = "";
+    console.log("ARGS:", args);
+    setIndustry(args[1].name);
+    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    console.log("CHANGE:");
+  };
+
+*/
+
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="">Select Your Industry</label>
+      <label htmlFor="Industry">Select Your Industry</label>
+
+      
       <select name="industry" onChange={handleCheck} className="form-select">
         <option value="">---</option>
         <option value="Advertising">Advertising</option>
@@ -132,6 +181,36 @@ const MentorFilter = (props) => {
         <option value="Waste management">Waste management</option>
         <option value="Others">Others</option>
       </select>
+
+              {/* <SelectSearch
+                  // ref={searchIndustryDropdownValue}
+                  options={industryOptions}
+                  // className="form-select"
+                  filterOptions={searchDropdownHandler}
+                  search
+                  required
+                  value={industry}
+                  name="Industry"
+                  emptyMessage='Not found'
+                  placeholder='---'
+                  onChange={industryHandleChange}
+                /> */}
+          {industry==='Others' && <div className='form-group mb-4'>
+                <label htmlFor='others'>
+                  Others <span>(please specify)</span>
+                </label>
+                <input
+                  type='text'
+                  name='Others'
+                  id='others'
+                  className='form-control'
+                  placeholder='Other Industry'
+                  ref={otherFirstPreference}
+                  // onBlur={}
+                />
+              </div>}
+
+
       <div className="form-group mb-4">
         <label htmlFor="first-pref">
           Choose Domain Expertise <span>(1st preference)</span>

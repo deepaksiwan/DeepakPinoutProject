@@ -1307,7 +1307,7 @@ a {
   border-radius: 10px;
   object-fit: fill;
   height: 250px;
-  
+  width: 100%;
 }
 
 .programs .programs-cards .category-tags .btn {

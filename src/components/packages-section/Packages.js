@@ -27,7 +27,7 @@ const Packages = () => {
     setShowPackagesModal(bool);
   };
 
-  const [packageFilter, setpackageFilter] = useState(false)
+  const [packageFilter, setpackageFilter] = useState(false);
   const packageFilterBtn = (bool) => {
     setpackageFilter(bool)
   }
