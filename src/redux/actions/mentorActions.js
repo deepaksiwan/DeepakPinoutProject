@@ -36,11 +36,12 @@ export const listMentor = () => async (dispatch) => {
 export const filterMentor = (chec) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST })
-    console.log(chec.toString())
+    console.log('chec.toString()',chec.toString(), chec)
     const { data } = await axios.get(
       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-mentor-list`
     )
     const fil = data.data
+    console.log('fil-->',fil);
     const d = chec
       .map((g) =>
         fil.filter((x) =>
@@ -48,7 +49,7 @@ export const filterMentor = (chec) => async (dispatch) => {
         )
       )
       .flat()
-    console.log(d)
+    console.log('d-->',d)
     dispatch({
       type: MENTOR_LIST_SUCCESS,
       payload: d,

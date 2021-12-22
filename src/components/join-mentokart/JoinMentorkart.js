@@ -22,9 +22,12 @@ Modal.setAppElement('#root')
 const JoinMentorkart = () => {
   const [showModal, setShowModal] = useState(false)
   const advertisementsList = useSelector((state) => state.advertisementsList)
+  // console.log(advertisements)
   const websiteContentList = useSelector((state) => state.websiteContentList)
 
   const { advertisements } = advertisementsList
+  // console.log('advertisements',advertisements)
+
   const { websiteContent } = websiteContentList
 
   const dispatch = useDispatch()
@@ -94,7 +97,7 @@ const JoinMentorkart = () => {
           </div>
         </div>
 
-        {advertisements[0]?.data?.length !== 0 && (
+        {advertisements.length && (
           <div className="ad-cards pb-5 pt-4 align-items-center text-center">
             <Swiper
               spaceBetween={50}

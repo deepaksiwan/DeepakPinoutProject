@@ -5,6 +5,7 @@ body {
 
 
 
+
 .navbar {
   position: fixed;
   top: 0;
@@ -1911,3 +1912,15 @@ input[type='number']:focus,
   transition-delay: 0s, 0.08s;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+
+
+/* MY CSS NOW ONWARDS */
+
+/* .justToExpand {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+} */
+/* .be_all_equal{ */
+  /* height: 100%; */
+/* } */

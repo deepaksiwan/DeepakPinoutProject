@@ -82,12 +82,15 @@ const MyNavbar = () => {
                           <Dropdown.Toggle
                             className="nav-link btn"
                             id="dropdown-basic"
+                            style={{
+                              border:'None'
+                            }}
                           >
                             <img
                               className="circle"
                               src="/images/usernav.png"
                               alt=""
-                              height="20px"
+                              height="23px"
                               width="20px"
                             />
                           </Dropdown.Toggle>

@@ -240,6 +240,7 @@ const BeAMentor = () => {
                       required: true,
                     }}
                     className='form-control'
+                    name="PhoneNumber"
                     country={'in'}
                     value={phone}
                     onChange={(phone) => SetPhone(phone)}
@@ -338,6 +339,7 @@ const BeAMentor = () => {
                 <div className='form-check me-5'>
                   <input
                     className='form-check-input'
+                    name=""
                     type='checkbox'
                     value='Entrepreneurship'
                     id='entrepreneurship'

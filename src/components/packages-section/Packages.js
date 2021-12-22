@@ -26,7 +26,8 @@ const Packages = () => {
   const showPackagesModalBtn = (bool) => {
     setShowPackagesModal(bool);
   };
-
+ 
+  //State Management for Modal of filter-packages ---> MORE FILTERS
   const [packageFilter, setpackageFilter] = useState(false);
   const packageFilterBtn = (bool) => {
     setpackageFilter(bool)
@@ -98,6 +99,8 @@ const Packages = () => {
               />
             </div>
           </form>
+
+          {/* below is all list of FILTERS */}
           <div className="tags d-flex mt-3 justify-content-center">
             <ul className="d-flex flex-wrap">
               <li>
@@ -132,6 +135,8 @@ const Packages = () => {
           </div>
         </div>
       </div>
+
+      {/* //Below is all list Of packages */}
       <div className="courses-content ">
         <div id="#all" className="blogs-cards-two container py-5">
           <div className="row">
@@ -140,6 +145,7 @@ const Packages = () => {
                 <div
                   className=" col-lg-4 col-md-6 col-12 px-lg-3 px-sm-2 px-3 mb-5"
                   key={index}
+                  // className="be_all_equal"
                 >
                   <div className="card h-100">
                     <div className="program-card p-2">
@@ -194,6 +200,7 @@ const Packages = () => {
                             Enroll Now
                           </button>
                         </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -207,6 +214,8 @@ const Packages = () => {
       <Modal
         id="packages-modal"
         isOpen={packageFilter}
+        closeTimeoutMS={1000}
+        shouldCloseOnEsc={true}
         onRequestClose={() => setpackageFilter(false)}
         style={{
           overlay: {
@@ -214,6 +223,8 @@ const Packages = () => {
           },
           content: {
             maxWidth: '700px',
+            // height: '50px',
+            height: '400px',
             margin: 'auto',
             justifyContent: 'center',
             alignItems: 'center',
@@ -243,10 +254,11 @@ const Packages = () => {
         <SignUpModal showModalBtn={showModalBtn} />
       </Modal>
 
-      <Modal
+      {/* <Modal
         id='packages-modal'
         isOpen={showPackagesModal}
         onRequestClose={() => setShowPackagesModal(false)}
+
         style={{
           overlay: {
             zIndex: '5000',
@@ -261,7 +273,7 @@ const Packages = () => {
         }}
       >
         <PackagesModal showPackagesModalBtn={showPackagesModalBtn} />
-      </Modal>
+      </Modal> */}
 
       <Footer />
     </div>

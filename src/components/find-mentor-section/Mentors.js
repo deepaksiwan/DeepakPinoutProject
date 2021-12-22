@@ -152,6 +152,7 @@ const Mentors = () => {
           content: {
             maxWidth: '700px',
             margin: 'auto',
+            height: '400px',
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: '15px',
