@@ -45,7 +45,7 @@ const PackagesSection = () => {
           <div className="container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3">
             <div className="row align-items-center">
               <div className="col-lg-4 col-md-5 left">
-                <h1>{websiteContent[0]?.data[2]?.field_data}</h1>
+                <h1>{console.log(websiteContent) && websiteContent[0]?.data[2]?.field_data}</h1>
                 <p>{websiteContent[0]?.data[3]?.field_data}</p>
                {/*} <Link to="/packages" className="btn btn-outline-primary"*/}
                <Link

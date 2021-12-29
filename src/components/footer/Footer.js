@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { listFooter } from '../../redux/actions/footerActions';
+import { toast } from 'react-toastify'
 import { Dropdown } from 'react-bootstrap';
 const Footer = () => {
   const [newsletterText, SetNewsletterText] = useState('Submit');
@@ -14,6 +15,10 @@ const Footer = () => {
     SetNewsletterText('Done');
     SetNewsletterEmail('');
   };
+
+  const popOnSuccessfullySubmission = () => {
+toast.success('Thank You😊, You will be notified with our latest Blogs!');
+  }
 
   return (
     <div className='footer py-5'>
@@ -51,6 +56,7 @@ const Footer = () => {
                     type='submit'
                     value={newsletterText}
                     className={'btn'}
+                    onClick={popOnSuccessfullySubmission}
                   />
                 </div>
               </div>
