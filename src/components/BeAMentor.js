@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef} from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { beMentor } from '../redux/actions/asCampusActions';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify';
 
 import Footer from './footer/Footer';
 import MyNavbar from './header-section/MyNavbar';
@@ -73,10 +74,10 @@ const BeAMentor = () => {
         interests: JSON.stringify(interests),
         whomToMentor: JSON.stringify(whomToMentor),
         industry: industry,
-        otherIndustry: otherIndustryName.current.value,
-        firstPref: firstPref==='Others'?otherFirstPreference.current.value:firstPref,
-        secondPref: secondPref==='Others'?otherSecondPreference.current.value:secondPref,
-        thirdPref: thirdPref==='Others'?otherThirdPreference.current.value:thirdPref,
+        otherIndustry: otherIndustryName?.current?.value,
+        firstPref: firstPref==='Others'?otherFirstPreference?.current?.value:firstPref,
+        secondPref: secondPref==='Others'?otherSecondPreference?.current?.value:secondPref,
+        thirdPref: thirdPref==='Others'?otherThirdPreference?.current?.value:thirdPref,
         designation: designation,
         about: about,
         getToKnow: getToKnow,
@@ -89,7 +90,28 @@ const BeAMentor = () => {
       })
     );
 
+    SetName('')
+    SetAbout('')
+    SetAddress('')
+    SetDOB('')
+    SetDesignation('')
+    SetEmail('')
+    SetFirstPref('')
+    SetSecondPref('')
+    SetThirdPref('')
+    SetGetToKnow('')
+    SetGradCollege('')
+    SetGradDegree('')
+    SetWhomToMentor('')
+    SetLinkedIn('')
+    SetPostGradCollege('')
+    SetPostGradDegree('');
+
   };
+
+  const showSuccessfulSubmittionAlert = () => {
+    toast.success('Thank You😊, Data Submitted Succesfully!!');
+  }
 
   const toggleInterests = (x) => {
     var index = interests.indexOf(x);
@@ -1495,6 +1517,7 @@ const BeAMentor = () => {
                 type='submit'
                 value='Become a mentor'
                 className='btn btn-md-lg btn-success'
+                onClick={showSuccessfulSubmittionAlert}
               />
             </div>
           </form>

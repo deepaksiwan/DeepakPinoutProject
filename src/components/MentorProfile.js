@@ -81,7 +81,7 @@ const MentorProfile = (props) => {
                       {userDetail?.industry}
                     </span>
                   </h6>
-                  <small>{user?.user_categories.split(',').join(' | ')}</small>
+                  <small>{console.log('user:',user) && user?.user_categories.split(',').join(' | ')}</small>
                 </div>
                 <div className='book-sec mb-4 px-md-0 px-3'>
                   <div className='row'>

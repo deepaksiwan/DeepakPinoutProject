@@ -26,8 +26,13 @@ const FilterModal = (props) => {
     props.showFilterModalBtn(false)
   }
 
+  const showModalHandler = () => {
+  props.showFilterModalBtn(false);
+  }
+
   return (
     <form onSubmit={handleSubmit}>
+      <button onClick={showModalHandler} style={{position: 'absolute',right:'10px', top:'25px', border:'none', color:'black'}}> &#10006;</button>
       <h4>Course Categoy</h4>
       <ul>
         <div
@@ -45,8 +50,8 @@ const FilterModal = (props) => {
               value="free"
               checked={check.includes('free')}
             />
-            <label className="m-3">
-              <h4>Free</h4>
+            <label className="m-3">Free
+              {/* <h4>Free</h4> */}
             </label>
           </li>
           <li>
@@ -56,8 +61,8 @@ const FilterModal = (props) => {
               onChange={handleCheck}
               checked={check.includes('paid')}
             />
-            <label className="m-3">
-              <h4>Paid</h4>
+            <label className="m-3">Paid
+              {/* <h4>Paid</h4> */}
             </label>
           </li>
           <li>
@@ -67,8 +72,8 @@ const FilterModal = (props) => {
               onChange={handleCheck}
               checked={check.includes('subscription')}
             />
-            <label className="m-3">
-              <h4>Subscription</h4>
+            <label className="m-3">Subscription
+              {/* <h4>Subscription</h4> */}
             </label>
           </li>
         </div>
@@ -86,14 +91,14 @@ const FilterModal = (props) => {
         >
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>3 Months</h4>
+            <label className="m-3">3 Months
+              {/* <h4>3 Months</h4> */}
             </label>
           </li>
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>6 Months</h4>
+            <label className="m-3">6 Months
+              {/* <h4>6 Months</h4> */}
             </label>
           </li>
         </div>
@@ -112,19 +117,20 @@ const FilterModal = (props) => {
           <li>
             <input type="checkbox" />
             <label className="m-3">
-              <h4>Beginner</h4>
+              Beginner
+              {/* <h4>Beginner</h4> */}
             </label>
           </li>
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>Advanced</h4>
+            <label className="m-3">Advanced
+              {/* <h4>Advanced</h4> */}
             </label>
           </li>
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>Master</h4>
+            <label className="m-3">Master
+              {/* <h4>Master</h4> */}
             </label>
           </li>
         </div>
@@ -144,20 +150,20 @@ const FilterModal = (props) => {
         >
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>Interview</h4>
+            <label className="m-3">Interview
+              {/* <h4>Interview</h4> */}
             </label>
           </li>
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>Internships</h4>
+            <label className="m-3">Internships
+              {/* <h4>Internships</h4> */}
             </label>
           </li>
           <li>
             <input type="checkbox" />
-            <label className="m-3">
-              <h4>Jobs</h4>
+            <label className="m-3">Jobs
+              {/* <h4>Jobs</h4> */}
             </label>
           </li>
         </div>
