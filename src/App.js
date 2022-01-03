@@ -20,7 +20,7 @@ import { Switch, Route } from 'react-router-dom'
 import Mentors from './components/find-mentor-section/Mentors'
 import AsAOrganisation from './components/AsAOrganisation'
 import AsACampus from './components/AsACampus'
-import PrivacyPolicy from './components/PrivacyPolicy'
+import PrivacyPolicy from './components/PrivacyPolicy'   
 import RefundPolicy from './components/RefundPolicy'
 import TermsCondi from './components/TermsCondi'
 import Faq from './components/Faq'
@@ -41,7 +41,7 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/">
+        <Route  exact path="/">
           <Header />
           <ToastContainer />
           <FindMentorSection />

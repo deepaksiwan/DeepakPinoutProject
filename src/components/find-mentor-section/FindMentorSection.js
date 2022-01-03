@@ -27,6 +27,7 @@ const FindMentorSection = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(listMentor());
     dispatch(listWebsiteContent());
   }, [dispatch]);
@@ -41,9 +42,9 @@ const FindMentorSection = () => {
             <div className="row">
               <div className="col-md-4 left mb-md-0 mb-lg-5 mb-3 ">
                 <span className="ms-1">
-                  {websiteContent[0]?.data[6]?.field_data}
+                  {websiteContent[0]?.data[7]?.field_data}
                 </span>
-                <h1>{websiteContent[0]?.data[7]?.field_data}</h1>
+                <h1>{websiteContent[0]?.data[6]?.field_data}</h1>
                 <p className="">{websiteContent[0]?.data[8]?.field_data}</p>
                 <p className="sec">{websiteContent[0]?.data[9]?.field_data}</p>
 
@@ -75,7 +76,7 @@ const FindMentorSection = () => {
                       },
                     }}
                   >
-                    {mentor.slice(0, 5).map((mentor, index) => {
+                    {mentor.slice(0, 10).map((mentor, index) => {
                       return (
                         <SwiperSlide key={index}>
                           <div>

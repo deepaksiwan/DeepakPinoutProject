@@ -39,19 +39,17 @@ export const filterProgram = (chec) => async (dispatch) => {
     )
     const fil = data.data
     const d = chec
-      .map((g) =>
-        fil.filter((x) =>
-          Object.values(x).join(',').toLowerCase().includes(g.toLowerCase())
+      .map((g) =>fil.filter((x) => Object.values(x).join(',').toLowerCase().includes(g.toLowerCase())
         )
       )
       .flat()
-    console.log(d)
+    //console.log(d)
     dispatch({
       type: PROGRAM_GET_SUCCESS,
       payload: d,
     })
   } catch (error) {
-    console.log(error)
+    //console.log(error)
     dispatch({
       type: PROGRAM_GET_FAIL,
       payload:
@@ -147,20 +145,60 @@ export const searchProgram = (query) => async (dispatch) => {
       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
     );
     const fil = data.data
+    let isFound = false;
     const std = fil.filter((x) => {
-      if (x.LMS_course_name) {
-        return x.LMS_course_name.toLowerCase().includes(query.toLowerCase());
-      }
-      if (x.mk_course_name) {
-        return x.mk_course_name.toLowerCase().includes(query.toLowerCase());
-      }
-      if (x.description) {
-        return x.description.toLowerCase().includes(query.toLowerCase());
-      }
-      if (x.course_type) {
-        return x.course_type.toLowerCase().includes(query.toLowerCase());
-      }
-      return x.user_category;
+
+      // if(query.toLowerCase() === "free"){
+      //   return x.price === 0;
+      // }
+
+      return x.LMS_course_name.toLowerCase().includes(query.toLowerCase()) ||
+            x.mk_course_name.toLowerCase().includes(query.toLowerCase());
+
+      //LMS_course_name	:	Test
+      //mk_course_name	:	Test
+
+      // if (x.LMS_course_name) {
+      //   isFound = x.LMS_course_name.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.mk_course_name) {
+      //   isFound = x.mk_course_name.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.description) {
+      //   isFound = x.description.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.user_category) {
+      //   isFound = x.user_category.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.from_date) {
+      //   isFound =  x.from_date.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.to_date) {
+      //   isFound =  x.to_date.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.course_type) {
+      //   isFound =  x.course_type.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      // if (x.icon_url) {
+      //   isFound =  x.icon_url.toLowerCase().includes(query.toLowerCase());
+      //   if(isFound)
+      //     return isFound;
+      // }
+      //   return x.price;
     });
 
     // console.log(std);

@@ -40,7 +40,7 @@ const MyNavbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item me-3">
               <Link className="nav-link" to="/all-mentors">
-                Find a Mentor
+                All Mentor
               </Link>
             </li>
             <li className="nav-item me-3">
@@ -68,7 +68,7 @@ const MyNavbar = () => {
                       <div className="col-6">
                         <Link
                           to={{
-                            pathname: `http://mentorkart.org/mentorkart?SSO_Mtoken=${user}&domain=https://mentorkart-new-ui.netlify.app`,
+                            pathname: `https://mentorkart.org/mentorkart?SSO_Mtoken=${user}&domain=https://mentorkart-new-ui.netlify.app`,
                           }}
                           target="_blank"
                           className="nav-link btn"
@@ -83,7 +83,7 @@ const MyNavbar = () => {
                             className="nav-link btn"
                             id="dropdown-basic"
                             style={{
-                              border:'None'
+                              border: 'None'
                             }}
                           >
                             <img
@@ -96,12 +96,12 @@ const MyNavbar = () => {
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-2">
+                            {/*<Dropdown.Item href="#/action-2">
                               Manoj
                             </Dropdown.Item>
                             <Dropdown.Item href="#/action-2">
                               manojchinnaiyan@gmail.com
-                            </Dropdown.Item>
+                          </Dropdown.Item>*/}
                             <Link
                             to='#'
                             onClick={() => {
