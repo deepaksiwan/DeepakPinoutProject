@@ -40,7 +40,7 @@ const MyNavbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item me-3">
               <Link className="nav-link" to="/all-mentors">
-                Find a Mentor
+                All Mentor
               </Link>
             </li>
             <li className="nav-item me-3">
@@ -68,7 +68,7 @@ const MyNavbar = () => {
                       <div className="col-6">
                         <Link
                           to={{
-                            pathname: `http://mentorkart.org/mentorkart?SSO_Mtoken=${user}&domain=https://mentorkart-new-ui.netlify.app`,
+                            pathname: `https://mentorkart.org/mentorkart?SSO_Mtoken=${user}&domain=https://mentorkart-new-ui.netlify.app`,
                           }}
                           target="_blank"
                           className="nav-link btn"
@@ -83,7 +83,7 @@ const MyNavbar = () => {
                             className="nav-link btn"
                             id="dropdown-basic"
                             style={{
-                              border:'None'
+                              border: 'None',
                             }}
                           >
                             <img
@@ -103,13 +103,12 @@ const MyNavbar = () => {
                               manojchinnaiyan@gmail.com
                             </Dropdown.Item>
                             <Link
-                            to='#'
-                            onClick={() => {
-                              localStorage.clear();
-                              window.location.reload();
-                            }}
-                            className='nav-link btn'
-                              
+                              to="#"
+                              onClick={() => {
+                                localStorage.clear()
+                                window.location.reload()
+                              }}
+                              className="nav-link btn"
                             >
                               Logout
                             </Link>
@@ -133,7 +132,7 @@ const MyNavbar = () => {
         </div>
       </div>
       <Modal
-        id='signup-modal'
+        id="signup-modal"
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}
         style={{
