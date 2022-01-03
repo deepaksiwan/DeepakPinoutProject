@@ -10,7 +10,7 @@ import MyNavbar from './header-section/MyNavbar';
 const AsAOrganisation = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo();
   });
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
@@ -33,6 +33,7 @@ const AsAOrganisation = () => {
       })
     );
   };
+  
 
   return (
     <div>
@@ -97,6 +98,7 @@ const AsAOrganisation = () => {
                     <textarea
                       name='Address'
                       id='address'
+                      
                       className='form-control'
                       required
                       placeholder='Enter Address of Organisation'
@@ -148,6 +150,9 @@ const AsAOrganisation = () => {
                         type='email'
                         name='Email'
                         id='email'
+                      
+                        pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
+                       
                         required
                         value={email}
                         onChange={(e) => {

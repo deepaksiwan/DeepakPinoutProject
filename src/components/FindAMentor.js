@@ -1,10 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import MyNavbar from './header-section/MyNavbar';
 import Footer from './footer/Footer';
 import YouTube from 'react-youtube';
 import getYouTubeID from 'get-youtube-id';
+import Modal from 'react-modal'
+import SignUpModal from './join-mentokart/SignUpModal'
 
 const FindAMentor = () => {
+  const loggedIn = JSON.parse(localStorage.getItem('userInfo'))
+  const [showModal, setShowModal] = useState(false)
+  const showModalBtn = (bool) => {
+    setShowModal(bool)
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -41,7 +48,7 @@ const FindAMentor = () => {
                     className='img-fluid'
                     src='/images/find-mentor/student.png'
                     alt=''
-                  />
+                  />  
                 </div>
                 <h6 className='text-uppercase'>I am a</h6>
                 <h2 className='text-uppercase'>Student</h2>
@@ -148,7 +155,17 @@ const FindAMentor = () => {
                   mentors, Set your personal and professional goals and we help
                   them achieve and monitor them at MentorKart
                 </p>
-                <button className='btn'>
+                <button
+                onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                 className='btn'
+                
+                >
                   Signup to achieve your goals
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -177,7 +194,15 @@ const FindAMentor = () => {
                   So what are you waiting for raise a Question on dtwak now.
                 </p>
 
-                <button className='btn'>
+                <button
+                 onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                 className='btn'>
                   Sign up to Chat with Mentors
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -212,7 +237,15 @@ const FindAMentor = () => {
                   privacy so your chat would be kept private.
                 </p>
                 <p className='sec'>So, what are you waiting for, engage now.</p>
-                <button className='btn'>
+                <button
+                 onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                className='btn'>
                   Signup up for 1:1 Session with Mentor
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -241,15 +274,24 @@ const FindAMentor = () => {
                   Schedule a call now and gift yourself a mentor.
                 </p>
 
-                <button className='btn'>
+                <button 
+                onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                className='btn'>
                   Sign up to Schedule a Call with Mentor
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
               </div>
               <div className='col-md-6'>
                 <img
-                  src='/images/find-mentor/mob-4.png'
-                  className='img-fluid'
+                 src='/images/find-mentor/Calendar2.png'
+                 // src='/images/find-mentor/mob-4.png'
+                  className='img1-fluid'
                   alt=''
                 />
               </div>
@@ -277,7 +319,15 @@ const FindAMentor = () => {
                   would be opportunity to meet such experts and MentorKart.
                 </p>
                 <p className='sec'>So Download now</p>
-                <button className='btn'>
+                <button 
+                onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                className='btn'>
                   Signup to Attend Live Q/A Sessions
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -303,7 +353,15 @@ const FindAMentor = () => {
                 </p>
                 <p className='sec'>Download our app now.</p>
 
-                <button className='btn'>
+                <button
+                onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                 className='btn'>
                   Sign up to Read Exclusive Blogs/Articles
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -345,7 +403,15 @@ const FindAMentor = () => {
                   held by MentorKart or our partners.
                 </p>
                 <p className='sec'>Is it not an amazing thing ?</p>
-                <button className='btn'>
+                <button
+                onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                 className='btn'>
                   Signup to watch recorded events
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -369,7 +435,15 @@ const FindAMentor = () => {
                   funding.
                 </p>
 
-                <button className='btn'>
+                <button
+                onClick={() => {
+                  if (loggedIn === null) {
+                    setShowModal(true)
+                  } else {
+                    window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
+                  }
+                }}
+                 className='btn'>
                   Sign up to meet investors
                   <i className='fas fa-arrow-right ms-2 p-1'></i>
                 </button>
@@ -384,7 +458,27 @@ const FindAMentor = () => {
             </div>
           </div>
         </div>
+        <Modal
+        id="signup-modal"
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        style={{
+          overlay: {
+            zIndex: '5000',
+          },
+          content: {
+            maxWidth: '1100px',
+            margin: 'auto',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: '15px',
+          },
+        }}
+      >
+        <SignUpModal showModalBtn={showModalBtn} />
+      </Modal>
       </div>
+
       <Footer />
     </div>
   );

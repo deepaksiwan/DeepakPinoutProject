@@ -167,8 +167,26 @@ export const searchPackages = (query) => async (dispatch) => {
           return isFound;
         }
       }
+      if (x.from_date) {
+        isFound = x.from_date.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }
+      }
+      if (x.to_date) {
+        isFound = x.to_date.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }
+      }
       if (x.description) {
         isFound = x.description.toLowerCase().includes(query.toLowerCase());
+        if(isFound){
+          return isFound;
+        }
+      }
+      if (x.price_INR) {
+        isFound = x.price_INR.toLowerCase().includes(query.toLowerCase());
         if(isFound){
           return isFound;
         }

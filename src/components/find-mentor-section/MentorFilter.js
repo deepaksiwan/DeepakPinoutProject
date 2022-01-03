@@ -123,7 +123,7 @@ const MentorFilter = (props) => {
         marginTop: '40px',
         marginBottom: '50px'
       }}>
-      <label htmlFor="Industry"><h4>Select Your Industry</h4></label>
+      <label htmlFor="Industry">Select Your Industry</label>
 
       
       
@@ -142,7 +142,7 @@ const MentorFilter = (props) => {
 </div>
       <div className="form-group mb-4">
         <label htmlFor="first-pref">
-          <h4>Choose Domain Expertise <span>(1st preference)</span></h4>
+          Choose Domain Expertise <span>(1st preference)</span>
         </label>
 
 <Select

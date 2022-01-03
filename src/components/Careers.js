@@ -15,11 +15,9 @@ const Careers = () => {
         <div className='container container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3 py-md-5 py-3'>
           <img className='guru-img' src='/images/mentorkartguru.png' alt='' />
           <h1 className='mb-1'>Careers</h1>
-          
         </div>
       </header>
       <div className='container container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3 py-5'>
-    
       </div>
       <Footer />
     </div>

@@ -11,6 +11,7 @@ const BrandVideosSection = () => {
   const { websiteContent } = websiteContentList;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(listWebsiteContent());
   }, [dispatch]);
 
