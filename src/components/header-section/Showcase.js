@@ -28,6 +28,7 @@ const Showcase = () => {
   const { websiteContent, loading } = websiteContentList;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(listWebsiteContent());
     // console.log('websiteContent', websiteContent);
   }, [dispatch]);
@@ -128,7 +129,7 @@ const Showcase = () => {
                 effect={'fade'}
                 spaceBetween={30}
                 slidesPerView={1}
-                autoplay={{ autoplay: true, delay: 9000 }}
+                autoplay={{ autoplay: true, delay: 10000 }}
                 breakpoints={{
                   // when window width is >= 0px
                   0: {
@@ -186,7 +187,7 @@ const Showcase = () => {
               effect={'fade'}
               spaceBetween={30}
               slidesPerView={1}
-              autoplay={{ autoplay: true, delay: 9000 }}
+              autoplay={{ autoplay: true, delay: 10000 }}
               breakpoints={{
                 // when window width is >= 0px
                 0: {
@@ -241,7 +242,7 @@ const Showcase = () => {
         </div>
       </div>
 
-      <div className='showcase-links d-xxl-block d-none'>
+     {/* <div className='showcase-links d-xxl-block d-none'>
         <ul className='navbar-nav d-flex flex-column justify-content-center align-items-center'>
           <li className='nav-item'>
             <a
@@ -294,7 +295,7 @@ const Showcase = () => {
             </a>
           </li>
         </ul>
-      </div>
+                </div>*/}
     </div>
   );
 };

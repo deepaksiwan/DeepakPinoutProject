@@ -34,6 +34,10 @@ a {
 .navbar-light .navbar-nav .dropdown .dropdown-item {
   background: #fff;
 }
+.img1-fluid {
+  max-width: 80%;
+  height: auto;
+}
 .btn:focus {
   box-shadow: none !important;
 }
@@ -1264,6 +1268,13 @@ a {
   background-color: rgba(244, 244, 244, 0.25) !important;
   /* color: #f07867; */
 }
+.select-search {
+  
+  position: relative;
+  font-family: 'Nunito Sans', sans-serif;
+  box-sizing: border-box;
+}
+
 .be-a-mentor textarea:focus,
 .be-a-mentor .css-yk16xz-control:active,
 .be-a-mentor input[type='text']:focus,
@@ -1486,8 +1497,8 @@ a {
 
 .mentor-profile .profile-img {
   height: 200px;
-  width: 110px;
-  border-radius: 50%;
+  width: 200px;
+  border-radius: 100%;
   overflow: hidden;
   margin: auto;
 }

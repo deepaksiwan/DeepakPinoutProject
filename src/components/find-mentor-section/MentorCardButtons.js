@@ -20,7 +20,7 @@ const MentorCardButtons = (props) => {
           if (loggedIn === null) {
             setShowModal(true);
           } else {
-            window.location = `http://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`;
+            window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`;
           }
         }}
         className={props.classes}

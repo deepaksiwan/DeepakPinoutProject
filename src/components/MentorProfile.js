@@ -67,8 +67,7 @@ const MentorProfile = (props) => {
                   <h2 className='text-capitalize mt-3'>
                     {user?.first_name +
                       ' ' +
-                      user?.middle_name +
-                      ' ' +
+                     
                       user?.last_name}
                   </h2>
                   <h6>
@@ -81,11 +80,11 @@ const MentorProfile = (props) => {
                       {userDetail?.industry}
                     </span>
                   </h6>
-                  <small>{console.log('user:',user) && user?.user_categories.split(',').join(' | ')}</small>
+                  <small>{user?.user_categories.split(',').join(' | ')}</small>
                 </div>
                 <div className='book-sec mb-4 px-md-0 px-3'>
                   <div className='row'>
-                    <div className='col-6'>
+                   {/*} <div className='col-6'>
                       <div className='row me-1'>
                         <button
                           onClick={() => {
@@ -98,16 +97,16 @@ const MentorProfile = (props) => {
                           Book Chat
                         </button>
                       </div>
-                    </div>
-                    <div className='col-6'>
-                      <div className='ms-1 row'>
+                        </div>*/}
+                        <div className='col-12 '>
+                      <div className='ms-2 row'>
                         <button
                           onClick={() => {
                             if (loggedIn === null) {
                               setShowModal(true);
                             }
                           }}
-                          className='btn btn-outline-primary'
+                          className='btn btn-outline-primary '
                         >
                           Book Call
                         </button>
@@ -139,7 +138,7 @@ const MentorProfile = (props) => {
                         if (loggedIn === null) {
                           setShowModal(true);
                         } else {
-                          window.location = `http://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`;
+                          window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`;
                         }
                       }}
                       className='showcase-card one'

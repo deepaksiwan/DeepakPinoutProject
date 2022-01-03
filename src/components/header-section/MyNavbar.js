@@ -83,7 +83,11 @@ const MyNavbar = () => {
                             className="nav-link btn"
                             id="dropdown-basic"
                             style={{
+<<<<<<< HEAD
                               border: 'None',
+=======
+                              border: 'None'
+>>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
                             }}
                           >
                             <img
@@ -96,12 +100,12 @@ const MyNavbar = () => {
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-2">
+                            {/*<Dropdown.Item href="#/action-2">
                               Manoj
                             </Dropdown.Item>
                             <Dropdown.Item href="#/action-2">
                               manojchinnaiyan@gmail.com
-                            </Dropdown.Item>
+                          </Dropdown.Item>*/}
                             <Link
                               to="#"
                               onClick={() => {

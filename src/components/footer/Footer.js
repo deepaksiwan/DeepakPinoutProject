@@ -2,23 +2,38 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { listFooter } from '../../redux/actions/footerActions';
-import { toast } from 'react-toastify'
-import { Dropdown } from 'react-bootstrap';
+//import { toast } from 'react-toastify'
+//import { Dropdown } from 'react-bootstrap';
+import validator from 'validator'
 const Footer = () => {
   const [newsletterText, SetNewsletterText] = useState('Submit');
   const [newsletterEmail, SetNewsletterEmail] = useState('');
+  //const [validateEmail, SetvalidateEmail] = useState('');
   const dispatch = useDispatch();
+
 
   const newsletterSubmit = (e) => {
     e.preventDefault();
-    dispatch(listFooter({ email: newsletterEmail }));
+   dispatch(listFooter({ email: newsletterEmail }));
+   // dispatch(listFooter({ email: validateEmail }));
     SetNewsletterText('Done');
-    SetNewsletterEmail('');
+   SetNewsletterEmail('');
+    //SetvalidateEmail('');
   };
-
-  const popOnSuccessfullySubmission = () => {
-toast.success('Thank You😊, You will be notified with our latest Blogs!');
+  {/*const popOnSuccessfullySubmission = () => {
+    toast.success('Thank You😊, You will be notified with our latest Blogs!');
+  }*/}
+  const [emailError, setEmailError] = useState('')
+  const validateEmail = (e) => {
+    var email = e.target.value
+    if (validator.isEmail(email)) {
+      setEmailError('Valid Email :)')
+    } else {
+      setEmailError('Enter valid Email!')
+    }
   }
+
+
 
   return (
     <div className='footer py-5'>
@@ -43,12 +58,21 @@ toast.success('Thank You😊, You will be notified with our latest Blogs!');
                     <input
                       type='email'
                       name='email'
-                      required
+                      email='required'
+                      required='true'
+                      pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
                       value={newsletterEmail}
+                      //value={validateEmail}
                       onChange={(e) => SetNewsletterEmail(e.target.value)}
+                     // onChange={(e) => SetvalidateEmai(e.target.value)}
                       className='form-control'
                       placeholder='Enter Your Email Here...'
                     />
+                    {/*<span style={{
+                      fontWeight: 'bold',
+                      color: 'red',
+                    }}>{emailError}</span>*/}
+
                   </div>
                 </div>
                 <div className='col-3 ps-md-0 ps-0'>
@@ -56,7 +80,7 @@ toast.success('Thank You😊, You will be notified with our latest Blogs!');
                     type='submit'
                     value={newsletterText}
                     className={'btn'}
-                    onClick={popOnSuccessfullySubmission}
+                    //onClick={popOnSuccessfullySubmission}
                   />
                 </div>
               </div>
@@ -118,11 +142,11 @@ toast.success('Thank You😊, You will be notified with our latest Blogs!');
                         </Link>
                       </li>
                       <li className='list-group-item'>
-                      <Link to='/as-a-organisation'>For Organisation</Link>
+                        <Link to='/as-a-organisation'>For Organisation</Link>
                       </li>
                       <li className='list-group-item'>
                         <Link to='/as-a-campus'>For campus</Link>
-                        
+
                       </li>
                     </ul>
                   </div>
@@ -237,7 +261,7 @@ toast.success('Thank You😊, You will be notified with our latest Blogs!');
             © 2021 MentorKart is Registered Trademark of DGguru Learning
             Solutions Pvt. Ltd
           </p>
-          <p  style={{color: '#f07867'}} className='sec d-md-flex d-none'>© 2021 Mentorkart</p>
+          <p style={{ color: '#f07867' }} className='sec d-md-flex d-none'>© 2021 Mentorkart</p>
         </div>
       </div>
     </div>

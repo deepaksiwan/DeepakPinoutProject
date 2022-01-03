@@ -3,12 +3,10 @@ import { useDispatch } from 'react-redux'
 import { filterPackages } from '../../redux/actions/packagesActions'
 import { Button } from 'react-bootstrap'
 import Select from 'react-select'
-// import moreFilterindustryOptions from './../data/moreFilterindustryOptions';
 import { moreFilterindustryOptions } from '../data/moreFilterindustryOptions';
 
 const PackageFilter = (props) => {
   const dispatch = useDispatch()
-  // const 
   const valuesInputIndustry = useRef();
   const threeMonthDuration = useRef();
   const sixMonthDuration = useRef();
@@ -17,56 +15,31 @@ const PackageFilter = (props) => {
   const valueCheckedInternship = useRef();
 
   const [check, setCheck] = useState([])
-
-  /*const handleCheck = (e) => {
-    let arr = [...check]
-    let clicked = e.target.value
-    let checkfinish = arr.indexOf(clicked)
-
-    
-
-    if (checkfinish === -1) {
-      arr.push(clicked)
-    } else {
-      arr.splice(checkfinish, 1)
-    }
-    setCheck(arr)
-  }*/
   
   const onClear = (e) => {
     console.log('clicked onClear()');
     e.preventDefault();
     setCheck([]);
-    
-    // console.log('values, e.current.prop ->',values, e);
     console.log('valueCheckedInterview)',valueCheckedInterview);
     valuesInputIndustry.current.clearValue();
-    // valueCheckedJob.current.clear();
     valueCheckedJob.current.checked = false;
     valueCheckedInterview.current.checked = false;
     console.log('valueCheckedJob.current',valueCheckedJob.current);
     valueCheckedInternship.current.checked = false;
     threeMonthDuration.current.checked = false;
     sixMonthDuration.current.checked = false;
-    // valuesInputFirstPref.current.clearValue();
-    // values.current.select.clearValue();
-
+    
   }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(filterPackages(check))
     props.packageFilterBtn(false);
   }
-
   const showModalHandler = () => {
     props.packageFilterBtn(false);
   }
-
   const filteredArray = (clicked) => {
     setCheck((prevState) => {
-      // console.log('clikckedinsetCheckfunction',clicked);
-      // console.log('prevState',prevState);
       let isIndexFound = prevState.indexOf(clicked);
       console.log(isIndexFound, 'isIndexFound');
       if(isIndexFound === -1){
@@ -80,40 +53,13 @@ const PackageFilter = (props) => {
     });
 
   }
-
   const industryHandleChange = (...args) => {
-    // console.log('refThreeMonthDuration', threeMonthDuration);
     if(args[1].action==='select-option'){
     console.log('currentOnchange-->',args);
-    // console.log('currentOnchange-->',args)
-    // let arr = [...check]
-    // let clicked = e.target.value
     let clicked = args[0]?.length;
-    // console.log(clicked);
     clicked = args[0][clicked-1]?.value;
     console.log('current clicked value',clicked);
-    // let arr = [...check];
-    // let clicked = e.target.value
-    // let clicked = threeMonthDuration.current.checked;
-    // console.log('True or false??',clicked);
-    // if(!clicked){
-      // return;
-    
-    // clicked = threeMonthDuration.current.defaultValue;
-    // console.log('value of checked Value', clicked);
-    // console.log(clicked);
-    // let clicked = args[0][clicked-1]?.value;
-    // console.log('current clicked value',clicked);
-    // let checkfinish = arr.indexOf(clicked)
-  
-    // if (checkfinish === -1) {
-    //   arr.push(clicked)
-    // } else {
-    //   arr.splice(checkfinish, 1)
-    // }
     setCheck((prevState) => {
-      // console.log('clikckedinsetCheckfunction',clicked);
-      // console.log('prevState',prevState);
       let isIndexFound = prevState.indexOf(clicked);
       console.log(isIndexFound, 'isIndexFound');
       if(isIndexFound === -1){
@@ -125,10 +71,7 @@ const PackageFilter = (props) => {
     });
   }
   else if(args[1].action==='remove-value'){
-    // console.log(args[1);
     const valueToBeRemoved = args[1].removedValue.label;
-    
-
     setCheck((prevState) => {
       const index = prevState.indexOf(valueToBeRemoved);
       if(index===-1){
@@ -138,57 +81,17 @@ const PackageFilter = (props) => {
       return prevState;
 
     })
-
     console.log('removing from final array filters', args);
   }
     console.log("CHANGE:");
     console.log('FULL LENGTH ARRAY TO CHECKED',check);
-    // setTimeout(()=>console.log(check), 10000);
-    // searchInput.current.querySelector("input").value = "";
-    // console.log("ARGS:", args);
-    // setIndustry(args[1].name);
-    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    
   };
-
   const durationHandleChangeThreeMonths = () => {
     console.log('3month',threeMonthDuration.current.checked);
-    // console.log('6Month', sixMonthDuration.current.checked);
-
     let clickedThreeValue = threeMonthDuration?.current?.defaultValue;
-    // let clickedSixValue = sixMonthDuration?.current?.checked;
-    // if(!clickedThreeValue && !clickedSixValue){
-    //   return;
-    // }
-
-
     filteredArray(clickedThreeValue);
     console.log('check', check);
-
-    // filteredArray(clickedSixValue);
-    /*
-    if(!clickedThreeValue){
-    setCheck((prevState) => {
-      const indexToDeleted = check.indexOf(valToUncheck);
-      if(indexToDeleted===-1){
-        return prevState;
-      }
-      prevState.splice(indexToDeleted, 1);
-      return prevState;
-    });
-    }
-
-    if(clickedThreeValue){
-      console.log('I am in 3 value');
-      clickedThreeValue = threeMonthDuration.current.defaultValue;
-      filteredArray(clickedThreeValue);
-    }
-    if(clickedSixValue){
-      console.log('I am in 6value');
-      clickedSixValue = sixMonthDuration.current.defaultValue;
-      filteredArray(clickedSixValue);
-    }
-    */
-
   }
 
   const durationHandleChangeSixMonths = (e) => {
@@ -203,20 +106,8 @@ const PackageFilter = (props) => {
 
   const interviewHandleChange = () => {
     console.log('interviewValuechecked', valueCheckedInterview);
-   /* let isInterviewClicked = valueCheckedInterview.current.checked;
+   
 
-    if(!isInterviewClicked){
-      let valToUncheck = valueCheckedInterview.current.dafault;
-      setCheck((prevState) => {
-        const indexToDeleted = check.indexOf(valToUncheck);
-        if(indexToDeleted===-1){
-          return prevState;
-        }
-        prevState.splice(indexToDeleted, 1);
-        return prevState;
-      });
-    }
-*/
     let isInterviewClicked = valueCheckedInterview.current.defaultValue;
     filteredArray(isInterviewClicked);
     console.log('check', check);
@@ -225,21 +116,7 @@ const PackageFilter = (props) => {
 
   const internshipHandleChange = () => {
     console.log('internshipValueChecked', valueCheckedInternship);
-/*    let isInternshipClicked = valueCheckedInternship.current.checked;
 
-    if(!isInternshipClicked){
-      let valToUncheck = valueCheckedInternship.current.defaultValue;
-      setCheck((prevState) => {
-        const indexToDeleted = check.indexOf(valToUncheck);
-        if(indexToDeleted===-1){
-          return prevState;
-        }
-        prevState.splice(indexToDeleted, 1);
-        return prevState;
-      });
-      return;
-    }
-  */
 
     let isInternshipClicked = valueCheckedInternship.current.defaultValue;
     filteredArray(isInternshipClicked);
@@ -250,29 +127,17 @@ const PackageFilter = (props) => {
   const jobHandleChange = () => {
     console.log('jobValueChecked', valueCheckedJob);
 
-    /*let isJobClicked = valueCheckedJob.current.checked;
-
-    if(!isJobClicked){
-      let valToUncheck = valueCheckedInternship.current.defaultValue;
-      setCheck((prevState) => {
-        const indexToDeleted = check.indexOf(valToUncheck);
-        if(indexToDeleted===-1){
-          return prevState;
-        }
-        prevState.splice(indexToDeleted, 1);
-        return prevState;
-      });
-    }
-*/
+    
     let isJobClicked = valueCheckedJob.current.defaultValue;
     filteredArray(isJobClicked);
   }
+   
 
 
   return (
     <form onSubmit={handleSubmit}>
       {/* <button onClick={showModalHandler}><span>&#10060;</span></button> */}
-      <button onClick={showModalHandler} style={{position: 'absolute',right:'10px', top:'25px', border:'none', color:'black'}}> &#10006;</button>
+      <button onClick={showModalHandler} style={{position: 'absolute',right:'10px', top:'25px', border:'none', color:'#f07867'}}>&#10006; </button>
       <h4>Duration</h4>
       <ul>
         <div
@@ -390,7 +255,7 @@ const PackageFilter = (props) => {
           margin:  '8px'
         }}
       >
-        <Button variant="success" type="submit">
+        <Button variant="success" onClick={check} type="submit">
           Submit
         </Button>
         <Button variant="danger" onClick={onClear}>Clear</Button>

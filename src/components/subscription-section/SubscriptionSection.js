@@ -55,8 +55,8 @@ const SubscriptionSection = () => {
     <div className="subscription-section my-md-5 my-3">
       <div className="container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3">
         <div className="row text-center">
-          <span>{console.log('websiteContent',websiteContent) && websiteContent[0]?.data[18]?.field_data}</span>
-          <h1>{console.log('websiteContent',websiteContent) && websiteContent[0]?.data[19]?.field_data}</h1>
+          <span>{websiteContent[0]?.data[18]?.field_data}</span>
+          <h1>{websiteContent[0]?.data[19]?.field_data}</h1>
         </div>
         <div className="mt-3 align-items-center ">
           <Swiper

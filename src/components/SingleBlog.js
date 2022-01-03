@@ -14,6 +14,8 @@ const SingleBlog = ({ match }) => {
   const { blogsDetail } = listBlogsDetail;
 
   useEffect(() => {
+    window.scroll(0, 0);
+
     if (match.params.id) {
       dispatch(listBlogsDetails(match.params.id));
     }
