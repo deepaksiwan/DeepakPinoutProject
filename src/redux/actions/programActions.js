@@ -33,19 +33,42 @@ export const listProgram = () => async (dispatch) => {
 export const filterProgram = (chec) => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
-    console.log(chec.toString())
+    console.log(chec.toString(), 'chec.toString')
     const { data } = await axios.get(
       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
     )
     const fil = data.data
-    const d = chec
+    console.log('DATA', fil);
+    let d = chec
       .map((g) =>
-        fil.filter((x) =>
+        fil.filter((x) => 
           Object.values(x).join(',').toLowerCase().includes(g.toLowerCase())
-        )
-      )
+        ))
       .flat()
-    console.log(d)
+
+    // eslint-disable-next-line array-callback-return
+    let p = chec.map(x => {
+        const j = x.split(' ');
+        console.log('j', j);
+        if(j.length>=2 && j[1]==='Months')
+          return j[0];
+    })
+console.log('p', p);
+    if(p){
+    d = fil.filter((x) => {
+
+      const d1  = new Date(x['from_date']);
+      const d2 = new Date(x['to_date']);
+      console.log(d1 ,d2, 'd1, d2')
+      const computedMonths = Math.ceil(((d2 - d1)/(1000*60*60*24))/30)
+      console.log(computedMonths);
+      // console.log('final sorted',d);
+      console.log('just checkkinnggg',computedMonths <= Number(p));
+      return computedMonths <= Number(p);
+    })
+  }
+  console.log('d', d);
+    
     dispatch({
       type: PROGRAM_GET_SUCCESS,
       payload: d,

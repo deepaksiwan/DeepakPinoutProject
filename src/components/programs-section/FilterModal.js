@@ -48,6 +48,9 @@ const FilterModal = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setCheck((prevState) => {
+      return [...prevState, priceValue];
+    })
     dispatch(filterProgram(check))
     props.showFilterModalBtn(false)
   }
@@ -58,6 +61,7 @@ const FilterModal = (props) => {
 
   const setPrice = () => {
     setPriceValue(priceRef.current.value);
+
   }
 
 
