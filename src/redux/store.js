@@ -8,11 +8,10 @@ const loginFromStorage = localStorage.getItem('userInfo' ) ?
   : null
 
 const initialState = {
-  login: { loginUser: loginFromStorage },
+  login: { loginUser: loginFromStorage }
 }
 
 export const store = createStore(
   rootReducers,
-  initialState,
   composeWithDevTools(applyMiddleware(thunk))
 )

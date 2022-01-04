@@ -30,8 +30,8 @@ const Showcase = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listWebsiteContent());
-    // console.log('websiteContent', websiteContent);
-  }, [dispatch]);
+    console.log('websiteContentInShowcase', websiteContent);
+  }, []);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -76,7 +76,7 @@ const Showcase = () => {
               {!loading && ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)}
               {/* {'websiteContent:',console.log(websiteContent)} */}
               {/* {ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)} */}
-              {loading && <p>Hey There, Welcome!!!</p>}
+              {loading && `Hey There, Welcome!!!`}
             </p>
             <h1 className='showcase-heading mt-md-3 mb-md-5 mt-3 mb-4'>
               {websiteContent[0]?.data[0]?.field_data}

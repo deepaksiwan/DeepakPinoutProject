@@ -97,10 +97,11 @@ const SignInModal = (props) => {
     dispatch(
       signIn({
         email: SignInEmail,
-        password: SignInPassword,
+        password: SignInPassword
       })
     );
   };
+  
   const SignUpSubmit = (e) => {
     e.preventDefault();
     dispatch(

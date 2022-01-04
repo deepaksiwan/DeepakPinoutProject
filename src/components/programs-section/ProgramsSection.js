@@ -25,17 +25,23 @@ const ProgramsSection = () => {
   const { program, loading } = programList
   const { websiteContent } = websiteContentList
 
+  console.log(programList, 'programList');
+  console.log('InProgramSection', websiteContent)
+  console.log(loading, program, 'inProgramsectionshow LoaADING')
+
   useEffect(() => {
     dispatch(listProgram())
     dispatch(listWebsiteContent())
-  }, [dispatch])
+    // console.log('InProgramSection', websiteContent, loading, program)
+    // console.log(loading, program, 'inProgramsectionshow LoaADING')
+  }, [])
 
   // console.log(program);
   // console.log(loading);
 
   return (
     <>
-      {loading === false && (
+      {programList?.loading === false && (
         <div className="programs py-5">
           <img className="oval-1" src="/images/oval-1.png" alt="" />
           <img className="oval-2" src="/images/oval-2.png" alt="" />
@@ -45,7 +51,7 @@ const ProgramsSection = () => {
           <div className="container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3">
             <div className="row align-items-center">
               <div className="col-lg-4 col-md-5 left">
-                <h1>{websiteContent[0]?.data[4]?.field_data}</h1>
+                <h1>{websiteContentList?.websiteContent[0]?.data[4]?.field_data}</h1>
                 <p>{websiteContent[0]?.data[5]?.field_data}</p>
                 <Link to="/courses" className="btn btn-outline-primary">
                   Explore More
@@ -75,7 +81,7 @@ const ProgramsSection = () => {
                       },
                     }}
                   >
-                    {program?.map((pro, index) => {
+                    {programList?.program?.map((pro, index) => {
                       return (
                         <SwiperSlide key={index}>
                           <ProgramCard data={pro} />

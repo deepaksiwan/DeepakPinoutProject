@@ -99,7 +99,7 @@ const SubscriptionSection = () => {
                   </div>
                   <div className="toggle-option-button">
                     <label
-                      class={
+                      className={
                         active1 === 'quaterly'
                           ? 'toggler toggler-is-active'
                           : 'toggler'
@@ -107,11 +107,11 @@ const SubscriptionSection = () => {
                     >
                       Quaterly
                     </label>
-                    <div class="toggle">
+                    <div className="toggle">
                       <input
                         type="checkbox"
                         id="switcher"
-                        class="check"
+                        className="check"
                         checked={isChecked1}
                         onChange={() => {
                           setIsChecked1(!isChecked1)
@@ -122,10 +122,10 @@ const SubscriptionSection = () => {
                           }
                         }}
                       />
-                      <b class="b switch"></b>
+                      <b className="b switch"></b>
                     </div>
                     <label
-                      class={
+                      className={
                         active1 === 'yearly'
                           ? 'toggler toggler-is-active'
                           : 'toggler'
@@ -192,7 +192,7 @@ const SubscriptionSection = () => {
                   </div>
                   <div className="toggle-option-button">
                     <label
-                      class={
+                      className={
                         active2 === 'quaterly'
                           ? 'toggler toggler-is-active'
                           : 'toggler'
@@ -200,11 +200,11 @@ const SubscriptionSection = () => {
                     >
                       Quaterly
                     </label>
-                    <div class="toggle">
+                    <div className="toggle">
                       <input
                         type="checkbox"
                         id="switcher"
-                        class="check"
+                        className="check"
                         checked={isChecked2}
                         onChange={() => {
                           setIsChecked2(!isChecked2)
@@ -215,10 +215,10 @@ const SubscriptionSection = () => {
                           }
                         }}
                       />
-                      <b class="b switch"></b>
+                      <b className="b switch"></b>
                     </div>
                     <label
-                      class={
+                      className={
                         active2 === 'yearly'
                           ? 'toggler toggler-is-active'
                           : 'toggler'
@@ -289,7 +289,7 @@ const SubscriptionSection = () => {
                   </div>
                   <div className="toggle-option-button">
                     <label
-                      class={
+                      className={
                         active3 === 'quaterly'
                           ? 'toggler toggler-is-active'
                           : 'toggler'
@@ -297,11 +297,11 @@ const SubscriptionSection = () => {
                     >
                       Quaterly
                     </label>
-                    <div class="toggle">
+                    <div className="toggle">
                       <input
                         type="checkbox"
                         id="switcher"
-                        class="check"
+                        className="check"
                         checked={isChecked3}
                         onChange={() => {
                           setIsChecked3(!isChecked3)
@@ -312,10 +312,10 @@ const SubscriptionSection = () => {
                           }
                         }}
                       />
-                      <b class="b switch"></b>
+                      <b className="b switch"></b>
                     </div>
                     <label
-                      class={
+                      className={
                         active3 === 'yearly'
                           ? 'toggler toggler-is-active'
                           : 'toggler'

@@ -2,34 +2,42 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { listFooter } from '../../redux/actions/footerActions';
-//import { toast } from 'react-toastify'
-//import { Dropdown } from 'react-bootstrap';
-import validator from 'validator'
+import { toast } from 'react-toastify'
+//import { Dropdown } from 'react-bootstrap'
+import isEmail from 'validator/lib/isEmail';
+
 const Footer = () => {
   const [newsletterText, SetNewsletterText] = useState('Submit');
   const [newsletterEmail, SetNewsletterEmail] = useState('');
-  //const [validateEmail, SetvalidateEmail] = useState('');
+  // const [validateEmail, SetvalidateEmail] = useState('');
   const dispatch = useDispatch();
 
-
+  const popOnSuccessfullySubmission = () => {
+    toast.success('Thank You😊, You will be notified with our latest Blogs!');
+  }
   const newsletterSubmit = (e) => {
     e.preventDefault();
+    if(!validateEmailForValidation(newsletterEmail)){
+      return;
+    }
    dispatch(listFooter({ email: newsletterEmail }));
-   // dispatch(listFooter({ email: validateEmail }));
+  //  dispatch(listFooter({ email: validateEmail }));
     SetNewsletterText('Done');
-   SetNewsletterEmail('');
-    //SetvalidateEmail('');
+    SetNewsletterEmail('');
+    popOnSuccessfullySubmission();
+    // SetvalidateEmail('');
   };
-  {/*const popOnSuccessfullySubmission = () => {
-    toast.success('Thank You😊, You will be notified with our latest Blogs!');
-  }*/}
-  const [emailError, setEmailError] = useState('')
-  const validateEmail = (e) => {
-    var email = e.target.value
-    if (validator.isEmail(email)) {
+  // eslint-disable-next-line no-lone-blocks
+
+  const [emailError, setEmailError] = useState('Valid Email :)')
+  const validateEmailForValidation = (e) => {
+    // var email = e.target.value
+    if (isEmail(e)) {
       setEmailError('Valid Email :)')
+      return true;
     } else {
       setEmailError('Enter valid Email!')
+      return false;
     }
   }
 
@@ -58,20 +66,20 @@ const Footer = () => {
                     <input
                       type='email'
                       name='email'
-                      email='required'
-                      required='true'
+                      email='email'
+                      required
                       pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
+                      // value={newsletterEmail}
                       value={newsletterEmail}
-                      //value={validateEmail}
                       onChange={(e) => SetNewsletterEmail(e.target.value)}
                      // onChange={(e) => SetvalidateEmai(e.target.value)}
                       className='form-control'
                       placeholder='Enter Your Email Here...'
                     />
-                    {/*<span style={{
+                    {emailError==='Enter valid Email!' && <span style={{
                       fontWeight: 'bold',
                       color: 'red',
-                    }}>{emailError}</span>*/}
+                    }}>{emailError}</span>}
 
                   </div>
                 </div>

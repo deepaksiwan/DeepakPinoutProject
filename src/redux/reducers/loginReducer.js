@@ -10,6 +10,15 @@ import {
   OTP_GET_FAIL,
 } from '../constants/loginConstants';
 
+// const loginFromStorage = localStorage.getItem('userInfo' ) ? 
+//    JSON.parse(localStorage.getItem('userInfo'))
+//   : null
+
+// const initialState = {
+//   login: { loginUser: loginFromStorage },
+//   loading: true
+// }
+
 export const login = (state = {}, action) => {
   switch (action.type) {
     case LOGIN_GET_REQUEST:

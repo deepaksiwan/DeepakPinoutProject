@@ -38,7 +38,6 @@ export const filterProgram = (chec) => async (dispatch) => {
       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
     )
     const fil = data.data
-<<<<<<< HEAD
     console.log('DATA', fil);
     let d = chec
       .map((g) =>
@@ -70,14 +69,7 @@ console.log('p', p);
   }
   console.log('d', d);
     
-=======
-    const d = chec
-      .map((g) =>fil.filter((x) => Object.values(x).join(',').toLowerCase().includes(g.toLowerCase())
-        )
-      )
-      .flat()
-    //console.log(d)
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
+
     dispatch({
       type: PROGRAM_GET_SUCCESS,
       payload: d,

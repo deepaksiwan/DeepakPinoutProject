@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from 'react'
-=======
-import React, { useState, } from 'react'
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
 import { useDispatch } from 'react-redux'
 import { filterProgram } from '../../redux/actions/programActions'
 import { Button } from 'react-bootstrap'
@@ -21,7 +17,6 @@ const FilterModal = (props) => {
 
   const handleCheck = (e) => {
 
-<<<<<<< HEAD
     // console.log('current action:',e);
     // let arr = [...check]
     // console.log(arr);
@@ -55,16 +50,7 @@ const FilterModal = (props) => {
 
     console.log(check);
 
-=======
 
-    if (checkfinish === -1) {
-
-      arr.push(clicked)
-    } else {
-      arr.splice(checkfinish, 1)
-    }
-    setCheck(arr)
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
   }
 
   const handleSubmit = (e) => {
@@ -135,13 +121,8 @@ const FilterModal = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-<<<<<<< HEAD
-      <button onClick={showModalHandler} style={{position: 'absolute',right:'15px', top:'20px', border:'none', color:'black'}}> &#10006;</button>
+     <button onClick={showModalHandler} style={{position: 'absolute',right:'15px', top:'20px', border:'none', color:'black'}}> &#10006;</button>
       <h4>Course Category</h4>
-=======
-      <button onClick={showModalHandler} style={{ position: 'absolute', right: '10px', top: '25px', border: 'none', color: 'black' }}> &#10006;</button><button onClick={showModalHandler} style={{ position: 'absolute', right: '10px', top: '25px', border: 'none', color: 'black' }}> &#10006;</button>
-      <h4>Course Categoy</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
       <ul>
         <div
           style={{
@@ -159,57 +140,36 @@ const FilterModal = (props) => {
               // checked={check.includes('Free')}
               id="Free"
             />
-<<<<<<< HEAD
             <label className="m-3" htmlFor="Free">Free
               {/* <h4>Free</h4> */}
-=======
-            <label className="m-3">
-              <h4>Free</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
             </label>
           </li>
           <li>
             <input
               type="checkbox"
-<<<<<<< HEAD
-              value="Paid"
-=======
-              value="paid"
 
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
+              value="paid"
               onChange={handleCheck}
               // checked={check.includes('Paid')}
               id="Paid"
             />
-<<<<<<< HEAD
+
             <label className="m-3" htmlFor="Paid">Paid
               {/* <h4>Paid</h4> */}
-=======
-            <label className="m-3">
-              <h4>Paid</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
+
             </label>
           </li>
           <li>
             <input
               type="checkbox"
-<<<<<<< HEAD
               value="Subscription"
-=======
-              value="subscription"
 
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
               onChange={handleCheck}
               // checked={check.includes('Subscription')}
               id="Subscription"
             />
-<<<<<<< HEAD
             <label className="m-3" htmlFor="Subscription">Subscription
               {/* <h4>Subscription</h4> */}
-=======
-            <label className="m-3">
-              <h4>Subscription</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
             </label>
           </li>
         </div>
@@ -226,7 +186,6 @@ const FilterModal = (props) => {
           }}
         >
           <li>
-<<<<<<< HEAD
             <input type="checkbox" id="3months" value="3 Months" onChange={handleCheck}/>
             <label className="m-3" htmlFor="3months">3 Months
               {/* <h4>3 Months</h4> */}
@@ -236,17 +195,6 @@ const FilterModal = (props) => {
             <input type="checkbox" id="6 Months" value="6 Months" onChange={handleCheck}/>
             <label className="m-3" htmlFor="6 Months">6 Months
               {/* <h4>6 Months</h4> */}
-=======
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>3 Months</h4>
-            </label>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>6 Months</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
             </label>
           </li>
         </div>
@@ -263,7 +211,6 @@ const FilterModal = (props) => {
           }}
         >
           <li>
-<<<<<<< HEAD
             <input type="checkbox" id="Beginner" value="Beginner" onChange={handleCheck}/>
             <label className="m-3" htmlFor="Beginner">
               Beginner
@@ -280,25 +227,6 @@ const FilterModal = (props) => {
             <input type="checkbox" id="Master" value="Master" onChange={handleCheck}/>
             <label className="m-3" htmlFor="Master">Master
               {/* <h4>Master</h4> */}
-=======
-            <input type="checkbox" 
-              value =""
-            />
-            <label className="m-3">
-              <h4>Beginner</h4>
-            </label>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>Advanced</h4>
-            </label>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>Master</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
             </label>
           </li>
         </div>
@@ -317,7 +245,6 @@ const FilterModal = (props) => {
           }}
         >
           <li>
-<<<<<<< HEAD
             <input type="checkbox" id="Interview" value="Interview" onChange={handleCheck}/>
             <label className="m-3" htmlFor="Interview">Interview
               {/* <h4>Interview</h4> */}
@@ -333,28 +260,10 @@ const FilterModal = (props) => {
             <input type="checkbox" id="Jobs" value="Jobs" onChange={handleCheck}/>
             <label className="m-3" htmlFor="Jobs">Jobs
               {/* <h4>Jobs</h4> */}
-=======
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>Interview</h4>
-            </label>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>Internships</h4>
-            </label>
-          </li>
-          <li>
-            <input type="checkbox" />
-            <label className="m-3">
-              <h4>Jobs</h4>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
             </label>
           </li>
         </div>
       </ul>
-<<<<<<< HEAD
       <h5 style={{
         marginBottom: '1rem'
       }}>Price</h5>
@@ -372,25 +281,7 @@ const FilterModal = (props) => {
         type="range"
         min="500"
         max="10000"
-=======
-      <h5>Price</h5>
 
-      {/*<input
-        type="range"
-        name="range"
-        step="500" min="1000"
-        max="5000" value="500"
-        onChange="rangePrimary.value=value">
-      </input>
-      <input type="text"
-      id="rangePrimary" />*/}
-
-      <input
-        type="range"
-        name="range"
-        min="1000"
-        max="5000"
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
         step="500"
         style={{ 
           width: '300px'
@@ -417,11 +308,7 @@ const FilterModal = (props) => {
         <Button variant="success" onClick={check} type="submit">
           Submit
         </Button>
-<<<<<<< HEAD
         <Button type="reset" variant="danger" >Clear</Button>
-=======
-        <Button type='reset' value='reset' variant="danger" >Clear</Button>
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
       </div>
     </form>
   )

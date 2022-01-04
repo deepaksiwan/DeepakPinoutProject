@@ -5,7 +5,7 @@ import
         CAMPUS_GET_FAIL
 } from "../constants/asCampusConstants";
     
-export const asCampus = (state={asCampus:[]}, action) =>
+export const asCampus = (state={asCampus:[], loading: true}, action) =>
 {
     switch ( action.type )
     {

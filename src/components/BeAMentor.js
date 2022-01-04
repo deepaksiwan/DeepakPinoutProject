@@ -482,7 +482,7 @@ const BeAMentor = () => {
             <div className='   form-group mb-4 ' >
                 <label htmlFor=''>Select Your Industry</label>
                 <SelectSearch 
-                 className ='form-select'
+                //  className ='form-select'
                   
                   options={industryOptions}
                   filterOptions={searchDropdownHandler}

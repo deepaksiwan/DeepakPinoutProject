@@ -41,5 +41,5 @@ export default combineReducers({
   signupDetails: signup,
   otpDetails: otpverify,
   websiteContentList: websiteContent,
-  advertisementsList: advertisements,
+  advertisementsList: advertisements
 });

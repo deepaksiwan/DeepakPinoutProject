@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Dropdown, Image } from 'react-bootstrap'
+import { Dropdown } from 'react-bootstrap'
 import Modal from 'react-modal'
 import SignInModal from './SignInModal'
 Modal.setAppElement('#root')
@@ -83,11 +83,7 @@ const MyNavbar = () => {
                             className="nav-link btn"
                             id="dropdown-basic"
                             style={{
-<<<<<<< HEAD
-                              border: 'None',
-=======
                               border: 'None'
->>>>>>> 370bb872e3efa8c30489ee49731ddcb8a39da0d5
                             }}
                           >
                             <img
