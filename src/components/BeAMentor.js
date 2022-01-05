@@ -22,6 +22,12 @@ import "react-select-search/style.css";
 }*/
 
 const BeAMentor = () => {
+  const genderM = useRef();
+  const genderF = useRef();
+  const bussCoach = useRef();
+  const entrepreneurship = useRef();
+  const indusRef = useRef();
+
   // const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   // console.log(industryOptions);
   const dispatch = useDispatch();
@@ -74,9 +80,9 @@ const BeAMentor = () => {
         whomToMentor: JSON.stringify(whomToMentor),
         industry: industry,
         otherIndustry: otherIndustryName?.current?.value,
-        firstPref: firstPref === 'Others' ? otherFirstPreference.current.value : firstPref,
-        secondPref: secondPref === 'Others' ? otherSecondPreference.current.value : secondPref,
-        thirdPref: thirdPref === 'Others' ? otherThirdPreference.current.value : thirdPref,
+        firstPref: firstPref === 'Others' ? otherFirstPreference?.current?.value : firstPref,
+        secondPref: secondPref === 'Others' ? otherSecondPreference?.current?.value : secondPref,
+        thirdPref: thirdPref === 'Others' ? otherThirdPreference?.current?.value : thirdPref,
         designation: designation,
         about: about,
         getToKnow: getToKnow,
@@ -118,6 +124,11 @@ const BeAMentor = () => {
     // otherSecondPreference.current.value = '';
     // otherThirdPreference.current.value = '';
     // otherIndustryName.current.value = '';
+    // console.log(genderM);
+    // genderF
+    // bussCoach 
+    // entrepreneurship
+    // indusRef
 
   };
 
@@ -294,6 +305,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(1);
                               }}
+                              // ref = {genderM}
                             />
                             Male
                           </label>
@@ -311,6 +323,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(0);
                               }}
+                              // ref = {genderF}
                             />
                             Female
                           </label>
@@ -374,6 +387,7 @@ const BeAMentor = () => {
                       value='Entrepreneurship'
                       id='entrepreneurship'
                       onChange={(e) => toggleInterests(e.target.value)}
+                      // ref = {entrepreneurship}
                     />
                     <label
                       className='form-check-label'
@@ -389,6 +403,7 @@ const BeAMentor = () => {
                       value='Business Coach'
                       id='business-coach'
                       onChange={(e) => toggleInterests(e.target.value)}
+                      // ref = {bussCoach}
                     />
                     <label
                       className='form-check-label'
@@ -404,6 +419,7 @@ const BeAMentor = () => {
                       value='Industry Mentorhip'
                       id='industry'
                       onChange={(e) => toggleInterests(e.target.value)}
+                      // ref = {indusRef}
                     />
                     <label className='form-check-label' htmlFor='industry'>
                       Industry Mentorhip
