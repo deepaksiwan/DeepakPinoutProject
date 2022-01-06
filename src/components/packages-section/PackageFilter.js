@@ -33,6 +33,7 @@ const PackageFilter = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(filterPackages(check))
+    console.log(check);
     props.packageFilterBtn(false);
   }
   const showModalHandler = () => {

@@ -8,6 +8,7 @@ import SignUpModal from './join-mentokart/SignUpModal'
 
 const FindAMentor = () => {
   const loggedIn = JSON.parse(localStorage.getItem('userInfo'))
+  console.log(loggedIn);
   const [showModal, setShowModal] = useState(false)
   const showModalBtn = (bool) => {
     setShowModal(bool)

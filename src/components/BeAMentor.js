@@ -11,6 +11,7 @@ import { industryOptions } from './data/industryOptions';
 import { firstPrefOptions } from './data/firstPrefOptions';
 import "react-select-search/style.css";
 // import { ToastBody } from 'react-bootstrap';
+// import { toast } from 'react-toastify'
 // import { useRef } from "react";
 
 /*function getWindowDimensions() {
@@ -22,11 +23,11 @@ import "react-select-search/style.css";
 }*/
 
 const BeAMentor = () => {
-  const genderM = useRef();
-  const genderF = useRef();
-  const bussCoach = useRef();
-  const entrepreneurship = useRef();
-  const indusRef = useRef();
+  // const genderM = useRef();
+  // const genderF = useRef();
+  // const bussCoach = useRef();
+  // const entrepreneurship = useRef();
+  // const indusRef = useRef();
 
   // const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   // console.log(industryOptions);
@@ -41,7 +42,7 @@ const BeAMentor = () => {
   const otherIndustryName = useRef();
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
-  const [phone, SetPhone] = useState(0);
+  const [phone, SetPhone] = useState();
   const [gender, SetGender] = useState(1);
   const [linkedIn, SetLinkedIn] = useState('');
   const [address, SetAddress] = useState('');
@@ -97,7 +98,7 @@ const BeAMentor = () => {
 
     SetName('');
     SetEmail('');
-    SetPhone(0);
+    SetPhone();
     SetGender(1);
     SetLinkedIn('');
     SetAddress('');
@@ -120,10 +121,6 @@ const BeAMentor = () => {
 
 
     // console.log(otherFirstPreference)
-    // otherFirstPreference.current.value = '';
-    // otherSecondPreference.current.value = '';
-    // otherThirdPreference.current.value = '';
-    // otherIndustryName.current.value = '';
     // console.log(genderM);
     // genderF
     // bussCoach 
