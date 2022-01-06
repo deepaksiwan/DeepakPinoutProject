@@ -14,7 +14,7 @@ const AsAOrganisation = () => {
   });
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
-  const [phone, SetPhone] = useState(0);
+  const [phone, SetPhone] = useState();
   const [orgName, SetOrgName] = useState('');
   const [designation, SetDesignation] = useState('');
   const [message, SetMessage] = useState('');
@@ -32,6 +32,13 @@ const AsAOrganisation = () => {
         designation,
       })
     );
+    SetName('')
+    SetEmail('')
+    SetPhone()
+    SetOrgName('')
+    SetDesignation('')
+    SetMessage('')
+    SetAddress('')
   };
   
 

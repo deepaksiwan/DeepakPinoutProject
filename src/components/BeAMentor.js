@@ -11,6 +11,7 @@ import { industryOptions } from './data/industryOptions';
 import { firstPrefOptions } from './data/firstPrefOptions';
 import "react-select-search/style.css";
 // import { ToastBody } from 'react-bootstrap';
+// import { toast } from 'react-toastify'
 // import { useRef } from "react";
 
 /*function getWindowDimensions() {
@@ -22,6 +23,12 @@ import "react-select-search/style.css";
 }*/
 
 const BeAMentor = () => {
+  // const genderM = useRef();
+  // const genderF = useRef();
+  // const bussCoach = useRef();
+  // const entrepreneurship = useRef();
+  // const indusRef = useRef();
+
   // const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   // console.log(industryOptions);
   const dispatch = useDispatch();
@@ -35,7 +42,7 @@ const BeAMentor = () => {
   const otherIndustryName = useRef();
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
-  const [phone, SetPhone] = useState(0);
+  const [phone, SetPhone] = useState();
   const [gender, SetGender] = useState(1);
   const [linkedIn, SetLinkedIn] = useState('');
   const [address, SetAddress] = useState('');
@@ -74,9 +81,9 @@ const BeAMentor = () => {
         whomToMentor: JSON.stringify(whomToMentor),
         industry: industry,
         otherIndustry: otherIndustryName?.current?.value,
-        firstPref: firstPref === 'Others' ? otherFirstPreference.current.value : firstPref,
-        secondPref: secondPref === 'Others' ? otherSecondPreference.current.value : secondPref,
-        thirdPref: thirdPref === 'Others' ? otherThirdPreference.current.value : thirdPref,
+        firstPref: firstPref === 'Others' ? otherFirstPreference?.current?.value : firstPref,
+        secondPref: secondPref === 'Others' ? otherSecondPreference?.current?.value : secondPref,
+        thirdPref: thirdPref === 'Others' ? otherThirdPreference?.current?.value : thirdPref,
         designation: designation,
         about: about,
         getToKnow: getToKnow,
@@ -91,7 +98,7 @@ const BeAMentor = () => {
 
     SetName('');
     SetEmail('');
-    SetPhone(0);
+    SetPhone();
     SetGender(1);
     SetLinkedIn('');
     SetAddress('');
@@ -114,10 +121,11 @@ const BeAMentor = () => {
 
 
     // console.log(otherFirstPreference)
-    // otherFirstPreference.current.value = '';
-    // otherSecondPreference.current.value = '';
-    // otherThirdPreference.current.value = '';
-    // otherIndustryName.current.value = '';
+    // console.log(genderM);
+    // genderF
+    // bussCoach 
+    // entrepreneurship
+    // indusRef
 
   };
 
@@ -294,6 +302,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(1);
                               }}
+                              // ref = {genderM}
                             />
                             Male
                           </label>
@@ -311,6 +320,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(0);
                               }}
+                              // ref = {genderF}
                             />
                             Female
                           </label>
@@ -374,6 +384,7 @@ const BeAMentor = () => {
                       value='Entrepreneurship'
                       id='entrepreneurship'
                       onChange={(e) => toggleInterests(e.target.value)}
+                      // ref = {entrepreneurship}
                     />
                     <label
                       className='form-check-label'
@@ -389,6 +400,7 @@ const BeAMentor = () => {
                       value='Business Coach'
                       id='business-coach'
                       onChange={(e) => toggleInterests(e.target.value)}
+                      // ref = {bussCoach}
                     />
                     <label
                       className='form-check-label'
@@ -404,6 +416,7 @@ const BeAMentor = () => {
                       value='Industry Mentorhip'
                       id='industry'
                       onChange={(e) => toggleInterests(e.target.value)}
+                      // ref = {indusRef}
                     />
                     <label className='form-check-label' htmlFor='industry'>
                       Industry Mentorhip

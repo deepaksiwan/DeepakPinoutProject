@@ -107,7 +107,7 @@ export const beMentor =
 
       dispatch({ type: CAMPUS_GET_REQUEST });
       const { data } = await axios.post(
-        'http://localhost:5000/be-a-mentor',
+        `${process.env.REACT_APP_WEBSITE_URL_PINS}/be-a-mentor`,
         {
           name,
           email,

@@ -16,9 +16,9 @@ import SignUpModal from '../join-mentokart/SignUpModal'
 import FilterModal from './FilterModal'
 
 const Courses = () => {
-  const loggedIn = JSON.parse(localStorage.getItem('userInfo'))
-  const [showModal, setShowModal] = useState(false)
-  const [showFilterModal, setFilterModal] = useState(false)
+  const loggedIn = JSON.parse(localStorage.getItem('userInfo'));
+  const [showModal, setShowModal] = useState(false);
+  const [showFilterModal, setFilterModal] = useState(false);
   const showModalBtn = (bool) => {
     setShowModal(bool)
   }

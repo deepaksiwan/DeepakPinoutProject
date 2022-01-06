@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { filterProgram } from '../../redux/actions/programActions'
 import { Button } from 'react-bootstrap'
@@ -56,10 +56,12 @@ const FilterModal = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setCheck((prevState) => {
-      return [...prevState, priceValue];
+      prevState.push(priceValue);
+      return prevState;
     })
     dispatch(filterProgram(check))
-    console.log(filterProgram(check))
+    // console.log('checcck',check);
+    // console.log(filterProgram(check))
     props.showFilterModalBtn(false)
   }
   /*const filteredArray = (clicked) => {
@@ -99,7 +101,6 @@ const FilterModal = (props) => {
 
   const setPrice = () => {
     setPriceValue(priceRef.current.value);
-
   }
 
 
@@ -118,7 +119,6 @@ const FilterModal = (props) => {
         clearTimeout(identifier);
       }
     }, [priceValue])*/
-
   return (
     <form onSubmit={handleSubmit}>
      <button onClick={showModalHandler} style={{position: 'absolute',right:'15px', top:'20px', border:'none', color:'black'}}> &#10006;</button>
@@ -305,7 +305,7 @@ const FilterModal = (props) => {
           marginBottom: '1.5rem'
         }}
       >
-        <Button variant="success" onClick={check} type="submit">
+        <Button variant="success" type="submit">
           Submit
         </Button>
         <Button type="reset" variant="danger" >Clear</Button>
