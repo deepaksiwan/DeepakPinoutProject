@@ -30,7 +30,7 @@ const PartnersSection = () => {
   }, [dispatch]);
 
   return (
-    <div className='partners mt-md-5 mt-2 mb-4 pt-3'>
+    <div className='partners'>
       <div className='container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3'>
         <h1>{websiteContent[0]?.data[20]?.field_data}</h1>
         <div className='partners-images pt-3'>

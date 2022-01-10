@@ -50,7 +50,7 @@ export const asOrganisation =
 
       dispatch({ type: CAMPUS_GET_REQUEST });
       const { data } = await axios.post(
-        'http://localhost:5000/organisation',
+        'https://www.test.pinsoutinnovation.com/organisation',
         { name, email, phone, orgName, message, address, designation },
         config
       );

@@ -128,7 +128,7 @@ const JoinMentorkart = () => {
                       >
                         <img
                           src={
-                            `${process.env.WEBSITE_URL_PINS}/uploaded-images/` +
+                            `${process.env.REACT_APP_WEBSITE_URL_PINS}/uploaded-images/`+
                             ad.ad_image
                           }
                           alt=""

@@ -73,7 +73,8 @@ const Showcase = () => {
         <div className='row'>
           <div className='col-md-6 left d-flex flex-column justify-content-center'>
             <p className='showcase-para mb-0 mt-md-0 mt-4'>
-              {!loading && ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)}
+              {!loading &&
+               ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)}
               {/* {'websiteContent:',console.log(websiteContent)} */}
               {/* {ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)} */}
               {loading && `Hey There, Welcome!!!`}

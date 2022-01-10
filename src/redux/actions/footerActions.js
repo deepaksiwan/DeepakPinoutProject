@@ -18,7 +18,8 @@ export const listFooter =
         }
         dispatch({ type: FOOTER_GET_REQUEST })
         const { data } = await axios.post(
-          `http://localhost:5000/newsletter`,
+          ` ${process.env.REACT_APP_WEBSITE_URL_PINS}/newsletter`,
+          
           { email },
           config
         )
