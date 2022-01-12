@@ -88,7 +88,7 @@ export const signUp =
 
       dispatch({ type: SIGNUP_GET_REQUEST })
       const { data } = await axios.post(
-        'https://mentorkart.org/api/register',
+        `${process.env.REACT_APP_WEBSITE_URL}/register`,
         {
           category,
           username,

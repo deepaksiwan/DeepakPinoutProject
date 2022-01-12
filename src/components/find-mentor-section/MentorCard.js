@@ -59,7 +59,7 @@ const MentorCard = ({
             })}
           </div>
           <p className="about">
-            {about ? about.substring(0, 400) : 'NULL'}
+            {about ? about.substring(0, 4) : 'NULL'}
             ...
           </p>
           <div className="row btn-container">

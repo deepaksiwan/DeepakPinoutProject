@@ -15,7 +15,7 @@ export const listStudentSub = () => async (dispatch) => {
   try {
     dispatch({ type: SUBSCRIBE_STUDENT_REQUEST });
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-subscription-plans'
+       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-subscription-plans`
       
     );
     const fil = data.data;

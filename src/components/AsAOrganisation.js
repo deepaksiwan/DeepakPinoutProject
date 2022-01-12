@@ -119,9 +119,9 @@ const AsAOrganisation = () => {
                       <label htmlFor='full-name'>Full Name of Applicant</label>
                       <input
                         type='text'
-                        name='FullName'
+                        name='Name'
                         required
-                        id='full-name'
+                        id='name'
                         value={name}
                         onChange={(e) => {
                           SetName(e.target.value);
@@ -157,9 +157,7 @@ const AsAOrganisation = () => {
                         type='email'
                         name='Email'
                         id='email'
-                      
                         pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
-                       
                         required
                         value={email}
                         onChange={(e) => {

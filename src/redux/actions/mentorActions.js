@@ -13,7 +13,9 @@ export const listMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-mentor-list'
+     `https://mentorkart.org/api/sso-mentor-list`
+      
+      
     );
     const fil = data.data;
     // console.log('All:Mentors : ', fil[0].industry, fil);
@@ -38,7 +40,7 @@ export const filterMentor = (chec) => async (dispatch) => {
     dispatch({ type: MENTOR_LIST_REQUEST })
     console.log('chec.toString()',chec.toString(), chec)
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-mentor-list`
+     `https://mentorkart.org/api/sso-mentor-list`
     )
     const fil = data.data
     console.log('fil-->',fil);
@@ -70,7 +72,8 @@ export const listStudentMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-mentor-list'
+     `https://mentorkart.org/api/sso-mentor-list`
+      
     );
     const fil = data.data;
     const std = fil.filter((x) => {
@@ -99,7 +102,8 @@ export const listProfessionalMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-mentor-list'
+     `https://mentorkart.org/api/sso-mentor-list`
+
     );
     const fil = data.data;
     const std = fil.filter((x) => {
@@ -128,7 +132,8 @@ export const listEntrepreneurMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-mentor-list'
+     `https://mentorkart.org/api/sso-mentor-list`
+  
     );
     const fil = data.data;
     const std = fil.filter((x) => {
@@ -157,7 +162,7 @@ export const searchMentor = (query) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-mentor-list'
+      `https://mentorkart.org/api/sso-mentor-list`
     );
     const fil = data.data;
     let isFound;

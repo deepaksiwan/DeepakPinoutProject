@@ -17,7 +17,7 @@ const Banners = (props) => {
     <div className='banner'>
       <img
         src={
-          'https://www.test.pinsoutinnovation.com/uploaded-images/' +
+          `${process.env.REACT_APP_WEBSITE_URL}/uploaded-images/` +
           x.banner_image
         }
         alt=''

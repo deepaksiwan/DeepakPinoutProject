@@ -11,7 +11,7 @@ export const listProgram = () => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
     const { data } = await axios.get(
-      'https://mentorkart.org/api/sso-courses' 
+       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
     )
     console.log(`${process.env.REACT_APP_WEBSITE_URL}`)
     // console.log('dattaaaaaa',data)

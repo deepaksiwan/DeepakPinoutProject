@@ -199,7 +199,7 @@ const Showcase = () => {
               <SwiperSlide>
                 <Link
                   to={{
-                    pathname: 'https://app.mentorkart.com',
+                    pathname:'https://app.mentorkart.com',
                   }}
                   target='_blank'
                 >

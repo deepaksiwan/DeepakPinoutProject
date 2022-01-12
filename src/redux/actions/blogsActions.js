@@ -12,7 +12,8 @@ export const listBlogs = () => async (dispatch) => {
   try {
     dispatch({ type: BLOGS_GET_REQUEST });
     const { data } = await axios.get(
-      'https://www.test.pinsoutinnovation.com/blogs' 
+      `${process.env.REACT_APP_WEBSITE_URL_PINS}/blogs`,
+    
     );
 
     dispatch({
@@ -31,7 +32,8 @@ export const listBlogsDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: BLOGS_DETAILS_GET_REQUEST });
     const { data } = await axios.get(
-      `https://www.test.pinsoutinnovation.com/blogs/${id}`
+      `${process.env.REACT_APP_WEBSITE_URL_PINS}/blogs/${id}`
+    
     );
 
     dispatch({

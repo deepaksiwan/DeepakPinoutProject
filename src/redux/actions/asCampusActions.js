@@ -17,12 +17,12 @@ export const asCampus =
 
       dispatch({ type: CAMPUS_GET_REQUEST });
       const { data } = await axios.post(
-        'https://www.test.pinsoutinnovation.com/campus',
+        `${process.env.REACT_APP_WEBSITE_URL_PINS}/campus`,
+      
         { name, email, phone, orgName, message, address, designation },
         config
       );
       console.log(data);
-
       dispatch({
         type: CAMPUS_GET_SUCCESS,
         payload: data,
@@ -39,7 +39,7 @@ export const asCampus =
   };
 
 export const asOrganisation =
-  ({ name, email, phone, orgName, message, address, designation }) =>
+  ({name, email, phone, orgName, message, address, designation }) =>
   async (dispatch) => {
     try {
       const config = {
@@ -50,7 +50,7 @@ export const asOrganisation =
 
       dispatch({ type: CAMPUS_GET_REQUEST });
       const { data } = await axios.post(
-        'https://www.test.pinsoutinnovation.com/organisation',
+       `${process.env.REACT_APP_WEBSITE_URL_PINS}/organisation`,
         { name, email, phone, orgName, message, address, designation },
         config
       );
@@ -73,23 +73,23 @@ export const asOrganisation =
 
 export const beMentor =
   ({
-    name,
+    full_name,
     email,
-    phone,
+    mobile_number,
     gender,
-    linkedIn,
+    linked_in,
     dob,
-    address,
+    full_address,
     interests,
-    whomToMentor,
+    whom_to_mentor,
     industry,
     otherIndustry,
-    firstPref,
-    secondPref,
-    thirdPref,
+    first_pref,
+    second_pref,
+    third_pref,
     designation,
-    about,
-    getToKnow,
+    bio,
+    get_to_know,
     grad_college,
     grad_degree,
     grad_year,
@@ -107,25 +107,31 @@ export const beMentor =
 
       dispatch({ type: CAMPUS_GET_REQUEST });
       const { data } = await axios.post(
-        `${process.env.REACT_APP_WEBSITE_URL_PINS}/be-a-mentor`,
+       `${process.env.REACT_APP_WEBSITE_URL_PINS}/be-a-mentor`,
+        
+      
         {
-          name,
+          full_name,
           email,
-          phone,
+          mobile_number,
           gender,
-          linkedIn,
+          linked_in,
           dob,
-          address,
+          full_address,
           interests,
-          whomToMentor,
+          whom_to_mentor,
           industry,
           otherIndustry,
-          firstPref,
-          secondPref,
-          thirdPref,
+          first_pref,
+          second_pref,
+          third_pref,
+          //firstPref,
+          //secondPref,
+          //thirdPref,
           designation,
-          about,
-          getToKnow,
+          bio,
+         // about,
+          get_to_know,
           grad_college,
           grad_degree,
           grad_year,

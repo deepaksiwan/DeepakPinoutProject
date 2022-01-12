@@ -39,24 +39,26 @@ const BeAMentor = () => {
   const otherFirstPreference = useRef();
   const otherSecondPreference = useRef();
   const otherThirdPreference = useRef();
-  const otherIndustryName = useRef();
-  const [name, SetName] = useState('');
+  const other_industry = useRef();
+  //const otherIndustryName = useRef();
+  const [full_name, Setfull_Name] = useState('');
   const [email, SetEmail] = useState('');
-  const [phone, SetPhone] = useState();
+  const [mobile_number, Setmobile_number] = useState('');
   const [gender, SetGender] = useState(1);
-  const [linkedIn, SetLinkedIn] = useState('');
-  const [address, SetAddress] = useState('');
+  const [linked_in, Setlinked_in] = useState('');
+  const [full_address, Setfull_Address] = useState('');
   const [dob, SetDOB] = useState('');
-  const [interests, SetInterest] = useState([]);
-  const [whomToMentor, SetWhomToMentor] = useState([]);
+  const [interests, Setinterests] = useState([]);
+  const [whom_to_mentor, Setwhom_to_mentor] = useState([]);
   const [industry, SetIndustry] = useState('');
   // const [otherIndustry, SetOtherIndustry] = useState('');
-  const [firstPref, SetFirstPref] = useState('');
-  const [secondPref, SetSecondPref] = useState('');
-  const [thirdPref, SetThirdPref] = useState('');
+  const [first_pref, Setfirst_pref] = useState('');
+  const [second_pref, Setsecond_pref] = useState('');
+  const [third_pref, Setthird_pref] = useState('');
   const [designation, Setdesignation] = useState('');
-  const [about, SetAbout] = useState('');
-  const [getToKnow, SetGetToKnow] = useState('');
+  const [bio, Setbio] = useState('');
+  // const [about, SetAbout] = useState('');
+  const [get_to_know, Setget_to_know] = useState('');
   const [grad_college, SetGradCollege] = useState('');
   const [grad_degree, SetGradDegree] = useState('');
   const [grad_year, SetGradYear] = useState('');
@@ -70,23 +72,25 @@ const BeAMentor = () => {
     e.preventDefault();
     dispatch(
       beMentor({
-        name: name,
+        full_name: full_name,
         email: email,
-        phone: phone,
+        mobile_number: mobile_number,
         gender: gender === 1 ? 'Male' : 'Female',
-        linkedIn: linkedIn,
+        linked_in: linked_in,
         dob: dob,
-        address: address,
+        full_address: full_address,
         interests: JSON.stringify(interests),
-        whomToMentor: JSON.stringify(whomToMentor),
+        whom_to_mentor: JSON.stringify(whom_to_mentor),
         industry: industry,
-        otherIndustry: otherIndustryName?.current?.value,
-        firstPref: firstPref === 'Others' ? otherFirstPreference?.current?.value : firstPref,
-        secondPref: secondPref === 'Others' ? otherSecondPreference?.current?.value : secondPref,
-        thirdPref: thirdPref === 'Others' ? otherThirdPreference?.current?.value : thirdPref,
+        other_industry: other_industry?.current?.value,
+        //other_industry: otherIndustryName?.current?.value,
+        first_pref: first_pref === 'Others' ? otherFirstPreference?.current?.value : first_pref,
+        second_pref: second_pref === 'Others' ? otherSecondPreference?.current?.value : second_pref,
+        third_pref: third_pref === 'Others' ? otherThirdPreference?.current?.value : third_pref,
         designation: designation,
-        about: about,
-        getToKnow: getToKnow,
+        bio: bio,
+        // about: about,
+        get_to_know: get_to_know,
         grad_college: grad_college,
         grad_degree: grad_degree,
         grad_year: grad_year,
@@ -96,25 +100,26 @@ const BeAMentor = () => {
       })
     );
 
-    SetName('');
+    Setfull_Name('');
     SetEmail('');
-    SetPhone();
+    Setmobile_number('');
     SetGender(1);
-    SetLinkedIn('');
-    SetAddress('');
+    Setlinked_in('');
+    Setfull_Address('');
     SetDOB('');
-    SetAbout('');
-    SetFirstPref('');
-    SetGetToKnow('');
+    Setbio('');
+    //SetAbout('');
+    Setfirst_pref('');
+    Setget_to_know('');
     SetGradCollege('');
     SetGradDegree('');
     SetGradYear('');
     SetIndustry('');
-    SetSecondPref('');
-    SetThirdPref('');
-    SetWhomToMentor([]);
+    Setsecond_pref('');
+    Setthird_pref('');
+    Setwhom_to_mentor([]);
     Setdesignation('');
-    SetInterest([]);
+    Setinterests([]);
     SetPostGradCollege('');
     SetPostGradDegree('');
     SetPostGradYear('');
@@ -137,19 +142,19 @@ const BeAMentor = () => {
     } else {
       interests.splice(index, 1);
     }
-    SetInterest(interests);
+    Setinterests(interests);
     // console.log(interests);
   };
 
   const toggleWhom = (x) => {
-    var index = whomToMentor.indexOf(x);
+    var index = whom_to_mentor.indexOf(x);
 
     if (index === -1) {
-      whomToMentor.push(x);
+      whom_to_mentor.push(x);
     } else {
-      whomToMentor.splice(index, 1);
+      whom_to_mentor.splice(index, 1);
     }
-    SetWhomToMentor(whomToMentor);
+    Setwhom_to_mentor(whom_to_mentor);
     // console.log(whomToMentor);
   };
 
@@ -191,7 +196,7 @@ const BeAMentor = () => {
   const otherFirstPrefChangeHandler = (...args) => {
     // searchInput.current.querySelector("input").value = "";
     console.log("ARGS:", args);
-    SetFirstPref(args[1].name);
+    Setfirst_pref(args[1].name);
     // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
     console.log("CHANGE_FIRST_PREF:");
   };
@@ -199,7 +204,7 @@ const BeAMentor = () => {
   const otherSecondPrefChangeHandler = (...args) => {
     // searchInput.current.querySelector("input").value = "";
     console.log("ARGS:", args);
-    SetSecondPref(args[1].name);
+    Setsecond_pref(args[1].name);
     // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
     console.log("CHANGED_Second_Pref:");
   };
@@ -207,7 +212,7 @@ const BeAMentor = () => {
   const otherThirdPrefChangeHandler = (...args) => {
     // searchInput.current.querySelector("input").value = "";
     console.log("ARGS:", args);
-    SetThirdPref(args[1].name);
+    Setthird_pref(args[1].name);
     // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
     console.log("CHANGE_THIRD_PREF:");
   };
@@ -241,9 +246,9 @@ const BeAMentor = () => {
                       name='FullName'
                       required
                       id='full-name'
-                      value={name}
+                      value={full_name}
                       onChange={(e) => {
-                        SetName(e.target.value);
+                        Setfull_Name(e.target.value);
                       }}
                       placeholder='Enter Full Name'
                       className='form-control'
@@ -274,14 +279,16 @@ const BeAMentor = () => {
                     <label htmlFor='mobile'>Mobile Number</label>
                     <PhoneInput
                       inputExtraProps={{
-                        name: 'phone',
+                        //name:'mobile_number'
+                        name: 'mobile_number',
                         required: true,
                       }}
                       className='form-control'
-                      name="PhoneNumber"
+                      name="mobile_number"
+                      //name="PhoneNumber"
                       country={'in'}
-                      value={phone}
-                      onChange={(phone) => SetPhone(phone)}
+                      value={mobile_number}
+                      onChange={(mobile_number) => Setmobile_number(mobile_number)}
                     />
                   </div>
                 </div>
@@ -302,7 +309,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(1);
                               }}
-                              // ref = {genderM}
+                            // ref = {genderM}
                             />
                             Male
                           </label>
@@ -320,7 +327,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(0);
                               }}
-                              // ref = {genderF}
+                            // ref = {genderF}
                             />
                             Female
                           </label>
@@ -336,13 +343,14 @@ const BeAMentor = () => {
                     <label htmlFor='linked-in'>Linked In URL</label>
                     <input
                       type='text'
-                      name='LinkedIn'
-                      id='linked-in'
+                      name='linked_in'
+                      //name='LinkedIn'
+                      id='linked_in'
                       required
                       className='form-control'
                       placeholder='Enter Your Linked In URL'
-                      value={linkedIn}
-                      onChange={(e) => SetLinkedIn(e.target.value)}
+                      value={linked_in}
+                      onChange={(e) => Setlinked_in(e.target.value)}
                     />
                   </div>
                 </div>
@@ -369,8 +377,8 @@ const BeAMentor = () => {
                   className='form-control'
                   placeholder='Enter Full Address'
                   rows='3'
-                  value={address}
-                  onChange={(e) => SetAddress(e.target.value)}
+                  value={full_address}
+                  onChange={(e) => Setfull_Address(e.target.value)}
                 ></textarea>
               </div>
               <div className='form-group mb-4'>
@@ -384,7 +392,7 @@ const BeAMentor = () => {
                       value='Entrepreneurship'
                       id='entrepreneurship'
                       onChange={(e) => toggleInterests(e.target.value)}
-                      // ref = {entrepreneurship}
+                    // ref = {entrepreneurship}
                     />
                     <label
                       className='form-check-label'
@@ -400,7 +408,7 @@ const BeAMentor = () => {
                       value='Business Coach'
                       id='business-coach'
                       onChange={(e) => toggleInterests(e.target.value)}
-                      // ref = {bussCoach}
+                    // ref = {bussCoach}
                     />
                     <label
                       className='form-check-label'
@@ -416,7 +424,7 @@ const BeAMentor = () => {
                       value='Industry Mentorhip'
                       id='industry'
                       onChange={(e) => toggleInterests(e.target.value)}
-                      // ref = {indusRef}
+                    // ref = {indusRef}
                     />
                     <label className='form-check-label' htmlFor='industry'>
                       Industry Mentorhip
@@ -520,25 +528,25 @@ const BeAMentor = () => {
                   </div>
                 </div>
               </div>
-             
-              
-            <div className='   form-group mb-4 ' >
+
+
+              <div className='   form-group mb-4 ' >
                 <label htmlFor=''>Select Your Industry</label>
-                <SelectSearch 
-                //  className ='form-select'
-                  
+                <SelectSearch
+                  //  className ='form-select'
+
                   options={industryOptions}
                   filterOptions={searchDropdownHandler}
                   search
                   required
-                 // className= 'form-select'
+                  // className= 'form-select'
                   value={industry}
                   name="Industry"
                   emptyMessage='Not found'
                   placeholder='---'
                   onChange={industryHandleChange}
                 />
-                
+
               </div>
               {industry === 'Others' && (
                 <div className='form-group mb-4'>
@@ -550,10 +558,10 @@ const BeAMentor = () => {
                     name='Others'
                     id='others'
                     required
-                    className= 'form-select'
+                    className='form-select'
                     // className='form-control'
                     placeholder='Other Industry'
-                    ref={otherIndustryName}
+                    ref={other_industry}
                   // onChange={(e) => SetOtherIndustry(e.target.value)}
                   />
                 </div>
@@ -569,14 +577,14 @@ const BeAMentor = () => {
                   search
                   required
                   //className='form-select'
-                  value={firstPref}
+                  value={first_pref}
                   name="firstPref"
                   emptyMessage='Not found'
                   placeholder='---'
                   onChange={otherFirstPrefChangeHandler}
                 />
               </div>
-              {firstPref === 'Others' && (
+              {first_pref === 'Others' && (
                 <div className='form-group mb-4'>
                   <label htmlFor='others'>
                     Others <span>(please specify)</span>
@@ -603,14 +611,14 @@ const BeAMentor = () => {
                   filterOptions={searchDropdownHandler}
                   search
                   required
-                  value={secondPref}
+                  value={second_pref}
                   name="secondPref"
                   emptyMessage='Not found'
                   placeholder='---'
                   onChange={otherSecondPrefChangeHandler}
-              />
+                />
               </div>
-              {secondPref === 'Others' && (
+              {second_pref === 'Others' && (
                 <div className='form-group mb-4'>
                   <label htmlFor='others'>
                     Others <span>(please specify)</span>
@@ -631,21 +639,21 @@ const BeAMentor = () => {
                 <label htmlFor='third-pref'>
                   Choose Domain Expertise <span>(3rd preference)</span>
                 </label>
-                
+
                 <SelectSearch
                   // ref={searchIndustryDropdownValue}
                   options={firstPrefOptions}
                   filterOptions={searchDropdownHandler}
                   search
                   required
-                  value={thirdPref}
+                  value={third_pref}
                   name="thirdPref"
                   emptyMessage='Not found'
                   placeholder='---'
                   onChange={otherThirdPrefChangeHandler}
-              />
+                />
               </div>
-              {thirdPref === 'Others' && (
+              {third_pref === 'Others' && (
                 <div className='form-group mb-4'>
                   <label htmlFor='others'>
                     Others <span>(please specify)</span>
@@ -662,6 +670,18 @@ const BeAMentor = () => {
                   />
                 </div>
               )}
+              <div className='form-group mb-4'>
+                <label htmlFor='designation'>Current Designation</label>
+                <input type='text'
+                  name='designation'
+                  required
+                  id='designation'
+                  className='form-control'
+                  placeholder='Current Designation'
+                  value={designation}
+                  onChange={(e) => Setdesignation(e.target.value)}
+                />
+              </div>
 
               <div className='form-group mb-4'>
                 <label htmlFor='grad_college'>Graduation (mandatory)</label>
@@ -747,14 +767,16 @@ const BeAMentor = () => {
                   Write your short bio about yourself
                 </label>
                 <textarea
-                  name='About'
-                  id='about'
+                  name='bio'
+                  //name='About'
+                  id='bio'
+                  //id='about'
                   className='form-control'
                   required
                   placeholder='Write something about yourself'
                   rows='5'
-                  value={about}
-                  onChange={(e) => SetAbout(e.target.value)}
+                  value={bio}
+                  onChange={(e) => Setbio(e.target.value)}
                 ></textarea>
               </div>
               <div className='form-group mb-4'>
@@ -765,8 +787,8 @@ const BeAMentor = () => {
                   name='industry'
                   required
                   className='form-select'
-                  value={getToKnow}
-                  onChange={(e) => SetGetToKnow(e.target.value)}
+                  value={get_to_know}
+                  onChange={(e) => Setget_to_know(e.target.value)}
                 >
                   <option value=''>---</option>
                   <option value='Website'>Website</option>
