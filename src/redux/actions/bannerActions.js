@@ -9,9 +9,9 @@ export const listBanner = () => async (dispatch) => {
   try {
     dispatch({ type: BANNER_GET_REQUEST });
     const { data } = await axios.get(
-      'https://www.test.pinsoutinnovation.com/banners'
+      `${process.env.REACT_APP_WEBSITE_URL_PINS}/banners`,
+    
     );
-
     dispatch({
       type: BANNER_GET_SUCCESS,
       payload: [data],

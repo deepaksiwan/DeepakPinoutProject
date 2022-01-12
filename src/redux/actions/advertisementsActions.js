@@ -9,7 +9,7 @@ export const listAdvertisements = () => async (dispatch) => {
   try {
     dispatch({ type: ADVERTISEMENTS_GET_REQUEST })
     const { data } = await axios.get(
-      'https://www.test.pinsoutinnovation.com/advertisements'
+      `${process.env.REACT_APP_WEBSITE_URL_PINS}/advertisements`
     )
 
     dispatch({

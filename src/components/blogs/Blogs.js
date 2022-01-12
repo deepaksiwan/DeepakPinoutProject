@@ -95,7 +95,7 @@ const Blogs = () => {
                             objectFit: 'cover',
                           }}
                           src={
-                            'https://www.test.pinsoutinnovation.com/uploaded-images/' +
+                            `${process.env.REACT_APP_WEBSITE_URL}/uploaded-images/` +
                             blog.blog_bg
                           }
                           alt=''

@@ -11,7 +11,7 @@ const AsACampus = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
 
   const dispatch = useDispatch();
   const [name, SetName] = useState('');
@@ -23,8 +23,9 @@ const AsACampus = () => {
   const [designation, SetDesignation] = useState('');
 
   const handleSubmit = () => {
+    //debugger;
     dispatch(
-      asCampus({ name, email, phone, orgName, message, address, designation })
+      asCampus({name, email, phone, orgName, message, address, designation})
     );
   };
 
@@ -102,8 +103,9 @@ const AsACampus = () => {
                       <label htmlFor='full-name'>Full Name of Applicant</label>
                       <input
                         type='text'
-                        name='FullName'
-                        id='full-name'
+                        name='name'
+                        id='name'
+                        // id='full-name'
                         required
                         value={name}
                         onChange={(e) => {
@@ -162,7 +164,7 @@ const AsACampus = () => {
                         className='form-control'
                         country={'in'}
                         value={phone}
-                        onChange={(phone) => SetPhone(phone)}
+                        onChange={(phone) =>{SetPhone(phone);}}
                       />
                     </div>
                   </div>
@@ -177,7 +179,7 @@ const AsACampus = () => {
                       rows='4'
                       value={message}
                       onChange={(e) => SetMessage(e.target.value)}
-                      
+
                     ></textarea>
                   </div>
 

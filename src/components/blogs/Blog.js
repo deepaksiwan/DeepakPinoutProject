@@ -12,7 +12,7 @@ const Blog = (props) => {
           <span className='text-uppercase'>{props.span}</span>
           <img
             src={
-              'https://www.test.pinsoutinnovation.com/uploaded-images/' +
+              `${process.env.REACT_APP_WEBSITE_URL}/uploaded-images/` +
               props.img
             }
             alt=''
