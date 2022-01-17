@@ -39,9 +39,10 @@ const ProgramsSection = () => {
   // console.log(program);
   // console.log(loading);
 
+
   return (
     <>
-      {programList?.loading === false && (
+      {programList?.loading ? <div>Loading...</div> :(
         <div className="programs py-5">
           <img className="oval-1" src="/images/oval-1.png" alt="" />
           <img className="oval-2" src="/images/oval-2.png" alt="" />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import PasswordStrengthBar from 'react-password-strength-bar'
@@ -10,6 +10,7 @@ import { signIn } from '../../redux/actions/loginActions'
 import { signUp } from '../../redux/actions/loginActions'
 import { otpsection } from '../../redux/actions/loginActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { dataCountry } from '../../CountryByPhoneInput'
 
 const SignInModal = (props) => {
   const [show, setShow] = useState(false)
@@ -104,6 +105,16 @@ const SignInModal = (props) => {
   
   const SignUpSubmit = (e) => {
     e.preventDefault();
+
+    let finalPhoneString = '+' + phone;
+    console.log(finalPhoneString);
+    console.log('dataCountry["countries"]',dataCountry["countries"], finalPhoneString);
+    const found = dataCountry["countries"].find(e => finalPhoneString.startsWith(e["code"]));
+    console.log(found["name"]);
+    let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
+    console.log(finalUserPhoneNumber);
+    // console.log('phone manipulation', phone.slice(2,12), phone);
+    console.log(found["code"],found["name"], finalUserPhoneNumber);
     dispatch(
       signUp({
         category: user,
@@ -111,13 +122,13 @@ const SignInModal = (props) => {
         username: email,
         first_name: firstname,
         last_name: lastname,
-        mobile_no: +phone.slice(2, 12),
+        mobile_no: +finalUserPhoneNumber,
         email: email,
         password: password,
         password_confirmation: confirm,
         user_type: 'MENTEE',
-        country_code: 91,
-        country_name: 'INDIA',
+        country_code: found["code"],
+        country_name: found["name"]
       })
     );
   };
@@ -126,15 +137,26 @@ const SignInModal = (props) => {
     e.preventDefault();
     setOtp(otp);
     console.log(otp);
+
+    let finalPhoneString = '+' + phone;
+    console.log(finalPhoneString);
+    console.log('dataCountry["countries"]',dataCountry["countries"], finalPhoneString);
+    const found = dataCountry["countries"].find(e => finalPhoneString.startsWith(e["code"]));
+    console.log(found["name"]);
+    let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
+    console.log(finalUserPhoneNumber);
+    // console.log('phone manipulation', phone.slice(2,12), phone);
+    console.log(found["code"],found["name"], finalUserPhoneNumber);
+
     dispatch(
       otpsection({
         otp,
-        country_code: 91,
-        country_name: 'INDIA',
+        country_code: found["code"],
+        country_name: found["name"],
         token,
         utm_source: 'https://mentorkart-new-ui.netlify.app/',
         user_category: user,
-        mobile_number: +phone.slice(2, 12),
+        mobile_number: +finalUserPhoneNumber,
         email: email,
         first_name: firstname,
         last_name: lastname,

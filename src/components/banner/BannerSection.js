@@ -27,7 +27,7 @@ const BannerSection = () => {
   return (
     <>
       {loading ? (
-        <div></div>
+        <div>Loading...</div>
       ) : (
         banner[0]?.data.length !== 0 && (
           <div className='banners-section mt-md-0 mt-4'>

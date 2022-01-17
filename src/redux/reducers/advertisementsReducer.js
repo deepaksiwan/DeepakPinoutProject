@@ -4,7 +4,7 @@ import {
   ADVERTISEMENTS_GET_FAIL,
 } from '../constants/advertisementsConstants';
 
-export const advertisements = (state = { advertisements: [], loading: true}, action) => {
+export const advertisements = (state = { advertisements: [], loading: false}, action) => {
   switch (action.type) {
     case ADVERTISEMENTS_GET_REQUEST:
       return { loading: true, advertisements: [] };

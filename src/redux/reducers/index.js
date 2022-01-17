@@ -21,6 +21,8 @@ import { signup } from './loginReducer';
 import { otpverify } from './loginReducer';
 import { websiteContent } from './websiteContentReducer';
 import { advertisements } from './advertisementsReducer';
+import { career } from './careerReducer';
+import { asApplicant } from './appplicantsReducer';
 
 export default combineReducers({
   mentorList: mentor,
@@ -41,5 +43,7 @@ export default combineReducers({
   signupDetails: signup,
   otpDetails: otpverify,
   websiteContentList: websiteContent,
-  advertisementsList: advertisements
+  advertisementsList: advertisements,
+  careerList: career,
+  applicantList: asApplicant
 });

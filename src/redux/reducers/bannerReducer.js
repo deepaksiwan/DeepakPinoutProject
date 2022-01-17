@@ -5,7 +5,7 @@ import
         BANNER_GET_FAIL
 } from "../constants/bannerConstants";
     
-export const banner = (state={banner:[]}, action) =>
+export const banner = (state={banner:[], loading:false}, action) =>
 {
     switch ( action.type )
     {
