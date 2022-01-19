@@ -15,6 +15,7 @@ import Parser from 'react-html-parser';
 import SignUpModal from '../join-mentokart/SignUpModal';
 import PackagesModal from './PackagesModal';
 import PackageFilter from './PackageFilter'
+import final from '../../config';
 
 const Packages = () => {
   const loggedIn = JSON.parse(localStorage.getItem('userInfo'));
@@ -156,7 +157,7 @@ const Packages = () => {
                         ) : (
                           <img
                             src={
-                              'https://mentorkart-admin-staging.s3.amazonaws.com/' +
+                              `${final['REACT_APP_S3STORAGE_URL_PINS']}` +
                               course.icon_url
                             }
                             alt=''

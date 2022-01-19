@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-// import { useDispatch } from 'react-redux'
-// import { filterPackages } from '../../redux/actions/packagesActions'
-// import { Button, Form } from 'react-bootstrap'
-// import { useState } from 'react'
-// import { addApplicant } from '../../redux/actions/addApplicantAction'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
+import final from '../../config'
 
 const CareersApply = (props) => {
   // console.log('props on Apply Modal', props);
@@ -32,7 +28,7 @@ const CareersApply = (props) => {
   function submitForm(contentType, data, setResponse) {
     console.log('data filed in application', data)
     Axios({
-      url: `${process.env.REACT_APP_WEBSITE_URL_PINS}/careers/application`,
+      url: `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/careers/application`,
       method: 'POST',
       data: data,
       headers: {

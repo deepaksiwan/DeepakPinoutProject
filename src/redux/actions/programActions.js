@@ -6,12 +6,13 @@ import {
   PROGRAM_GET_FAIL,
   PROGRAM_GET_SEARCH,
 } from '../constants/programConstants'
+import final from '../../config'
 
 export const listProgram = () => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     )
     console.log(`${process.env.REACT_APP_WEBSITE_URL}`)
     // console.log('dattaaaaaa',data)
@@ -36,7 +37,7 @@ export const filterProgram = (chec) => async (dispatch) => {
     console.log('chec',chec);
     //console.log(chec.toString(), 'chec.toString')
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     )
     const fil = data.data
     console.log('DATA', fil);
@@ -100,7 +101,7 @@ export const listStudentCourse = () => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     )
     const fil = data.data
     const std = fil.filter((x) =>
@@ -126,7 +127,7 @@ export const listProfessionalCourse = () => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     )
     const fil = data.data
     const std = fil.filter((x) =>
@@ -152,7 +153,7 @@ export const listEntrepreneurCourse = () => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     )
     const fil = data.data
     const std = fil.filter((x) =>
@@ -178,10 +179,10 @@ export const searchProgram = (query) => async (dispatch) => {
   try {
     dispatch({ type: PROGRAM_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-courses`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     );
     const fil = data.data
-    let isFound = false;
+    // let isFound = false;
     const std = fil.filter((x) => {
 
       // if(query.toLowerCase() === "free"){

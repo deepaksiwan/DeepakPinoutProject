@@ -4,12 +4,13 @@ import {
   CAREER_GET_SUCCESS,
   CAREER_GET_FAIL,
 } from '../constants/careerConstants';
+import final from '../../config';
 
 export const careerList = () => async (dispatch) => {
   try {
     dispatch({ type: CAREER_GET_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/careers`,
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/careers`,
        
     );
     console.log('datacareer pleaseee', data);
@@ -25,25 +26,3 @@ export const careerList = () => async (dispatch) => {
     });
   }
 };
-
-/*
-export const listBlogsDetails = (id) => async (dispatch) => {
-  try {
-    dispatch({ type: BLOGS_DETAILS_GET_REQUEST });
-    const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/blogs/${id}`
-    
-    );
-
-    dispatch({
-      type: BLOGS_DETAILS_GET_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: BLOGS_DETAILS_GET_FAIL,
-      payload: error,
-    });
-  }
-};
-*/

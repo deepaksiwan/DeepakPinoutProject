@@ -4,7 +4,7 @@ import {
   FOOTER_GET_SUCCESS,
   FOOTER_GET_FAIL,
 } from '../constants/footerConstants'
-
+import final from '../../config';
 
 
 export const listFooter =
@@ -18,7 +18,7 @@ export const listFooter =
         }
         dispatch({ type: FOOTER_GET_REQUEST })
         const { data } = await axios.post(
-          ` ${process.env.REACT_APP_WEBSITE_URL_PINS}/newsletter`,
+          ` ${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/newsletter`,
           
           { email },
           config

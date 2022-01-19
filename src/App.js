@@ -35,8 +35,12 @@ import DetailsSection from './components/details-section/DetailsSection'
 import CampusSection from './components/campus/CampusSection'
 import BrandVideosSection from './components/brand-videos-section/BrandVideosSection'
 import Facilities from './components/header-section/Facilities'
+import final from './config'
+
 
 function App() {
+  console.log('final for testing', final);
+  console.log('REACT_APP_ENVIRONMENT => ', process.env.REACT_APP_ENVIRONMENT);
   return (
     <div>
       <Switch>

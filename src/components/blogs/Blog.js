@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import final from '../../config';
 
 const Blog = (props) => {
   let d = props.date.split('T');
@@ -12,7 +13,7 @@ const Blog = (props) => {
           <span className='text-uppercase'>{props.span}</span>
           <img
             src={
-              `${process.env.REACT_APP_WEBSITE_URL}/uploaded-images/` +
+              `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/uploaded-images/` +
               props.img
             }
             alt=''

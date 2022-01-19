@@ -10,8 +10,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 // const initialState = {
 //   login: { loginUser: loginFromStorage }
 // }
+const initialState = {}
 
 export const store = createStore(
   rootReducers,
+  initialState,
   composeWithDevTools(applyMiddleware(thunk))
 )

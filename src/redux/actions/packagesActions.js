@@ -5,12 +5,13 @@ import {
   PACKAGES_GET_FAIL,
   PACKAGES_GET_SEARCH,
 } from '../constants/packagesConstants';
+import final from '../../config';
 
 export const listPackages = () => async (dispatch) => {
   try {
     dispatch({ type: PACKAGES_GET_REQUEST });
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-get-packages`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-get-packages`
     );
 
     dispatch({
@@ -33,7 +34,7 @@ export const filterPackages = (chec) => async (dispatch) => {
     dispatch({ type: PACKAGES_GET_REQUEST })
     console.log(chec.toString())
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-get-packages`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-get-packages`
      
     )
     const fil = data.data
@@ -65,7 +66,7 @@ export const listStudentPackages = () => async (dispatch) => {
   try {
     dispatch({ type: PACKAGES_GET_REQUEST });
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-get-packages`,
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-get-packages`,
     );
     const fil = data.data;
     const std = fil.filter((x) =>
@@ -91,7 +92,7 @@ export const listProfessionalPackages = () => async (dispatch) => {
   try {
     dispatch({ type: PACKAGES_GET_REQUEST });
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-get-packages`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-get-packages`
     );
     const fil = data.data;
     const std = fil.filter((x) =>
@@ -117,7 +118,7 @@ export const listEntrepreneurPackages = () => async (dispatch) => {
   try {
     dispatch({ type: PACKAGES_GET_REQUEST });
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-get-packages`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-get-packages`
     );
     const fil = data.data;
     const std = fil.filter((x) =>
@@ -143,7 +144,7 @@ export const searchPackages = (query) => async (dispatch) => {
   try {
     dispatch({ type: PACKAGES_GET_REQUEST });
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-get-packages`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-get-packages`
     );
     const fil = data.data;
     let isFound;

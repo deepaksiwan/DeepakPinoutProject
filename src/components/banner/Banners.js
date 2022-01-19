@@ -1,4 +1,5 @@
 import React from 'react';
+import final from '../../config';
 
 const Banners = (props) => {
   const x = props.banner;
@@ -17,7 +18,7 @@ const Banners = (props) => {
     <div className='banner'>
       <img
         src={
-          `${process.env.REACT_APP_WEBSITE_URL}/uploaded-images/` +
+          `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/uploaded-images/` +
           x.banner_image
         }
         alt=''

@@ -7,12 +7,13 @@ import {
   BLOGS_DETAILS_GET_SUCCESS,
   BLOGS_DETAILS_GET_FAIL,
 } from '../constants/blogsConstants';
+import final from '../../config';
 
 export const listBlogs = () => async (dispatch) => {
   try {
     dispatch({ type: BLOGS_GET_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/blogs`,
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/blogs`,
     
     );
 
@@ -32,7 +33,7 @@ export const listBlogsDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: BLOGS_DETAILS_GET_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/blogs/${id}`
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/blogs/${id}`
     
     );
 

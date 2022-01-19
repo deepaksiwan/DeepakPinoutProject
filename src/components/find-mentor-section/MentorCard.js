@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import SignUpModal from '../join-mentokart/SignUpModal'
 import Modal from 'react-modal'
+import final from '../../config'
 
 const MentorCard = ({
   id,
@@ -31,7 +32,8 @@ const MentorCard = ({
           ) : (
             <img
               style={{ objectFit: 'cover', objectPosition: 'top' }}
-              src={'https://mentorkart-admin-staging.s3.amazonaws.com/' + img}
+              // eslint-disable-next-line no-useless-concat
+              src={`${final['REACT_APP_S3STORAGE_URL_PINS']}/${img}`}
               alt=""
             />
           )}

@@ -9,6 +9,7 @@ import { listBlogs } from '../../redux/actions/blogsActions';
 import SwiperCore, { A11y, Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import final from '../../config';
 
 // Import Swiper styles
 import 'swiper/swiper.scss';
@@ -95,7 +96,7 @@ const Blogs = () => {
                             objectFit: 'cover',
                           }}
                           src={
-                            `${process.env.REACT_APP_WEBSITE_URL}/uploaded-images/` +
+                            `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/uploaded-images/` +
                             blog.blog_bg
                           }
                           alt=''

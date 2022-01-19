@@ -4,12 +4,13 @@ import {
   BANNER_GET_SUCCESS,
   BANNER_GET_FAIL,
 } from '../constants/bannerConstants';
+import final from '../../config';
 
 export const listBanner = () => async (dispatch) => {
   try {
     dispatch({ type: BANNER_GET_REQUEST });
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/banners`,
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/banners`,
     
     );
     dispatch({
