@@ -5,12 +5,13 @@ import
   FEATURE_GET_SUCCESS,
   FEATURE_GET_FAIL
 } from "../constants/featureConstants";
+import final from '../../config';
 
 export const listFeature = () => async (dispatch) => {
   try {
     dispatch({ type: FEATURE_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/news`
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/news`
     )
 
     dispatch({

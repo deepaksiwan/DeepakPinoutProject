@@ -8,12 +8,13 @@ import {
   MENTOR_LIST_DETAILS_SUCCESS,
   MENTOR_LIST_DETAILS_FAIL,
 } from '../constants/mentorConstants';
+import final from '../../config';
 
 export const listMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-     `https://mentorkart.org/api/sso-mentor-list`
+     `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor-list`
       
       
     );
@@ -40,7 +41,7 @@ export const filterMentor = (chec) => async (dispatch) => {
     dispatch({ type: MENTOR_LIST_REQUEST })
     console.log('chec.toString()',chec.toString(), chec)
     const { data } = await axios.get(
-     `https://mentorkart.org/api/sso-mentor-list`
+     `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor-list`
     )
     const fil = data.data
     console.log('fil-->',fil);
@@ -72,7 +73,7 @@ export const listStudentMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-     `https://mentorkart.org/api/sso-mentor-list`
+     `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor-list`
       
     );
     const fil = data.data;
@@ -102,7 +103,7 @@ export const listProfessionalMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-     `https://mentorkart.org/api/sso-mentor-list`
+     `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor-list`
 
     );
     const fil = data.data;
@@ -132,7 +133,7 @@ export const listEntrepreneurMentor = () => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-     `https://mentorkart.org/api/sso-mentor-list`
+     `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor-list`
   
     );
     const fil = data.data;
@@ -162,7 +163,7 @@ export const searchMentor = (query) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_REQUEST });
     const { data } = await axios.get(
-      `https://mentorkart.org/api/sso-mentor-list`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor-list`
     );
     const fil = data.data;
     let isFound;
@@ -236,7 +237,7 @@ export const listMentorDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: MENTOR_LIST_DETAILS_REQUEST });
     const { data } = await axios.get(
-      `https://mentorkart.org/api/sso-mentor/${id}`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor/${id}`
       
     );
     const fil = data.data;

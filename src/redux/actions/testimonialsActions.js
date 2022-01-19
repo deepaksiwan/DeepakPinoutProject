@@ -4,12 +4,13 @@ import {
   TESTIMONIAL_GET_SUCCESS,
   TESTIMONIAL_GET_FAIL,
 } from '../constants/testimonialConstants'
+import final from '../../config'
 
 export const listTestimonial = () => async (dispatch) => {
   try {
     dispatch({ type: TESTIMONIAL_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/testimonials`
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/testimonials`
     )
 
     dispatch({

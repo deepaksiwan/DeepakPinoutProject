@@ -4,12 +4,13 @@ import {
   ADVERTISEMENTS_GET_SUCCESS,
   ADVERTISEMENTS_GET_FAIL,
 } from '../constants/advertisementsConstants'
+import final from '../../config';
 
 export const listAdvertisements = () => async (dispatch) => {
   try {
     dispatch({ type: ADVERTISEMENTS_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL_PINS}/advertisements`
+      `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/advertisements`
     )
 
     dispatch({

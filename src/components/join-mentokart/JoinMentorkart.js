@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/swiper.scss'
 import 'swiper/components/pagination/pagination.scss'
+import final from '../../config';
 
 // install Swiper modules
 SwiperCore.use([A11y, Autoplay])
@@ -128,7 +129,7 @@ const JoinMentorkart = () => {
                       >
                         <img
                           src={
-                            `${process.env.REACT_APP_WEBSITE_URL_PINS}/uploaded-images/`+
+                            `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/`+
                             ad.ad_image
                           }
                           alt=""

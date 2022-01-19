@@ -4,6 +4,7 @@ import {
   APPLICANT_GET_SUCCESS,
   APPLICANT_GET_FAIL,
 } from '../constants/applicantsConstants'
+import final from '../../config';
 
 export const addApplicant =
   ({ id, resume, domain }) =>
@@ -17,7 +18,7 @@ export const addApplicant =
 
       dispatch({ type: APPLICANT_GET_REQUEST })
       const { data } = await axios.post(
-        `${process.env.REACT_APP_WEBSITE_URL_PINS}/careers/application`,
+        `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/careers/application`,
         { id, resume, domain },
         config
       )

@@ -4,12 +4,13 @@ import {
   YOUTUBE_GET_SUCCESS,
   YOUTUBE_GET_FAIL,
 } from '../constants/youtubeConstants'
+import final from '../../config'
 
 export const listYoutube = () => async (dispatch) => {
   try {
     dispatch({ type: YOUTUBE_GET_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-youtube-video`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-youtube-video`
     )
 
     dispatch({

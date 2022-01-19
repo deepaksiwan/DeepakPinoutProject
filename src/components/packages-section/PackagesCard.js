@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SignUpModal from '../join-mentokart/SignUpModal';
 import Modal from 'react-modal';
 import Parser from 'react-html-parser';
+import final from '../../config';
 
 const PackagesCard = ({ data }) => {
   const loggedIn = JSON.parse(localStorage.getItem('userInfo'));
@@ -42,7 +43,7 @@ const PackagesCard = ({ data }) => {
               ) : (
                 <img
                   src={
-                    'https://mentorkart-admin-staging.s3.amazonaws.com/' +
+                    `${final['REACT_APP_S3STORAGE_URL_PINS']}` +
                     data.icon_url
                   }
                   style={{

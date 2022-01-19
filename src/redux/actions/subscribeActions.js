@@ -10,12 +10,13 @@ import {
   SUBSCRIBE_ENTREPRENEUR_SUCCESS,
   SUBSCRIBE_ENTREPRENEUR_FAIL,
 } from '../constants/subscriptionConstants';
+import final from '../../config'
 
 export const listStudentSub = () => async (dispatch) => {
   try {
     dispatch({ type: SUBSCRIBE_STUDENT_REQUEST });
     const { data } = await axios.get(
-       `${process.env.REACT_APP_WEBSITE_URL}/api/sso-subscription-plans`
+       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-subscription-plans`
       
     );
     const fil = data.data;
@@ -41,7 +42,7 @@ export const listProfessionalSub = () => async (dispatch) => {
   try {
     dispatch({ type: SUBSCRIBE_PROFESSIONAL_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-subscription-plans`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-subscription-plans`
     )
     const fil = data.data
     const fils = fil.plans
@@ -66,7 +67,7 @@ export const listEntrepreneurSub = () => async (dispatch) => {
   try {
     dispatch({ type: SUBSCRIBE_ENTREPRENEUR_REQUEST })
     const { data } = await axios.get(
-      `${process.env.REACT_APP_WEBSITE_URL}/api/sso-subscription-plans`
+      `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-subscription-plans`
     )
     const fil = data.data
     const fils = fil.plans

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import SignUpModal from '../join-mentokart/SignUpModal';
 import Modal from 'react-modal';
+import final from '../../config';
 
 const SingleMentorCard = ({
   id,
@@ -19,7 +20,7 @@ const SingleMentorCard = ({
   const showModalBtn = (bool) => {
     setShowModal(bool);
   };
-
+  console.log('just for testing amazon in SingleMentor👏👏💞💞💖❣❣❣❣❣💛💛❤❤❤🤳🎂🎉', img);
   const url_name = name.toLowerCase().split(' ').join('-');
   return (
     <div className='col-lg-12 mt-4 px-lg-3 px-sm-2 px-0 mx-xl-2'>
@@ -30,7 +31,7 @@ const SingleMentorCard = ({
           ) : (
             <img
               style={{ objectFit: 'cover', objectPosition: 'top' }}
-              src={'https://mentorkart-admin-staging.s3.amazonaws.com/' + img}
+              src={`${final['REACT_APP_S3STORAGE_URL_PINS']}/${img}`}
               alt=''
             />
           )}

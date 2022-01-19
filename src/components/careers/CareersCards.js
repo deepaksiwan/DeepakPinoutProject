@@ -3,6 +3,7 @@ import SignInModal from '../header-section/SignInModal'
 import Modal from 'react-modal'
 import CareersApply from './CareersApply'
 import SignUpModal from '../join-mentokart/SignUpModal'
+import final from '../../config'
 
 const CareersCards = (props) => {
 console.log('careerCards',props)
@@ -32,7 +33,7 @@ console.log('careerCards',props)
                 } else {
                   // window.location = `https://mentorkart.org/mentorkart?SSO_Mtoken=${loggedIn}&domain=https://mentorkart-new-ui.netlify.app`
                   window.location =
-                    `${process.env.REACT_APP_WEBSITE_URL_PINS}/uploaded-images/` + props.jobDescrip
+                    `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/` + props.jobDescrip
                 }
               }}
               className="enroll-btn btn btn-ani"

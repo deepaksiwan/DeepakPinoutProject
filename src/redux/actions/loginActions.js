@@ -15,6 +15,7 @@ import {
   OTPRESEND_GET_REQUEST,
   OTPRESEND_GET_FAIL,
 } from '../constants/loginConstants'
+import final from '../../config';
 
 export const signIn =
   ({ email, password }) =>
@@ -28,8 +29,7 @@ export const signIn =
 
       dispatch({ type: LOGIN_GET_REQUEST })
       const { data } = await axios.post(
-        'https://mentorkart.org/api/login',
-        
+        `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/login`,
         { email, password },
         config
       )
@@ -88,7 +88,7 @@ export const signUp =
 
       dispatch({ type: SIGNUP_GET_REQUEST })
       const { data } = await axios.post(
-        `${process.env.REACT_APP_WEBSITE_URL}/register`,
+        `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/register`,
         {
           category,
           username,
@@ -145,14 +145,14 @@ export const otpsection =
 
       dispatch({ type: OTP_GET_REQUEST })
       const { data } = await axios.post(
-        `${process.env.REACT_APP_WEBSITE_URL}/api/verify-otp`,
+        `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/verify-otp`,
         { otp, country_code, country_name },
         config
       )
       console.log(data)
 
       const res = await axios.post(
-        `${process.env.REACT_APP_WEBSITE_URL}/api/store-leads`,
+        `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/store-leads`,
         {
           utm_source,
           email,
@@ -206,7 +206,7 @@ export const resend =
 
       dispatch({ type: OTPRESEND_GET_REQUEST })
       const { data } = await axios.post(
-        ` ${process.env.REACT_APP_WEBSITE_URL}/api/resend-otp`,
+        ` ${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/resend-otp`,
         { country_code },
         config
       )

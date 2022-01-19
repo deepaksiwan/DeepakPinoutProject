@@ -9,6 +9,7 @@ import {
   listProfessionalCourse,
   listEntrepreneurCourse,
 } from '../../redux/actions/programActions'
+import final from '../../config'
 
 import Modal from 'react-modal'
 
@@ -128,7 +129,7 @@ const Courses = () => {
                         ) : (
                           <img
                             src={
-                              'https://mentorkart-admin-staging.s3.amazonaws.com/' +
+                              `${final['REACT_APP_S3STORAGE_URL_PINS']}` +
                               course.icon_url
                             }
                             alt=""
