@@ -8,12 +8,11 @@ import CareersCards from './CareersCards'
 import { careerList } from '../../redux/actions/careerActions'
 
 const Careers = () => {
-  
+
   const dispatch = useDispatch()
   const careersList = useSelector((state) => state.careerList)
   const { career } = careersList
-  console.log('careerListAns', career)
-  
+
 
   useEffect(() => {
     window.scrollTo(0, 0)

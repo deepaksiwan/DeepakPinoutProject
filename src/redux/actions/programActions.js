@@ -14,8 +14,6 @@ export const listProgram = () => async (dispatch) => {
     const { data } = await axios.get(
        `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-courses`
     )
-    console.log(`${process.env.REACT_APP_WEBSITE_URL}`)
-    // console.log('dattaaaaaa',data)
     dispatch({
       type: PROGRAM_GET_SUCCESS,
       payload: data.data,

@@ -21,7 +21,7 @@ const BlogsSection = () => {
     dispatch(listWebsiteContent());
   }, [dispatch]);
 
- 
+
 
   return (
     <div className='blogs-section pb-5'>

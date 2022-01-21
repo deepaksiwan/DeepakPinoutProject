@@ -27,7 +27,7 @@ const JoinMentorkart = () => {
   const websiteContentList = useSelector((state) => state.websiteContentList)
 
   const { advertisements } = advertisementsList
-  
+
 
   const { websiteContent } = websiteContentList
  
@@ -42,7 +42,7 @@ const JoinMentorkart = () => {
     setShowModal(bool)
   }
 
-  
+
 
   return (
     <div className="join-mentorkart">
@@ -97,8 +97,7 @@ const JoinMentorkart = () => {
             </div>
           </div>
         </div>
-        
-        {console.log('aderstisss',advertisements)}
+
         {advertisements.length && (
           <div className="ad-cards pb-5 pt-4 align-items-center text-center">
             
@@ -132,7 +131,7 @@ const JoinMentorkart = () => {
                         <img
                           src={
                             `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/`+ad.ad_image
-                          
+
                           }
                           alt=""
                         />

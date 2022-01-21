@@ -96,7 +96,7 @@ const Blogs = () => {
                             objectFit: 'cover',
                           }}
                           src={
-                            `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/uploaded-images/` +
+                            `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/` +
                             blog.blog_bg
                           }
                           alt=''

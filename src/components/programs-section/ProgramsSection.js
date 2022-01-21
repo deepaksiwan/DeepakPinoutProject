@@ -25,15 +25,15 @@ const ProgramsSection = () => {
   const { program, loading } = programList
   const { websiteContent } = websiteContentList
 
-  console.log(programList, 'programList');
-  console.log('InProgramSection', websiteContent)
-  console.log(loading, program, 'inProgramsectionshow LoaADING')
+  // console.log(programList, 'programList');
+  // console.log('InProgramSection', websiteContent)
+  // console.log(loading, program, 'inProgramsectionshow LoaADING')
 
   useEffect(() => {
     dispatch(listProgram())
     dispatch(listWebsiteContent())
-    
-  }, [])
+  }, [dispatch])
+
 
   return (
     <>

@@ -1,4 +1,5 @@
 import React from 'react';
+import final from '../../config';
 
 const TestimonialCardContent = ({ data }) => {
   return (
@@ -6,7 +7,8 @@ const TestimonialCardContent = ({ data }) => {
       <div className='testi-img mb-4'>
         <img
           src={
-            'https://www.test.pinsoutinnovation.com/uploaded-images/' +
+            //https://www.test.pinsoutinnovation.com
+            `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/` +
             data.testimonial_image
           }
           alt=''

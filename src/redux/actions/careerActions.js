@@ -14,7 +14,6 @@ export const careerList = () => async (dispatch) => {
       
        
     );
-    console.log('datacareer pleaseee', data);
 
     dispatch({
       type: CAREER_GET_SUCCESS,

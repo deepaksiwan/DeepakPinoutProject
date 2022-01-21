@@ -42,8 +42,7 @@ const ProgramCard = ({ data }) => {
               ) : (
                 <img
                   src={
-                    `${final['REACT_APP_S3STORAGE_URL_PINS']}` +
-                    data.icon_url
+                    `${final['REACT_APP_S3STORAGE_URL_PINS']}/${data.icon_url}`
                   }
                   style={{
                     borderRadius: '10px',

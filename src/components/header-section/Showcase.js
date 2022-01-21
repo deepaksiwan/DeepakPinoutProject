@@ -32,8 +32,10 @@ const Showcase = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listWebsiteContent());
+
     dispatch(listshowcase());
   }, [dispatch]);
+
 
   const [showModal, setShowModal] = useState(false);
 
@@ -150,6 +152,7 @@ const Showcase = () => {
 
             </div>
           </div>
+
         </div>
       </div>
     </div>
