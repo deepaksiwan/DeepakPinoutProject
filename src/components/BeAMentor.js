@@ -10,17 +10,7 @@ import SelectSearch from 'react-select-search';
 import { industryOptions } from './data/industryOptions';
 import { firstPrefOptions } from './data/firstPrefOptions';
 import "react-select-search/style.css";
-// import { ToastBody } from 'react-bootstrap';
-// import { toast } from 'react-toastify'
-// import { useRef } from "react";
 
-/*function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}*/
 
 const BeAMentor = () => {
   // const genderM = useRef();
@@ -35,7 +25,7 @@ const BeAMentor = () => {
   useEffect(() => {
     window.scrollTo();
   });
-  // const searchIndustryDropdownValue = useRef();
+  
   const otherFirstPreference = useRef();
   const otherSecondPreference = useRef();
   const otherThirdPreference = useRef();
@@ -51,13 +41,11 @@ const BeAMentor = () => {
   const [interests, Setinterests] = useState([]);
   const [whom_to_mentor, Setwhom_to_mentor] = useState([]);
   const [industry, SetIndustry] = useState('');
-  // const [otherIndustry, SetOtherIndustry] = useState('');
   const [first_pref, Setfirst_pref] = useState('');
   const [second_pref, Setsecond_pref] = useState('');
   const [third_pref, Setthird_pref] = useState('');
   const [designation, Setdesignation] = useState('');
   const [bio, Setbio] = useState('');
-  // const [about, SetAbout] = useState('');
   const [get_to_know, Setget_to_know] = useState('');
   const [grad_college, SetGradCollege] = useState('');
   const [grad_degree, SetGradDegree] = useState('');
@@ -66,8 +54,7 @@ const BeAMentor = () => {
   const [post_grad_degree, SetPostGradDegree] = useState('');
   const [post_grad_year, SetPostGradYear] = useState('');
 
-  //TODO:
-  //submit KRNEY pr saarey IMPUT INITIAL STATE MEIN LAANEY HAI!!
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
@@ -83,13 +70,11 @@ const BeAMentor = () => {
         whom_to_mentor: JSON.stringify(whom_to_mentor),
         industry: industry,
         other_industry: other_industry?.current?.value,
-        //other_industry: otherIndustryName?.current?.value,
         first_pref: first_pref === 'Others' ? otherFirstPreference?.current?.value : first_pref,
         second_pref: second_pref === 'Others' ? otherSecondPreference?.current?.value : second_pref,
         third_pref: third_pref === 'Others' ? otherThirdPreference?.current?.value : third_pref,
         designation: designation,
         bio: bio,
-        // about: about,
         get_to_know: get_to_know,
         grad_college: grad_college,
         grad_degree: grad_degree,
@@ -108,7 +93,6 @@ const BeAMentor = () => {
     Setfull_Address('');
     SetDOB('');
     Setbio('');
-    //SetAbout('');
     Setfirst_pref('');
     Setget_to_know('');
     SetGradCollege('');
@@ -125,13 +109,6 @@ const BeAMentor = () => {
     SetPostGradYear('');
 
 
-    // console.log(otherFirstPreference)
-    // console.log(genderM);
-    // genderF
-    // bussCoach 
-    // entrepreneurship
-    // indusRef
-
   };
 
   const toggleInterests = (x) => {
@@ -143,7 +120,7 @@ const BeAMentor = () => {
       interests.splice(index, 1);
     }
     Setinterests(interests);
-    // console.log(interests);
+    
   };
 
   const toggleWhom = (x) => {
@@ -155,7 +132,7 @@ const BeAMentor = () => {
       whom_to_mentor.splice(index, 1);
     }
     Setwhom_to_mentor(whom_to_mentor);
-    // console.log(whomToMentor);
+   
   };
 
   const searchDropdownHandler = (totalOptions) => {
@@ -173,47 +150,37 @@ const BeAMentor = () => {
       return filteredOptions;
     }
   }
-  // if(searchIndustryDropdownValue.current.value === '')
-  //return industryOptions;
-  // console.log('what is e---->',e);}
-  /*const filtereedIndustryOptions = industryOptions.filter(
-    (val) => {
-      return ( 
-        val.name.toLowerCase().startsWith(searchIndustryDropdownValue.current.value.toLowerCase())
-        );
-    });
-  return filtereedIndustryOptions
-}*/
+  
 
   const industryHandleChange = (...args) => {
-    // searchInput.current.querySelector("input").value = "";
+    
     console.log("ARGS:", args);
     SetIndustry(args[1].name);
-    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    
     console.log("CHANGE:");
   };
 
   const otherFirstPrefChangeHandler = (...args) => {
-    // searchInput.current.querySelector("input").value = "";
+    
     console.log("ARGS:", args);
     Setfirst_pref(args[1].name);
-    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+   
     console.log("CHANGE_FIRST_PREF:");
   };
 
   const otherSecondPrefChangeHandler = (...args) => {
-    // searchInput.current.querySelector("input").value = "";
+    
     console.log("ARGS:", args);
     Setsecond_pref(args[1].name);
-    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+   
     console.log("CHANGED_Second_Pref:");
   };
 
   const otherThirdPrefChangeHandler = (...args) => {
-    // searchInput.current.querySelector("input").value = "";
+    
     console.log("ARGS:", args);
     Setthird_pref(args[1].name);
-    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    
     console.log("CHANGE_THIRD_PREF:");
   };
 
@@ -279,13 +246,11 @@ const BeAMentor = () => {
                     <label htmlFor='mobile'>Mobile Number</label>
                     <PhoneInput
                       inputExtraProps={{
-                        //name:'mobile_number'
                         name: 'mobile_number',
                         required: true,
                       }}
                       className='form-control'
                       name="mobile_number"
-                      //name="PhoneNumber"
                       country={'in'}
                       value={mobile_number}
                       onChange={(mobile_number) => Setmobile_number(mobile_number)}
@@ -309,7 +274,7 @@ const BeAMentor = () => {
                               onClick={(e) => {
                                 SetGender(1);
                               }}
-                            // ref = {genderM}
+                            
                             />
                             Male
                           </label>
@@ -344,7 +309,6 @@ const BeAMentor = () => {
                     <input
                       type='text'
                       name='linked_in'
-                      //name='LinkedIn'
                       id='linked_in'
                       required
                       className='form-control'

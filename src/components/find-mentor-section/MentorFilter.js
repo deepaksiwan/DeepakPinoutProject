@@ -23,23 +23,7 @@ const MentorFilter = (props) => {
 
 
 
- /* const handleCheck = (e) => {
-    console.log('e.target.value-->current ',e.target.value);//e.target.value--> Aeronnautics Aerospace & Defense
-    let arr = [...check]
-    console.log('check full ticked array yet-->',check);//[]
-    let clicked = e.target.value
-    let checkfinish = arr.indexOf(clicked)
-
-    if (checkfinish === -1) {
-      arr.push(clicked)
-    } else {
-      arr.splice(checkfinish, 1)
-    } 
-    // if(clicked==='Others'){
-    //   industry(clicked);
-    // }
-    setCheck(arr)
-  }*/
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -52,49 +36,27 @@ const MentorFilter = (props) => {
     e.preventDefault();
     setCheck([]);
     
-    // console.log('values, e.current.prop ->',values, e);
+    
     valuesInputIndustry.current.clearValue();
     valuesInputFirstPref.current.clearValue();
-    // values.current.select.clearValue();
+    
 
   }
 
   
-  // const searchDropdownHandler = (totalOptions) => {
-
-  //   return (searchVal) => {
-  //       if(searchVal === '')
-  //         return totalOptions;
-
-  //       const filteredOptions = totalOptions.filter(
-  //         (val) => {
-  //           return ( 
-  //             val.name.toLowerCase().startsWith(searchVal.toLowerCase())
-  //             );
-  //       });
-  //       return filteredOptions;
-  //   }
-  // }
+  
 
   
   const industryHandleChange = (...args) => {
     console.log('currentOnchange-->',args)
-    // let arr = [...check]
-    // let clicked = e.target.value
+    
     let clicked = args[0]?.length;
-    // console.log(clicked);
+    
     clicked = args[0][clicked-1]?.value;
     console.log('current clicked value',clicked);
-    // let checkfinish = arr.indexOf(clicked)
-  
-    // if (checkfinish === -1) {
-    //   arr.push(clicked)
-    // } else {
-    //   arr.splice(checkfinish, 1)
-    // }
+    
     setCheck((prevState) => {
-      // console.log('clikckedinsetCheckfunction',clicked);
-      // console.log('prevState',prevState);
+     
       let isIndexFound = prevState.indexOf(clicked);
       console.log(isIndexFound);
       if(isIndexFound === -1){
@@ -106,15 +68,10 @@ const MentorFilter = (props) => {
     });
     console.log("CHANGE:");
     console.log('FULL LENGTH ARRAY TO CHECKED',check);
-    // setTimeout(()=>console.log(check), 10000);
-    // searchInput.current.querySelector("input").value = "";
-    // console.log("ARGS:", args);
-    // setIndustry(args[1].name);
-    // console.log('searchIndustryDropdownValue--->',searchIndustryDropdownValue.current);
+    
   };
 
-  // const optionsWithoutOthers = industryOptions.pop();
-  // console.log('Just checking---->',optionsWithoutOthers, industryOptions);
+  
 
   return (
     <form onSubmit={handleSubmit}>
@@ -129,7 +86,7 @@ const MentorFilter = (props) => {
       
 
 <Select
-    // defaultValue={[moreFilterindustryOptions[1], moreFilterindustryOptions[2]]}
+  
     isMulti={true}
     name="industry"
     options={moreFilterindustryOptions.map((e) => {return {value:e.value,label:e.name}})}
@@ -146,7 +103,7 @@ const MentorFilter = (props) => {
         </label>
 
 <Select
-    // defaultValue={[moreFilterindustryOptions[1], moreFilterindustryOptions[2]]}
+    
     isMulti={true}
     name="domain"
     options={moreFilterFirstPrefOptions.map((e) => {return {value:e.value,label:e.name}})}

@@ -11,6 +11,7 @@ export const careerList = () => async (dispatch) => {
     dispatch({ type: CAREER_GET_REQUEST });
     const { data } = await axios.get(
       `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/careers`,
+      
        
     );
     console.log('datacareer pleaseee', data);

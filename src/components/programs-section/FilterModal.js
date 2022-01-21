@@ -17,25 +17,14 @@ const FilterModal = (props) => {
 
   const handleCheck = (e) => {
 
-    // console.log('current action:',e);
-    // let arr = [...check]
-    // console.log(arr);
+    
     let clicked = e.target.value
     console.log('clicked:', clicked);
     console.log('Event Target', e.target);
-    // let checkfinish = arr.indexOf(clicked)
-
-    // if (checkfinish === -1) {
-    //   arr.push(clicked)
-    // } else {
-    //   arr.splice(checkfinish, 1)
-    // }
-    // setCheck(arr)
-    // console.log(check);
+    
 
     setCheck((prevState) => {
-      // console.log('clikckedinsetCheckfunction',clicked);
-      // console.log('prevState',prevState);
+      
       let isIndexFound = prevState.indexOf(clicked);
       console.log(isIndexFound, 'isIndexFound');
       if(isIndexFound === -1){
@@ -60,65 +49,14 @@ const FilterModal = (props) => {
       return prevState;
     })
     dispatch(filterProgram(check))
-    // console.log('checcck',check);
-    // console.log(filterProgram(check))
+    
     props.showFilterModalBtn(false)
   }
-  /*const filteredArray = (clicked) => {
-    setCheck((prevState) => {
-      
-      let isIndexFound = prevState.indexOf(clicked);
-      console.log(isIndexFound, 'isIndexFound');
-      if(isIndexFound === -1){
-        prevState.push(clicked);
-        return prevState;
-      }
-      else{
-        prevState.splice(isIndexFound,1);
-        return prevState;
-      }
-    });
-
-  }
-  const onClear = (e) => {
-    console.log('clicked onClear()');
-    e.preventDefault();
-    setCheck([]);
   
-    console.log('valuefreecourse)', valuefreecourse);
-    valuefreecourse.current.checked = false;
-  }
-
-  const HandleChangevaluefreecourse = (e) => {
-    console.log('e', e);
-
-    let clickedvaluefree = valuefreecourse?.current?.defaultValue;
-    filteredArray(clickedvaluefree);
-    console.log('check', check);
-
-
-  }*/
-
   const setPrice = () => {
     setPriceValue(priceRef.current.value);
   }
 
-
-
-/*    useEffect( () => {
-
-      const identifier = setTimeout(() => {
-        console.log('price change:',priceRef.current.value)
-        let changedPrice = priceRef.current.value
-        console.log(typeof changedPrice)
-        setPriceValue(priceRef.current)
-        
-      }, 500)
-
-      return () => {
-        clearTimeout(identifier);
-      }
-    }, [priceValue])*/
   return (
     <form onSubmit={handleSubmit}>
      <button onClick={showModalHandler} style={{position: 'absolute',right:'15px', top:'20px', border:'none', color:'black'}}> &#10006;</button>
@@ -137,11 +75,11 @@ const FilterModal = (props) => {
               type="checkbox"
               onChange={handleCheck}
               value="Free"
-              // checked={check.includes('Free')}
+             
               id="Free"
             />
             <label className="m-3" htmlFor="Free">Free
-              {/* <h4>Free</h4> */}
+             
             </label>
           </li>
           <li>
@@ -150,12 +88,12 @@ const FilterModal = (props) => {
 
               value="paid"
               onChange={handleCheck}
-              // checked={check.includes('Paid')}
+             
               id="Paid"
             />
 
             <label className="m-3" htmlFor="Paid">Paid
-              {/* <h4>Paid</h4> */}
+              
 
             </label>
           </li>
@@ -165,11 +103,11 @@ const FilterModal = (props) => {
               value="Subscription"
 
               onChange={handleCheck}
-              // checked={check.includes('Subscription')}
+              
               id="Subscription"
             />
             <label className="m-3" htmlFor="Subscription">Subscription
-              {/* <h4>Subscription</h4> */}
+              
             </label>
           </li>
         </div>

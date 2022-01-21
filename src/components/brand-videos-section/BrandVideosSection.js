@@ -9,6 +9,7 @@ const BrandVideosSection = () => {
   const websiteContentList = useSelector((state) => state.websiteContentList);
 
   const { websiteContent } = websiteContentList;
+  console.log('inbrandVideo section',websiteContent)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,7 +18,7 @@ const BrandVideosSection = () => {
 
   const opts = {
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
+      
       autoplay: 0,
       origin: 'https://localhost:8100',
     },

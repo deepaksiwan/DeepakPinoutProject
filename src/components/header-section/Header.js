@@ -1,5 +1,5 @@
 import React from 'react';
-import Facilities from './Facilities';
+//import Facilities from './Facilities';
 import MyNavbar from './MyNavbar';
 import Showcase from './Showcase';
 

@@ -32,7 +32,6 @@ const MentorCard = ({
           ) : (
             <img
               style={{ objectFit: 'cover', objectPosition: 'top' }}
-              // eslint-disable-next-line no-useless-concat
               src={`${final['REACT_APP_S3STORAGE_URL_PINS']}/${img}`}
               alt=""
             />

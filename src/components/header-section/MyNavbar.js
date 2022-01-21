@@ -12,11 +12,7 @@ const MyNavbar = () => {
     setShowModal(bool)
   }
 
-  const clickHandler = () => {
-    localStorage.setItem('userInfo', null)
-    console.log('Clicked')
-    window.location.reload()
-  }
+ 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3 align-items-center">
@@ -96,12 +92,6 @@ const MyNavbar = () => {
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu>
-                            {/*<Dropdown.Item href="#/action-2">
-                              Manoj
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">
-                              manojchinnaiyan@gmail.com
-                          </Dropdown.Item>*/}
                             <Link
                               to="#"
                               onClick={() => {

@@ -23,13 +23,11 @@ const MentorProfile = (props) => {
   const {
     user,
     userDetail,
-    user_achievement,
     user_experience,
-    user_testimonial,
-    menteerating,
+    mentor,
   } = mentorDetail;
 
- // console.log(mentorDetail);
+ 
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -84,20 +82,7 @@ const MentorProfile = (props) => {
                 </div>
                 <div className='book-sec mb-4 px-md-0 px-3'>
                   <div className='row'>
-                   {/*} <div className='col-6'>
-                      <div className='row me-1'>
-                        <button
-                          onClick={() => {
-                            if (loggedIn === null) {
-                              setShowModal(true);
-                            }
-                          }}
-                          className='btn btn-primary'
-                        >
-                          Book Chat
-                        </button>
-                      </div>
-                        </div>*/}
+                   
                         <div className='col-12 '>
                       <div className='ms-2 row'>
                         <button
@@ -114,23 +99,7 @@ const MentorProfile = (props) => {
                     </div>
                   </div>
                 </div>
-                {/*<div className='rating-sec px-3 mb-md-0 mb-4'>
-                  <div className='d-flex align-items-center'>
-                    <div className=''>
-                      <h3 className='display-4 mb-0'>4.5</h3>
-                    </div>
-                    <div className='ms-4'>
-                      <p className='d-flex mb-0'>
-                        <i className='fas fa-star'></i>
-                        <i className='fas fa-star'></i>
-                        <i className='fas fa-star'></i>
-                        <i className='fas fa-star'></i>
-                        <i className='far fa-star'></i>
-                      </p>
-                      <span>(200 reviews)</span>
-                    </div>
-                  </div>
-                  </div>*/}
+               
                 <div className='row showcase-cards mt-md-4 px-md-0 px-3'>
                   <div className='col-lg-6 col-md-12 col-6 ps-0'>
                     <div
@@ -150,7 +119,9 @@ const MentorProfile = (props) => {
                         <div className='ms-2'>
                           <p className='mb-0'>Mentor Me</p>
                           <h5 className='mb-0'>For 3 Months</h5>
-                          <p className='mb-0 font-lg'>Rs 10000/-</p>
+                          Rs{' '}
+                          <p className='mb-0 font-lg'>{mentor?.mentor_cost} </p>
+                         
                         </div>
                       </div>
                       <div className='showcase-card-bottom text-center'>
@@ -172,7 +143,9 @@ const MentorProfile = (props) => {
                         <div className='ms-2'>
                           <p className='mb-0'>Mentor Me</p>
                           <h5 className='mb-0'>For 3 Months</h5>
-                          <p className='mb-0 font-lg'>Rs 10000/-</p>
+                          Rs{' '}
+                          <p className='mb-0 font-lg'>{mentor?.mentor_cost} </p>
+                          {/*<p className='mb-0 font-lg'>Rs 10000/-</p>*/}
                         </div>
                       </div>
                       <div className='showcase-card-bottom text-center'>
