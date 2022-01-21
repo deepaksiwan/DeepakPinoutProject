@@ -13,8 +13,8 @@ const Blog = (props) => {
           <span className='text-uppercase'>{props.span}</span>
           <img
             src={
-              `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/uploaded-images/` +
-              props.img
+              `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/` + props.img
+              
             }
             alt=''
           />

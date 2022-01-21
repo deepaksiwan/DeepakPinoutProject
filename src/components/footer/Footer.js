@@ -21,17 +21,16 @@ const Footer = () => {
       return;
     }
    dispatch(listFooter({ email: newsletterEmail }));
-  //  dispatch(listFooter({ email: validateEmail }));
     SetNewsletterText('Done');
     SetNewsletterEmail('');
     popOnSuccessfullySubmission();
-    // SetvalidateEmail('');
+    
   };
-  // eslint-disable-next-line no-lone-blocks
+  
 
   const [emailError, setEmailError] = useState('Valid Email :)')
   const validateEmailForValidation = (e) => {
-    // var email = e.target.value
+    
     if (isEmail(e)) {
       setEmailError('Valid Email :)')
       return true;
@@ -69,10 +68,10 @@ const Footer = () => {
                       email='email'
                       required
                       pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"
-                      // value={newsletterEmail}
+                     
                       value={newsletterEmail}
                       onChange={(e) => SetNewsletterEmail(e.target.value)}
-                     // onChange={(e) => SetvalidateEmai(e.target.value)}
+                     
                       className='form-control'
                       placeholder='Enter Your Email Here...'
                     />
@@ -88,7 +87,7 @@ const Footer = () => {
                     type='submit'
                     value={newsletterText}
                     className={'btn'}
-                    //onClick={popOnSuccessfullySubmission}
+                   
                   />
                 </div>
               </div>

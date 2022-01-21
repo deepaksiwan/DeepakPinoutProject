@@ -27,6 +27,7 @@ const SingleBlog = ({ match }) => {
       <div className='section-1'>
         <img
           src={
+            
             'https://www.test.pinsoutinnovation.com/uploaded-images/' +
             blogsDetail?.data?.blog_bg
           }

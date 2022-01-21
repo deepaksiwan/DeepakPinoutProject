@@ -23,7 +23,7 @@ const AsACampus = () => {
   const [designation, SetDesignation] = useState('');
 
   const handleSubmit = () => {
-    //debugger;
+    
     dispatch(
       asCampus({name, email, phone, orgName, message, address, designation})
     );
