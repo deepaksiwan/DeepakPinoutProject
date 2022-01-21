@@ -10,6 +10,7 @@ import Footer from './footer/Footer';
 import MyNavbar from './header-section/MyNavbar';
 
 const MentorProfile = (props) => {
+  // console.log('props in MentorProfile', props);
   const [showModal, setShowModal] = useState(false);
   const loggedIn = JSON.parse(localStorage.getItem('userInfo'));
 
@@ -20,6 +21,7 @@ const MentorProfile = (props) => {
   const dispatch = useDispatch();
   const mentorDetails = useSelector((state) => state.mentorDetailsList);
   const { mentorDetail } = mentorDetails;
+  console.log('mentorDetail check Just Check🎉🎉🎉🎉', mentorDetail);
   const {
     user,
     userDetail,
@@ -34,7 +36,10 @@ const MentorProfile = (props) => {
   useEffect(() => {
     window.scroll(0, 0);
     dispatch(listMentorDetails(props.match.params.id));
-  }, [dispatch, props.match]);
+  }, [dispatch, props.match.params.id]);
+
+  const profile_img = user?.profile_image || ``
+
 
   return (
     <div className='mentor-profile'>
@@ -59,7 +64,7 @@ const MentorProfile = (props) => {
                         height: '100%',
                         width: '100%',
                       }}
-                      src={user?.profile_image}
+                      src={profile_img}
                       className='img-fluid'
                       alt=''
                     />

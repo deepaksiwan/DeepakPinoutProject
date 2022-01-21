@@ -30,7 +30,6 @@ const Showcase = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listWebsiteContent());
-    console.log('websiteContentInShowcase', websiteContent);
   }, []);
 
   const [showModal, setShowModal] = useState(false);
@@ -183,7 +182,7 @@ const Showcase = () => {
               </Swiper>
             </div>
           </div>
-          <div className='d-md-none d-block py-3 px-5'>
+          {/* <div className='d-md-none d-block py-3 px-5'>
             <Swiper
               effect={'fade'}
               spaceBetween={30}
@@ -239,7 +238,7 @@ const Showcase = () => {
                 </Link>
               </SwiperSlide>
             </Swiper>
-          </div>
+          </div> */}
         </div>
       </div>
 

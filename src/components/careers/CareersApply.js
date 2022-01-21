@@ -4,19 +4,11 @@ import Axios from 'axios'
 import final from '../../config'
 
 const CareersApply = (props) => {
-  // console.log('props on Apply Modal', props);
   let history = useHistory()
   const [currentResume, setCurrentResume] = useState(``)
-  //   const dispatch = useDispatch()
   const showModalHandler = () => {
     props.showApplyModalHandler(false)
   }
-  //   const formSubmit = (e) => {
-  //     e.preventDefault()
-  //     dispatch(
-  //       addApplicant({ id: props.id, resume: currentResume, domain: props.name })
-  //     )
-  //   }
   const handleRoute = () => {
     history.push('/careers')
   }
@@ -60,11 +52,8 @@ const CareersApply = (props) => {
     const formData = new FormData()
 
     formData.append('AppliedJOBID', props.id)
-    // console.log('formDataatfirst', props.id);
     formData.append('AppliedDomain', props.name)
     formData.append('CandidateResume', currentResume)
-    console.log(props.id, props.name, currentResume)
-    console.log('formDattaAfter', formData)
     submitForm('multipart/form-data', formData, (msg) => console.log(msg))
   }
 

@@ -10,20 +10,9 @@ import CareersApply from './CareersApply'
 import SignUpModal from '../join-mentokart/SignUpModal'
 
 const Careers = () => {
-  // const [showApplyModal, setShowApplyModal] = useState(false)
-  // const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch()
   const careersList = useSelector((state) => state.careerList)
   const { career } = careersList
-  console.log('careerListAns', career)
-  // const [search, setSearch] = useState('')
-  // const showModalBtn = (bool) => {
-  //   setShowModal(bool)
-  // }
-
-  // const showApplyModalHandler = (bool) => {
-  //   setShowApplyModal(bool)
-  // }
 
   useEffect(() => {
     window.scrollTo(0, 0)

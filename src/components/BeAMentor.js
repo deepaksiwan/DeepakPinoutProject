@@ -10,6 +10,7 @@ import SelectSearch from 'react-select-search';
 import { industryOptions } from './data/industryOptions';
 import { firstPrefOptions } from './data/firstPrefOptions';
 import "react-select-search/style.css";
+import { dataCountry } from './../CountryByPhoneInput'
 // import { ToastBody } from 'react-bootstrap';
 // import { toast } from 'react-toastify'
 // import { useRef } from "react";
@@ -70,11 +71,29 @@ const BeAMentor = () => {
   //submit KRNEY pr saarey IMPUT INITIAL STATE MEIN LAANEY HAI!!
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // let mobileArray = [];
+    // let num = 10;
+    // let atLastIndex = mobile_number.length;
+    // while(num--){
+    //   mobileArray.unshift(mobile_number[atLastIndex])
+    //   atLastIndex--;
+    // }
+    // let finalMobileNumber = mobileArray.join('');
+    // console.log('finalMobileNumber', finalMobileNumber, );
+    let finalPhoneString = '+' + mobile_number;
+    console.log(finalPhoneString);
+    console.log('dataCountry["countries"]',dataCountry["countries"], finalPhoneString);
+    const found = dataCountry["countries"].find(e => finalPhoneString.startsWith(e["code"]));
+    console.log(found["name"]);
+    let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
+    console.log(finalUserPhoneNumber);
+
     dispatch(
       beMentor({
         full_name: full_name,
         email: email,
-        mobile_number: mobile_number,
+        mobile_number: finalUserPhoneNumber,
         gender: gender === 1 ? 'Male' : 'Female',
         linked_in: linked_in,
         dob: dob,

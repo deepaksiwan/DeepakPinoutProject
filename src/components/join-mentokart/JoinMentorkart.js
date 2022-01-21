@@ -27,7 +27,6 @@ const JoinMentorkart = () => {
   const websiteContentList = useSelector((state) => state.websiteContentList)
 
   const { advertisements } = advertisementsList
-  // console.log('advertisements',advertisements)
 
   const { websiteContent } = websiteContentList
 
@@ -42,7 +41,6 @@ const JoinMentorkart = () => {
     setShowModal(bool)
   }
 
-  // console.log(advertisements);
 
   return (
     <div className="join-mentorkart">
@@ -97,7 +95,7 @@ const JoinMentorkart = () => {
             </div>
           </div>
         </div>
-
+        {console.log('advertisementsssss',advertisements)}
         {advertisements.length && (
           <div className="ad-cards pb-5 pt-4 align-items-center text-center">
             <Swiper
@@ -129,8 +127,9 @@ const JoinMentorkart = () => {
                       >
                         <img
                           src={
-                            `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/`+
-                            ad.ad_image
+                            `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/`+ad.ad_image
+
+                      
                           }
                           alt=""
                         />

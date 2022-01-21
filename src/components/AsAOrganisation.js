@@ -6,11 +6,13 @@ import { useDispatch } from 'react-redux';
 
 import Footer from './footer/Footer';
 import MyNavbar from './header-section/MyNavbar';
+import { dataCountry } from '../CountryByPhoneInput';
 
 const AsAOrganisation = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo();
+    dispatch();
   });
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
@@ -21,11 +23,16 @@ const AsAOrganisation = () => {
   const [address, SetAddress] = useState('');
 
   const handleSubmit = () => {
+
+    let finalPhoneString = '+' + phone;
+    const found = dataCountry["countries"].find(e => finalPhoneString.startsWith(e["code"]));
+    let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
+
     dispatch(
       asOrganisation({
         name,
         email,
-        phone,
+        phone: finalUserPhoneNumber,
         orgName,
         message,
         address,

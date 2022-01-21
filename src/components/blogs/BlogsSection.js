@@ -20,7 +20,7 @@ const BlogsSection = () => {
     dispatch(listWebsiteContent());
   }, [dispatch]);
 
-  // console.log(websiteContent[0]?.data[0]);
+  // console.log('blogsssss in blogsection', blogs);
 
   return (
     <div className='blogs-section pb-5'>

@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { asCampus } from '../redux/actions/asCampusActions';
+import { dataCountry } from '../CountryByPhoneInput';
+import { listWebsiteContent } from '../redux/actions/websiteContentActions';
 
 import Footer from './footer/Footer';
 import MyNavbar from './header-section/MyNavbar';
 
 const AsACampus = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
 
   const dispatch = useDispatch();
+  const websitesContent = useSelector((state) => state.websiteContentList)
+  const { websiteContent, loading } = websitesContent;
+  console.log(websiteContent);
+  const dynamicData = websiteContent[0]?.data;
+  console.log(dynamicData);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(listWebsiteContent())
+  }, [dispatch]);
+
   const [name, SetName] = useState('');
   const [email, SetEmail] = useState('');
-  const [phone, SetPhone] = useState(0);
+  const [phone, SetPhone] = useState();
   const [orgName, SetOrgName] = useState('');
   const [message, SetMessage] = useState('');
   const [address, SetAddress] = useState('');
@@ -24,9 +33,26 @@ const AsACampus = () => {
 
   const handleSubmit = () => {
     //debugger;
+
+    let finalPhoneString = '+' + phone;
+    console.log(finalPhoneString);
+    console.log('dataCountry["countries"]',dataCountry["countries"], finalPhoneString);
+    const found = dataCountry["countries"].find(e => finalPhoneString.startsWith(e["code"]));
+    console.log(found["name"]);
+    let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
+    console.log(finalUserPhoneNumber);
+
     dispatch(
-      asCampus({name, email, phone, orgName, message, address, designation})
+      asCampus({name, email, phone:finalUserPhoneNumber, orgName, message, address, designation})
     );
+
+    SetName('')
+    SetEmail('')
+    SetPhone()
+    SetOrgName('')
+    SetMessage('')
+    SetAddress('')
+    SetDesignation('')
   };
 
   return (
@@ -50,14 +76,13 @@ const AsACampus = () => {
             <div className='row mx-xxl-5'>
               <div className='col-lg-5'>
                 <div className='organisation-left'>
-                  <span>Campus</span>
-                  <h1>Lorem ipsum sit.</h1>
+                  <span>{websiteContent[0]?.data[34]?.field_data}</span>
+                  <h1>{websiteContent[0]?.data[35]?.field_data}</h1>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  {websiteContent[0]?.data[36]?.field_data}
                   </p>
                   <p className='sec'>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Enim laudantium non totam quas, quaerat voluptatum minima.
+                  {websiteContent[0]?.data[37]?.field_data}
                   </p>
                 </div>
               </div>

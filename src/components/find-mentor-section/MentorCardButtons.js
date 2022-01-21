@@ -5,6 +5,7 @@ import SignInModal from '../join-mentokart/SignUpModal';
 Modal.setAppElement('#root');
 
 const MentorCardButtons = (props) => {
+  // console.log('😁😁😁😁Just checking Props in Mentor card Buttons', props);
   const loggedIn = JSON.parse(localStorage.getItem('userInfo'));
 
   const [showModal, setShowModal] = useState(false);

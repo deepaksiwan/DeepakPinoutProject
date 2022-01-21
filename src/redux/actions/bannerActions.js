@@ -13,6 +13,8 @@ export const listBanner = () => async (dispatch) => {
       `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/banners`,
     
     );
+
+    console.log()
     dispatch({
       type: BANNER_GET_SUCCESS,
       payload: [data],

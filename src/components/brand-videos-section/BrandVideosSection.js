@@ -33,11 +33,11 @@ const BrandVideosSection = () => {
         <div className='content'>
           <div className='row align-items-center py-4'>
             <div className='col-lg-6'>
-              <h1>{websiteContent[0]?.data[30].field_data}</h1>
-              <p>{websiteContent[0]?.data[32].field_data}</p>
+              <h1>{websiteContent[0]?.data[38].field_data}</h1>
+              <p>{websiteContent[0]?.data[40].field_data}</p>
 
               <p className='mb-lg-0 mb-4'>
-                <strong>{websiteContent[0]?.data[32].field_data}</strong>
+                <strong>{websiteContent[0]?.data[40].field_data}</strong>
 
               </p>
             </div>
@@ -69,10 +69,10 @@ const BrandVideosSection = () => {
               </div>
             </div>
             <div className='col-lg-6 order-lg-12'>
-              <h1>{websiteContent[0]?.data[33].field_data}</h1>
-              <p>{websiteContent[0]?.data[34].field_data}</p>
+              <h1>{websiteContent[0]?.data[41].field_data}</h1>
+              <p>{websiteContent[0]?.data[42].field_data}</p>
               <p className='mb-lg-0 mb-4'>
-                <strong>{websiteContent[0]?.data[35].field_data}</strong>
+                <strong>{websiteContent[0]?.data[43].field_data}</strong>
               </p>
             </div>
           </div>

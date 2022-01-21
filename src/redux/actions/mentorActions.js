@@ -240,6 +240,8 @@ export const listMentorDetails = (id) => async (dispatch) => {
       `${final['REACT_APP_SYSTEM_SERVER_URL_PINS']}/api/sso-mentor/${id}`
       
     );
+
+    // console.log('mentorProfileeeeeeee', data);
     const fil = data.data;
 
     dispatch({

@@ -12,7 +12,6 @@ export const listWebsiteContent = () => async (dispatch) => {
     const { data } = await axios.get(
       `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/websitecontents`
     )
-    console.log('website showcase data:-->line14',data);
     dispatch({
       type: WEBSITE_CONTENT_GET_SUCCESS,
       payload: [data]

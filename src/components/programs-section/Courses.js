@@ -129,8 +129,7 @@ const Courses = () => {
                         ) : (
                           <img
                             src={
-                              `${final['REACT_APP_S3STORAGE_URL_PINS']}` +
-                              course.icon_url
+                              `${final['REACT_APP_S3STORAGE_URL_PINS']}/${course.icon_url}`
                             }
                             alt=""
                           />

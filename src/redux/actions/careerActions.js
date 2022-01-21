@@ -13,7 +13,6 @@ export const careerList = () => async (dispatch) => {
       `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/careers`,
        
     );
-    console.log('datacareer pleaseee', data);
 
     dispatch({
       type: CAREER_GET_SUCCESS,

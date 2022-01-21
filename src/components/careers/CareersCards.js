@@ -6,7 +6,6 @@ import SignUpModal from '../join-mentokart/SignUpModal'
 import final from '../../config'
 
 const CareersCards = (props) => {
-console.log('careerCards',props)
   const loggedIn = JSON.parse(localStorage.getItem('userInfo'))
   const [showModal, setShowModal] = useState(false)
   const [showApplyNowModal, setShowApplyNowModal] = useState(false)
