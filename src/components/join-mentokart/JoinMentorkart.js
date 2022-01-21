@@ -23,13 +23,14 @@ Modal.setAppElement('#root')
 const JoinMentorkart = () => {
   const [showModal, setShowModal] = useState(false)
   const advertisementsList = useSelector((state) => state.advertisementsList)
-  // console.log(advertisements)
+  
   const websiteContentList = useSelector((state) => state.websiteContentList)
 
   const { advertisements } = advertisementsList
 
-  const { websiteContent } = websiteContentList
 
+  const { websiteContent } = websiteContentList
+ 
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const JoinMentorkart = () => {
   const showModalBtn = (bool) => {
     setShowModal(bool)
   }
+
 
 
   return (
@@ -95,9 +97,10 @@ const JoinMentorkart = () => {
             </div>
           </div>
         </div>
-        {console.log('advertisementsssss',advertisements)}
+
         {advertisements.length && (
           <div className="ad-cards pb-5 pt-4 align-items-center text-center">
+            
             <Swiper
               spaceBetween={50}
               slidesPerView={1}
@@ -129,7 +132,6 @@ const JoinMentorkart = () => {
                           src={
                             `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/uploaded-images/`+ad.ad_image
 
-                      
                           }
                           alt=""
                         />

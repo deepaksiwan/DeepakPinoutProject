@@ -32,7 +32,7 @@ const AsACampus = () => {
   const [designation, SetDesignation] = useState('');
 
   const handleSubmit = () => {
-    //debugger;
+
 
     let finalPhoneString = '+' + phone;
     console.log(finalPhoneString);

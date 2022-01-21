@@ -23,6 +23,7 @@ import { websiteContent } from './websiteContentReducer';
 import { advertisements } from './advertisementsReducer';
 import { career } from './careerReducer';
 import { asApplicant } from './appplicantsReducer';
+import { showcase } from './showcaseimage';
 
 export default combineReducers({
   mentorList: mentor,
@@ -45,5 +46,6 @@ export default combineReducers({
   websiteContentList: websiteContent,
   advertisementsList: advertisements,
   careerList: career,
-  applicantList: asApplicant
+  applicantList: asApplicant,
+  showcaseList: showcase
 });

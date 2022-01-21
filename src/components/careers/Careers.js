@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
-// import { Dispatch } from 'react';
+import React, { useEffect, } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../footer/Footer'
 import MyNavbar from '../header-section/MyNavbar'
-import Modal from 'react-modal'
+
 import CareersCards from './CareersCards'
 import { careerList } from '../../redux/actions/careerActions'
-import CareersApply from './CareersApply'
-import SignUpModal from '../join-mentokart/SignUpModal'
 
 const Careers = () => {
+
   const dispatch = useDispatch()
   const careersList = useSelector((state) => state.careerList)
   const { career } = careersList
+
 
   useEffect(() => {
     window.scrollTo(0, 0)

@@ -13,7 +13,6 @@ import Modal from 'react-modal';
 import Parser from 'react-html-parser';
 
 import SignUpModal from '../join-mentokart/SignUpModal';
-import PackagesModal from './PackagesModal';
 import PackageFilter from './PackageFilter'
 import final from '../../config';
 
@@ -23,12 +22,12 @@ const Packages = () => {
   const showModalBtn = (bool) => {
     setShowModal(bool);
   };
-  const [showPackagesModal, setShowPackagesModal] = useState(false);
-  const showPackagesModalBtn = (bool) => {
+  const [ setShowPackagesModal] = useState(false);
+  {/*const showPackagesModalBtn = (bool) => {
     setShowPackagesModal(bool);
-  };
+  };*/}
  
-  //State Management for Modal of filter-packages ---> MORE FILTERS
+ 
   const [packageFilter, setpackageFilter] = useState(false);
   const packageFilterBtn = (bool) => {
     setpackageFilter(bool)
@@ -40,7 +39,7 @@ const Packages = () => {
 
   const [sort, setSort] = useState('');
   const [search, setSearch] = useState('');
-  const [filterset, setFilter] = useState(packages);
+  const [ setFilter] = useState(packages);
 
   const handleCLick = (value) => () => {
     setSort(value);
@@ -255,26 +254,7 @@ const Packages = () => {
         <SignUpModal showModalBtn={showModalBtn} />
       </Modal>
 
-      {/* <Modal
-        id='packages-modal'
-        isOpen={showPackagesModal}
-        onRequestClose={() => setShowPackagesModal(false)}
-
-        style={{
-          overlay: {
-            zIndex: '5000',
-          },
-          content: {
-            maxWidth: '1100px',
-            margin: 'auto',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: '15px',
-          },
-        }}
-      >
-        <PackagesModal showPackagesModalBtn={showPackagesModalBtn} />
-      </Modal> */}
+      
 
       <Footer />
     </div>

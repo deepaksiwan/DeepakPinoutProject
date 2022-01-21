@@ -3,19 +3,19 @@ import SignUpModal from '../join-mentokart/SignUpModal';
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-
 import { useDispatch, useSelector } from 'react-redux';
+import { listshowcase } from '../../redux/actions/showcase';
 import { listWebsiteContent } from '../../redux/actions/websiteContentActions';
 
 // import Swiper core and required modules
 import SwiperCore, { EffectFade, A11y, Autoplay } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/effect-fade/effect-fade.scss';
+import ShowcaseImage from './ShowcaseImage';
 
 // install Swiper modules
 SwiperCore.use([EffectFade, A11y, Autoplay]);
@@ -25,12 +25,17 @@ const Showcase = () => {
 
   const dispatch = useDispatch();
   const websiteContentList = useSelector((state) => state.websiteContentList);
-  const { websiteContent, loading } = websiteContentList;
+  const showcaseList = useSelector((state) => state.showcaseList);
+  const { websiteContent } = websiteContentList;
+  const { showcase } = showcaseList;
 
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(listWebsiteContent());
-  }, []);
+
+    dispatch(listshowcase());
+  }, [dispatch]);
+
 
   const [showModal, setShowModal] = useState(false);
 
@@ -72,11 +77,9 @@ const Showcase = () => {
         <div className='row'>
           <div className='col-md-6 left d-flex flex-column justify-content-center'>
             <p className='showcase-para mb-0 mt-md-0 mt-4'>
-              {!loading &&
-               ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)}
-              {/* {'websiteContent:',console.log(websiteContent)} */}
-              {/* {ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)} */}
-              {loading && `Hey There, Welcome!!!`}
+              {ReactHtmlParser(websiteContent[0]?.data[1]?.field_data)}
+
+              {`Hey There, Welcome!!!`}
             </p>
             <h1 className='showcase-heading mt-md-3 mb-md-5 mt-3 mb-4'>
               {websiteContent[0]?.data[0]?.field_data}
@@ -122,7 +125,7 @@ const Showcase = () => {
             </div>
           </div>
 
-          {/*CHECK: why 2 sliders????????????????????*/}
+
           <div className='col-md-6 right d-md-block d-none'>
             <div className='right-img container'>
               <Swiper
@@ -134,170 +137,29 @@ const Showcase = () => {
                   // when window width is >= 0px
                   0: {
                     slidesPerView: 1,
-                  },
+                  }
+                  // when window width is >= 1000px
                 }}
               >
-                <SwiperSlide>
-                  <Link
-                    to={{
-                      pathname: 'https://app.mentorkart.com',
-                    }}
-                    target='_blank'
-                  >
-                    <img
-                      className='fluid-img'
-                      src='/images/showcase-right.jpg'
-                      alt=''
-                    />
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Link
-                    to={{
-                      pathname: 'https://app.mentorkart.com',
-                    }}
-                    target='_blank'
-                  >
-                    <img
-                      className='fluid-img'
-                      src='/images/showcase-right-1.jpg'
-                      alt=''
-                    />
-                  </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Link
-                    to={{
-                      pathname: 'https://app.mentorkart.com',
-                    }}
-                    target='_blank'
-                  >
-                    <img
-                      className='fluid-img'
-                      src='/images/showcase-right-2.jpg'
-                      alt=''
-                    />
-                  </Link>
-                </SwiperSlide>
+                {showcase[0]?.data?.map((x, index) => {
+                  return (
+                    <SwiperSlide key={index}>
+                      <ShowcaseImage image={x.image} />
+                    </SwiperSlide>
+                  );
+                })}
               </Swiper>
+
             </div>
           </div>
-          {/* <div className='d-md-none d-block py-3 px-5'>
-            <Swiper
-              effect={'fade'}
-              spaceBetween={30}
-              slidesPerView={1}
-              autoplay={{ autoplay: true, delay: 10000 }}
-              breakpoints={{
-                // when window width is >= 0px
-                0: {
-                  slidesPerView: 1,
-                },
-              }}
-            >
-              <SwiperSlide>
-                <Link
-                  to={{
-                    pathname:'https://app.mentorkart.com',
-                  }}
-                  target='_blank'
-                >
-                  <img
-                    className='img-fluid'
-                    src='/images/showcase-right.jpg'
-                    alt=''
-                  />
-                </Link>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Link
-                  to={{
-                    pathname: 'https://app.mentorkart.com',
-                  }}
-                  target='_blank'
-                >
-                  <img
-                    className='img-fluid'
-                    src='/images/showcase-right-1.jpg'
-                    alt=''
-                  />
-                </Link>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Link
-                  to={{
-                    pathname: 'https://app.mentorkart.com',
-                  }}
-                  target='_blank'
-                >
-                  <img
-                    className='img-fluid'
-                    src='/images/showcase-right-2.jpg'
-                    alt=''
-                  />
-                </Link>
-              </SwiperSlide>
-            </Swiper>
-          </div> */}
+
         </div>
       </div>
-
-     {/* <div className='showcase-links d-xxl-block d-none'>
-        <ul className='navbar-nav d-flex flex-column justify-content-center align-items-center'>
-          <li className='nav-item'>
-            <a
-              className='nav-link social-nav-link'
-              rel='noreferrer'
-              target='_blank'
-              href='https://www.facebook.com/mentorkart/'
-            >
-              <i className='fab fa-facebook'></i>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a
-              className='nav-link social-nav-link'
-              rel='noreferrer'
-              target='_blank'
-              href='https://twitter.com/mentor_kart'
-            >
-              <i className='fab fa-twitter'></i>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a
-              className='nav-link social-nav-link'
-              rel='noreferrer'
-              target='_blank'
-              href='https://www.linkedin.com/company/mentorkart/'
-            >
-              <i className='fab fa-linkedin social-icons'></i>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a
-              className='nav-link social-nav-link'
-              rel='noreferrer'
-              target='_blank'
-              href='https://www.youtube.com/channel/UCI3bjjLPNzth2RrSyQo8acw'
-            >
-              <i className='fab fa-youtube social-icons'></i>
-            </a>
-          </li>
-          <li className='nav-item'>
-            <a
-              className='nav-link social-nav-link'
-              rel='noreferrer'
-              target='_blank'
-              href=''
-            >
-              <i className='fab fa-instagram social-icons'></i>
-            </a>
-          </li>
-        </ul>
-                </div>*/}
     </div>
+
+
   );
 };
 
 export default Showcase;
+

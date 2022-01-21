@@ -12,6 +12,7 @@ const BlogsSection = () => {
   const websiteContentList = useSelector((state) => state.websiteContentList);
 
   const { blogs } = blogsSection;
+  console.log('blogssss', blogs)
   const { websiteContent } = websiteContentList;
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const BlogsSection = () => {
     dispatch(listWebsiteContent());
   }, [dispatch]);
 
-  // console.log('blogsssss in blogsection', blogs);
+
 
   return (
     <div className='blogs-section pb-5'>

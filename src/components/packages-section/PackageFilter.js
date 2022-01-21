@@ -20,11 +20,11 @@ const PackageFilter = (props) => {
     console.log('clicked onClear()');
     e.preventDefault();
     setCheck([]);
-    console.log('valueCheckedInterview)',valueCheckedInterview);
+    //console.log('valueCheckedInterview)',valueCheckedInterview);
     valuesInputIndustry.current.clearValue();
     valueCheckedJob.current.checked = false;
     valueCheckedInterview.current.checked = false;
-    console.log('valueCheckedJob.current',valueCheckedJob.current);
+   // console.log('valueCheckedJob.current',valueCheckedJob.current);
     valueCheckedInternship.current.checked = false;
     threeMonthDuration.current.checked = false;
     sixMonthDuration.current.checked = false;
@@ -82,14 +82,14 @@ const PackageFilter = (props) => {
       return prevState;
 
     })
-    console.log('removing from final array filters', args);
+   // console.log('removing from final array filters', args);
   }
-    console.log("CHANGE:");
-    console.log('FULL LENGTH ARRAY TO CHECKED',check);
+   // console.log("CHANGE:");
+   // console.log('FULL LENGTH ARRAY TO CHECKED',check);
     
   };
   const durationHandleChangeThreeMonths = () => {
-    console.log('3month',threeMonthDuration.current.checked);
+    //console.log('3month',threeMonthDuration.current.checked);
     let clickedThreeValue = threeMonthDuration?.current?.defaultValue;
     filteredArray(clickedThreeValue);
     console.log('check', check);
@@ -137,7 +137,7 @@ const PackageFilter = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* <button onClick={showModalHandler}><span>&#10060;</span></button> */}
+     
       <button onClick={showModalHandler} style={{position: 'absolute',right:'10px', top:'25px', border:'none', color:'#f07867'}}>&#10006; </button>
       <h4>Duration</h4>
       <ul>

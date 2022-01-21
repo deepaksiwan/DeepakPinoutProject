@@ -16,6 +16,7 @@ export const listBlogs = () => async (dispatch) => {
       `${final['REACT_APP_WEBSITE_SERVER_URL_PINS']}/blogs`,
     
     );
+    console.log('blllooogs data in redux', data)
 
     dispatch({
       type: BLOGS_GET_SUCCESS,

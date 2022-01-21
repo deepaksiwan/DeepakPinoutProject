@@ -35,7 +35,8 @@ const PartnersSection = () => {
         <h1>{websiteContent[0]?.data[20]?.field_data}</h1>
         <div className='partners-images pt-3'>
           <Swiper
-            spaceBetween={0}
+            
+            spaceBetween={30}
             slidesPerView={1}
             autoplay={{ autoplay: true, delay: 10000 }}
             breakpoints={{

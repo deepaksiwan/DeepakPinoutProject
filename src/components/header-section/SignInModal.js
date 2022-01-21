@@ -3,7 +3,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import PasswordStrengthBar from 'react-password-strength-bar'
 import OtpInput from 'react-otp-input'
-import { useHistory } from 'react-router-dom'
+
 import { toast } from 'react-toastify'
 import { resend } from '../../redux/actions/loginActions'
 import { signIn } from '../../redux/actions/loginActions'
@@ -14,7 +14,7 @@ import { dataCountry } from '../../CountryByPhoneInput'
 
 const SignInModal = (props) => {
   const [show, setShow] = useState(false)
-  const history = useHistory()
+ 
   const dispatch = useDispatch()
   const loginDetails = useSelector((state) => state.loginDetails)
   const { login, error } = loginDetails
@@ -23,9 +23,9 @@ const SignInModal = (props) => {
   const otpDetails = useSelector((state) => state.otpDetails)
   const { otpverify, errr } = otpDetails
   const token = signup?.credentials?.token
-  // console.log(token);
+  
   const [btnEnabled, setBtnEnabled] = useState(false)
-  const [btnClass, setBtnClass] = useState('disabled')
+  const [ setBtnClass] = useState('disabled')
   const [email, SetEmail] = useState('')
   const [phone, SetPhone] = useState('')
   const [password, SetPassword] = useState('')
@@ -35,13 +35,12 @@ const SignInModal = (props) => {
   const [showOtp, setshowOtp] = useState(false)
   const [otp, setOtp] = useState('')
   const [user, setUser] = useState('')
-  const [isDisabled, SetIsDisabled] = useState(true)
+  
 
   const [SignInEmail, SetSignInEmail] = useState('')
   const [SignInPassword, SetSignInPassword] = useState('')
 
-  const [signup_alert, SetSignupAlert] = useState(false)
-  const [signin_alert, SetSigninAlert] = useState(false)
+  
 
   const [showSignUp, setShowSignUp] = useState(false)
   const [showSignIn, setShowSignIn] = useState(true)
@@ -113,7 +112,7 @@ const SignInModal = (props) => {
     console.log(found["name"]);
     let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
     console.log(finalUserPhoneNumber);
-    // console.log('phone manipulation', phone.slice(2,12), phone);
+    
     console.log(found["code"],found["name"], finalUserPhoneNumber);
     dispatch(
       signUp({
@@ -145,7 +144,6 @@ const SignInModal = (props) => {
     console.log(found["name"]);
     let finalUserPhoneNumber = finalPhoneString.replace(found["code"], "");
     console.log(finalUserPhoneNumber);
-    // console.log('phone manipulation', phone.slice(2,12), phone);
     console.log(found["code"],found["name"], finalUserPhoneNumber);
 
     dispatch(

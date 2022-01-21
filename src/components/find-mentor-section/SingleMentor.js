@@ -20,6 +20,7 @@ const SingleMentorCard = ({
   const showModalBtn = (bool) => {
     setShowModal(bool);
   };
+
   const url_name = name.toLowerCase().split(' ').join('-');
   return (
     <div className='col-lg-12 mt-4 px-lg-3 px-sm-2 px-0 mx-xl-2'>

@@ -32,12 +32,7 @@ const ProgramsSection = () => {
   useEffect(() => {
     dispatch(listProgram())
     dispatch(listWebsiteContent())
-    // console.log('InProgramSection', websiteContent, loading, program)
-    // console.log(loading, program, 'inProgramsectionshow LoaADING')
   }, [dispatch])
-
-  // console.log(program);
-  // console.log(loading);
 
 
   return (

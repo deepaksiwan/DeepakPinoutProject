@@ -31,13 +31,7 @@ const YoutubeSection = () => {
     dispatch(listWebsiteContent());
   }, [dispatch]);
 
-  const opts = {
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 0,
-      origin: [],
-    },
-  };
+  
   return (
     <div className='youtube-section py-5 mb-lg-5'>
       <div className='container-xxl px-xxl-0 px-lg-5 px-md-4 px-sm-3'>
